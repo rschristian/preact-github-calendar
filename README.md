@@ -31,9 +31,11 @@ This library has a single export, that being the component. To display the calen
 <GitHubCalendar username="ryanchristian4427" />
 ```
 
+`username` is a required prop that is a string of the profile you want to retrieve the calendar for. 
+
 ### Options
 
-This library offers a few options now, with more to come in the future. 
+This library offers a few options now, with more to come in the future. All are entirely optional, no need to provide the `options` prop if you have no wish to customize anything. The defaults match what GitHub displays.
 
 ```
 {
