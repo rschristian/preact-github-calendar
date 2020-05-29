@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "postbuild": "uglifycss --ugly-comments --output dist/index.css index.css",
-    "lint": "eslint 'src/**/*.{js,ts,tsx}' --fix && prettier 'src/**/*.{css,scss,json}' --write"
+    "lint": "eslint '*.{js,ts,tsx}' --fix && prettier '*.{css,scss,json}' --write"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "2.33.0",
