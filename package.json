@@ -6,13 +6,12 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "postbuild": "copyfiles *.css dist",
+    "postbuild": "uglifycss --ugly-comments --output dist/index.css index.css",
     "lint": "eslint 'src/**/*.{js,ts,tsx}' --fix && prettier 'src/**/*.{css,scss,json}' --write"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "2.33.0",
     "@typescript-eslint/parser": "2.33.0",
-    "copyfiles": "^0.1.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
@@ -20,7 +19,8 @@
     "eslint-plugin-react-hooks": "^4.0.2",
     "preact": "^10.4.4",
     "prettier": "^2.0.5",
-    "typescript": "^3.9.3"
+    "typescript": "^3.9.3",
+    "uglifycss": "^0.0.29"
   },
   "peerDependencies": {
     "preact": "*"
