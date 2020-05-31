@@ -30,6 +30,8 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
             svg.removeAttribute('height');
             svg.setAttribute('width', '100%');
             svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
+
+            dom.getElementById('user-activity-overview').remove();
         }
 
         if (props.options.labelColor)
