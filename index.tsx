@@ -17,29 +17,18 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
     const [rawContributionContent, setRawContributionContent] = useState<string>(null);
     const [contributionContent, setContributionContent] = useState<string>(null);
 
-    const applyStyleOptions = useCallback(() => {
-        const dom = new DOMParser().parseFromString(rawContributionContent, 'text/html');
-
-        const learnHowWeCountContributions = dom.body.getElementsByClassName('float-left text-gray')[0];
-        if (learnHowWeCountContributions) {
-            learnHowWeCountContributions.remove();
-
-            const svg = dom.body.getElementsByClassName('js-calendar-graph-svg')[0];
-            const width = svg.getAttribute('width');
-            const height = svg.getAttribute('height');
-            svg.removeAttribute('height');
-            svg.setAttribute('width', '100%');
-            svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
-
-            dom.getElementById('user-activity-overview').remove();
-        }
-
-        if (props.options.labelColor)
+    const setLabelColor = useCallback(
+        (dom: Document): Document => {
             dom.body.querySelectorAll('text.month, text.wday').forEach((element) => {
                 (element as HTMLElement).style.fill = props.options.labelColor;
             });
+            return dom;
+        },
+        [props.options],
+    );
 
-        if (props.options.contributionColorArray) {
+    const setContributionColorArray = useCallback(
+        (dom: Document): Document => {
             for (let i = 0; i < 5; i++) {
                 dom.body
                     .querySelectorAll(
@@ -50,10 +39,35 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
                         (element as HTMLElement).style.backgroundColor = props.options.contributionColorArray[i];
                     });
             }
-        }
+            return dom;
+        },
+        [props.options.contributionColorArray],
+    );
 
+    const applyStyleOptions = useCallback(() => {
+        let dom = new DOMParser().parseFromString(rawContributionContent, 'text/html');
+
+        const learnHowWeCountContributions = dom.body.getElementsByClassName('float-left text-gray')[0];
+        if (!learnHowWeCountContributions) return;
+
+        learnHowWeCountContributions.innerHTML = `Summary of pull requests, issues opened, and commits made by
+                <a href="https://github.com/${props.username}" target="blank">@${props.username}</a>`;
+
+        // Make the component responsive
+        const svg = dom.body.getElementsByClassName('js-calendar-graph-svg')[0];
+        svg.setAttribute('viewBox', '0 0 ' + svg.getAttribute('width') + ' ' + svg.getAttribute('height'));
+        svg.removeAttribute('height');
+        svg.setAttribute('width', '100%');
+
+        dom.getElementById('user-activity-overview').remove();
+
+        // Handle user options
+        if (props.options.labelColor) dom = setLabelColor(dom);
+        if (props.options.contributionColorArray) dom = setContributionColorArray(dom);
+
+        // Finalize
         setContributionContent(dom.body.innerHTML);
-    }, [props.options, rawContributionContent]);
+    }, [props, rawContributionContent, setContributionColorArray, setLabelColor]);
 
     useEffect(() => {
         fetch(`https://githubproxy.ryanchristian.dev/${props.username}`)
