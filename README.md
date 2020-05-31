@@ -39,10 +39,15 @@ This library offers a few options now, with more to come in the future. All are 
 
 ```
 {
+    calendarClassName: 'github-calendar',
     labelColor: 'rgba(0, 255, 0, 1)',
     contributionColorArray: ['#ededed', '#62A197', '#428892', '#296887', '#253746'],
 }
 ```
+
+- Calendar Class Name
+    - `calendarClassName: '<name>'`
+        - Changes the class of the root calendar element.
 
 - Label Color
     - `labelColor: '<color>'`

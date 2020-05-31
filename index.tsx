@@ -6,6 +6,7 @@ import './index.css';
 interface IProps {
     username: string;
     options?: {
+        calendarClassName?: string;
         labelColor?: string;
         contributionColorArray?: [string, string, string, string, string];
     };
@@ -80,7 +81,7 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
             });
     }, [props.username, applyStyleOptions]);
 
-    return <div dangerouslySetInnerHTML={{ __html: contributionContent }} />;
+    return <div class={props.options.calendarClassName} dangerouslySetInnerHTML={{ __html: contributionContent }} />;
 };
 
 export default GitHubCalendar;
