@@ -19,7 +19,9 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
 
     const applyStyleOptions = useCallback(() => {
         const dom = new DOMParser().parseFromString(rawContributionContent, 'text/html');
-        dom.body.getElementsByClassName('float-left text-gray')[0].remove();
+
+        const learnHowWeCountContributions = dom.body.getElementsByClassName('float-left text-gray')[0];
+        if (learnHowWeCountContributions) learnHowWeCountContributions.remove();
 
         if (props.options.labelColor)
             dom.body.querySelectorAll('text.month, text.wday').forEach((element) => {
