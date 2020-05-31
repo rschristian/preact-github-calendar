@@ -21,7 +21,16 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
         const dom = new DOMParser().parseFromString(rawContributionContent, 'text/html');
 
         const learnHowWeCountContributions = dom.body.getElementsByClassName('float-left text-gray')[0];
-        if (learnHowWeCountContributions) learnHowWeCountContributions.remove();
+        if (learnHowWeCountContributions) {
+            learnHowWeCountContributions.remove();
+
+            const svg = dom.body.getElementsByClassName('js-calendar-graph-svg')[0];
+            const width = svg.getAttribute('width');
+            const height = svg.getAttribute('height');
+            svg.removeAttribute('height');
+            svg.setAttribute('width', '100%');
+            svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
+        }
 
         if (props.options.labelColor)
             dom.body.querySelectorAll('text.month, text.wday').forEach((element) => {
@@ -40,6 +49,7 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
                     });
             }
         }
+
         setContributionContent(dom.body.innerHTML);
     }, [props.options, rawContributionContent]);
 
