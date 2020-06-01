@@ -76,7 +76,8 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
         svg.removeAttribute('height');
         svg.setAttribute('width', '100%');
 
-        dom.getElementById('user-activity-overview').remove();
+        const userActivity = dom.getElementById('user-activity-overview');
+        if (userActivity) userActivity.remove();
 
         // Handle user options
         if (props.options.labelColor) dom = setLabelColor(dom);
