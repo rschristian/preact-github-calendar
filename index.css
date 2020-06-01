@@ -1,6 +1,6 @@
 /*! purgecss start ignore */
 .calendar {
-  font-family: Helvetica, arial;
+  font-family: Helvetica, arial, serif;
   border: 1px solid #dddddd;
   border-radius: 3px;
   min-height: 243px;
@@ -46,27 +46,29 @@
   text-align: center;
 }
 
-.contrib-column {
-  padding: 15px 0;
+.contrib-footer {
+  font-size: 11px;
+  padding: 0 10px 12px;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+  height: 26px;
+}
+
+.contrib-display {
+  padding: 15px 10px;
   text-align: center;
   border-left: 1px solid #ddd;
   border-top: 1px solid #ddd;
   font-size: 11px;
-}
-
-.contrib-column-first {
   border-left: 0;
-}
-
-.table-column {
-  display: table-cell;
-  width: 1%;
-  padding-right: 10px;
-  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   vertical-align: top;
 }
 
-.contrib-number {
+.contrib-count {
   font-weight: 300;
   line-height: 1.3em;
   font-size: 24px;
@@ -91,24 +93,17 @@
   text-decoration: none;
 }
 
-.contrib-footer {
-  font-size: 11px;
-  padding: 0 10px 12px;
-  text-align: left;
-  width: 100%;
-  box-sizing: border-box;
-  height: 26px;
-}
-
 .left.text-muted {
   float: left;
   margin-left: 9px;
   color: #767676;
 }
+
 .left.text-muted a {
   color: #4078c0;
   text-decoration: none;
 }
+
 .left.text-muted a:hover,
 .monospace a:hover {
   text-decoration: underline;
@@ -120,7 +115,4 @@ h2.f4.text-normal.mb-3 {
 
 .float-left.text-gray {
   float: left;
-}
-#user-activity-overview {
-  display: none;
 }

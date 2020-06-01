@@ -1,5 +1,6 @@
 import { FunctionalComponent, h } from 'preact';
 import { useCallback, useEffect, useState } from 'preact/hooks';
+import dayjs from 'dayjs';
 
 import './index.css';
 
@@ -47,11 +48,26 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
 
     const applyStyleOptions = useCallback(() => {
         let dom = new DOMParser().parseFromString(rawContributionContent, 'text/html');
+        const calendar = dom.body.getElementsByClassName('js-yearly-contributions')[0];
+        if (!calendar) return;
+
+        const contributionCountElement: Element = dom.body.getElementsByClassName('f4 text-normal mb-2')[0];
+        const contributionCount = contributionCountElement.innerHTML.trim().split(' ')[0];
+        contributionCountElement.remove();
+        calendar.insertAdjacentHTML(
+            'beforeend',
+            `<div class="contrib-display">
+                       <span class="text-muted">Contributions in the last year</span>
+                       <span class="contrib-count">${contributionCount} total</span>
+                       <span class="text-muted">
+                           ${dayjs().add(1, 'day').format('MMM D, YYYY')} - ${dayjs().format('MMM D, YYYY')}
+                       </span>
+                   </div>
+        `,
+        );
 
         const learnHowWeCountContributions = dom.body.getElementsByClassName('float-left text-gray')[0];
-        if (!learnHowWeCountContributions) return;
-
-        learnHowWeCountContributions.innerHTML = `Summary of pull requests, issues opened, and commits made by
+        learnHowWeCountContributions.innerHTML = `Sum of pull requests, issues opened, and commits made by
                 <a href="https://github.com/${props.username}" target="blank">@${props.username}</a>`;
 
         // Make the component responsive
@@ -67,7 +83,7 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
         if (props.options.contributionColorArray) dom = setContributionColorArray(dom);
 
         // Finalize
-        setContributionContent(dom.body.innerHTML);
+        setContributionContent(calendar.innerHTML);
     }, [props, rawContributionContent, setContributionColorArray, setLabelColor]);
 
     useEffect(() => {
