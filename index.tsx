@@ -88,7 +88,7 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
     }, [props, rawContributionContent, setContributionColorArray, setLabelColor]);
 
     useEffect(() => {
-        fetch(`https://githubproxy.ryanchristian.dev/${props.username}`)
+        fetch(`https://githubproxy.ryanchristian.dev/user/${props.username}`)
             .then(async (response) => {
                 setRawContributionContent(await response.text());
                 applyStyleOptions();
