@@ -37,35 +37,35 @@ interface IProps {
 }
 
 const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
-    const [rawContributionContent, setRawContributionContent] = useState<string>('');
     const [contributionContent, setContributionContent] = useState<string>('');
 
-    const applyStyleOptions = useCallback(() => {
-        const dom = new DOMParser().parseFromString(rawContributionContent, 'text/html');
+    const applyStyleOptions = useCallback(
+        (rawContributionContent: string) => {
+            const dom = new DOMParser().parseFromString(rawContributionContent, 'text/html');
 
-        // Removes the activity overview section that outlines what projects you've contributed to
-        const userActivity = dom.getElementById('user-activity-overview');
-        if (!userActivity) return;
-        userActivity.remove();
+            // Removes the activity overview section that outlines what projects you've contributed to
+            const userActivity = dom.getElementById('user-activity-overview');
+            if (!userActivity) return;
+            userActivity.remove();
 
-        let calendar = dom.body.getElementsByClassName('js-yearly-contributions')[0];
+            let calendar = dom.body.getElementsByClassName('js-yearly-contributions')[0];
 
-        // Description text directly below calendar
-        const learnHowWeCountContributions = calendar.getElementsByClassName('float-left text-gray')[0];
-        learnHowWeCountContributions.innerHTML = `Sum of pull requests, issues opened, and commits made by
+            // Description text directly below calendar
+            const learnHowWeCountContributions = calendar.getElementsByClassName('float-left text-gray')[0];
+            learnHowWeCountContributions.innerHTML = `Sum of pull requests, issues opened, and commits made by
                 <a href="https://github.com/${props.username}" target="blank">@${props.username}</a>`;
 
-        // Bottom summary
-        const contributionCountElement: Element = calendar.getElementsByClassName('f4 text-normal mb-2')[0];
-        const contributionCount = contributionCountElement.innerHTML.trim().split(' ')[0];
-        contributionCountElement.remove();
-        const lastYear = new Date();
-        const today = new Date();
-        lastYear.setDate(lastYear.getDate() + 1);
-        lastYear.setFullYear(lastYear.getFullYear() - 1);
-        calendar.insertAdjacentHTML(
-            'beforeend',
-            `<div class="contrib-display">
+            // Bottom summary
+            const contributionCountElement: Element = calendar.getElementsByClassName('f4 text-normal mb-2')[0];
+            const contributionCount = contributionCountElement.innerHTML.trim().split(' ')[0];
+            contributionCountElement.remove();
+            const lastYear = new Date();
+            const today = new Date();
+            lastYear.setDate(lastYear.getDate() + 1);
+            lastYear.setFullYear(lastYear.getFullYear() - 1);
+            calendar.insertAdjacentHTML(
+                'beforeend',
+                `<div class="contrib-display">
                        <span class="text-muted">Contributions in the last year</span>
                        <span class="contrib-count">${contributionCount} total</span>
                        <span class="text-muted">
@@ -74,28 +74,29 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
                        </span>
                    </div>
         `,
-        );
+            );
 
-        // Make the component responsive
-        const svg = calendar.getElementsByClassName('js-calendar-graph-svg')[0];
-        svg.setAttribute('viewBox', `0 0 ${svg.getAttribute('width')} ${svg.getAttribute('height')}`);
-        svg.removeAttribute('height');
-        svg.setAttribute('width', '100%');
+            // Make the component responsive
+            const svg = calendar.getElementsByClassName('js-calendar-graph-svg')[0];
+            svg.setAttribute('viewBox', `0 0 ${svg.getAttribute('width')} ${svg.getAttribute('height')}`);
+            svg.removeAttribute('height');
+            svg.setAttribute('width', '100%');
 
-        // Handle user options
-        if (props.options?.labelColor) calendar = setLabelColor(calendar, props.options.labelColor);
-        if (props.options?.contributionColorArray)
-            calendar = setContributionColorArray(calendar, props.options.contributionColorArray);
+            // Handle user options
+            if (props.options?.labelColor) calendar = setLabelColor(calendar, props.options.labelColor);
+            if (props.options?.contributionColorArray)
+                calendar = setContributionColorArray(calendar, props.options.contributionColorArray);
 
-        // Finalize
-        setContributionContent(calendar.innerHTML);
-    }, [props, rawContributionContent]);
+            // Finalize
+            setContributionContent(calendar.innerHTML);
+        },
+        [props],
+    );
 
     useEffect(() => {
         fetch(`https://githubproxy.ryanchristian.dev/user/${props.username}`)
             .then(async (response) => {
-                setRawContributionContent(await response.text());
-                applyStyleOptions();
+                applyStyleOptions(await response.text());
             })
             .catch((response) => {
                 console.log(response);
