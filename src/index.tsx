@@ -1,6 +1,8 @@
 import { FunctionalComponent, h } from 'preact';
 import { useCallback, useEffect, useState } from 'preact/hooks';
 
+import './index.css';
+
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Nov', 'Dec'];
 const defaultContributionColors = ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127'];
 
@@ -81,8 +83,8 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
             svg.setAttribute('width', '100%');
 
             // Handle user options
-            if (props.options?.labelColor) calendar = setLabelColor(calendar, props.options.labelColor);
-            if (props.options?.contributionColorArray)
+            if (props.options.labelColor) calendar = setLabelColor(calendar, props.options.labelColor);
+            if (props.options.contributionColorArray)
                 calendar = setContributionColorArray(calendar, props.options.contributionColorArray);
 
             // Finalize
@@ -101,7 +103,7 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
             });
     }, [props.username, applyStyleOptions]);
 
-    return <div class={props.options?.calendarClassName} dangerouslySetInnerHTML={{ __html: contributionContent }} />;
+    return <div class={props.options.calendarClassName} dangerouslySetInnerHTML={{ __html: contributionContent }} />;
 };
 
 export default GitHubCalendar;
