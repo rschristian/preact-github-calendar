@@ -59,21 +59,21 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
             const contributionCountElement: Element = calendar.getElementsByClassName('f4 text-normal mb-2')[0];
             const contributionCount = contributionCountElement.innerHTML.trim().split(' ')[0];
             contributionCountElement.remove();
+
             const lastYear = new Date();
             const today = new Date();
-            lastYear.setDate(lastYear.getDate() + 1);
-            lastYear.setFullYear(lastYear.getFullYear() - 1);
+            lastYear.setFullYear(lastYear.getFullYear() - 1, lastYear.getMonth(), lastYear.getDate() + 1);
             calendar.insertAdjacentHTML(
                 'beforeend',
                 `<div class="contrib-display">
-                       <span class="text-muted">Contributions in the last year</span>
-                       <span class="contrib-count">${contributionCount} total</span>
-                       <span class="text-muted">
-                           ${months[lastYear.getMonth()]} ${lastYear.getDate()}, ${lastYear.getFullYear()} -
-                           ${months[today.getMonth()]} ${today.getDate()}, ${today.getFullYear()}
-                       </span>
-                   </div>
-                `,
+                           <span class="text-muted">Contributions in the last year</span>
+                           <span class="contrib-count">${contributionCount} total</span>
+                           <span class="text-muted">
+                               ${months[lastYear.getMonth()]} ${lastYear.getDate()}, ${lastYear.getFullYear()} -
+                               ${months[today.getMonth()]} ${today.getDate()}, ${today.getFullYear()}
+                           </span>
+                       </div>
+                    `,
             );
 
             // Make the component responsive
