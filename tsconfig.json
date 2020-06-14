@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "commonjs",
+    "target": "ESNext",
+    "module": "ESNext",
     "esModuleInterop": true,
     "jsx": "react",
     "jsxFactory": "h",
@@ -10,5 +10,5 @@
     "outDir": "dist",
     "declaration": true
   },
-  "include": ["src/index.tsx"]
+  "include": ["src/**/*"]
 }
