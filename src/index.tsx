@@ -1,8 +1,6 @@
 import { FunctionalComponent, h } from 'preact';
 import { useCallback, useEffect, useState } from 'preact/hooks';
 
-import './style.css';
-
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Nov', 'Dec'];
 const defaultContributionColors = ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127'];
 
@@ -73,7 +71,7 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
                            ${months[today.getMonth()]} ${today.getDate()}, ${today.getFullYear()}
                        </span>
                    </div>
-        `,
+                `,
             );
 
             // Make the component responsive
