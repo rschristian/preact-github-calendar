@@ -6,26 +6,24 @@ import './index.css';
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Nov', 'Dec'];
 const defaultContributionColors = ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127'];
 
-const setLabelColor = (calendar: Element, labelColor: string): Element => {
+function setLabelColor(calendar: Element, labelColor: string): Element {
     calendar.querySelectorAll('text.month, text.wday').forEach((element) => {
         (element as HTMLElement).style.fill = labelColor;
     });
     return calendar;
-};
+}
 
-const setContributionColorArray = (calendar: Element, contributionColorArray: string[]): Element => {
-    for (let i = 0; i < 5; i++) {
+function setContributionColorArray(calendar: Element, contributionColorArray: string[]): Element {
+    defaultContributionColors.map((defaultColor, i) => {
         calendar
-            .querySelectorAll(
-                `li[style="background-color: ${defaultContributionColors[i]}"], rect[fill="${defaultContributionColors[i]}"]`,
-            )
+            .querySelectorAll(`li[style="background-color: ${defaultColor}"], rect[fill="${defaultColor}"]`)
             .forEach((element) => {
                 (element as HTMLElement).style.fill = contributionColorArray[i];
                 (element as HTMLElement).style.backgroundColor = contributionColorArray[i];
             });
-    }
+    });
     return calendar;
-};
+}
 
 interface IProps {
     username: string;
