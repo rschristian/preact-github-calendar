@@ -4,7 +4,6 @@ import { useEffect, useState } from 'preact/hooks';
 import * as style from './index.css';
 
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Nov', 'Dec'];
-const defaultContributionColors = ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127'];
 
 interface IProps {
     username: string;
@@ -73,20 +72,7 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
                     });
                 }
                 if (props.options.contributionColorArray) {
-                    // if (typeof contributionColorArray === 'string') {
-                    //     contributionColorArray = [
-                    //         '#ebedf0',
-                    //         // @ts-ignore
-                    //         new TinyColor(contributionColorArray).lighten(45).toString(),
-                    //         // @ts-ignore
-                    //         new TinyColor(contributionColorArray).lighten(35).toString(),
-                    //         // @ts-ignore
-                    //         new TinyColor(contributionColorArray).lighten(15).toString(),
-                    //         // @ts-ignore
-                    //         new TinyColor(contributionColorArray).toString(),
-                    //     ];
-                    // }
-                    defaultContributionColors.map((defaultColor, i) => {
+                    ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127'].map((defaultColor, i) => {
                         calendar
                             .querySelectorAll(
                                 `li[style="background-color: ${defaultColor}"], rect[fill="${defaultColor}"]`,
