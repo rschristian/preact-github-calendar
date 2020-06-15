@@ -1,10 +1,82 @@
 import { FunctionalComponent, h } from 'preact';
 import { useCallback, useEffect, useState } from 'preact/hooks';
 
-import './index.css';
-
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Nov', 'Dec'];
 const defaultContributionColors = ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127'];
+
+function applyStyles(): void {
+    const link = document.createElement('style');
+    link.textContent = `
+        .calendar-graph {
+          padding: 5px 0 0;
+          text-align: center;
+        }
+        
+        .calendar-graph text.wday,
+        .calendar-graph text.month {
+          font-size: 10px;
+          fill: #aaa;
+        }
+        
+        .contrib-footer {
+          font-size: 11px;
+          padding: 0 10px 12px;
+          text-align: left;
+          width: 100%;
+          box-sizing: border-box;
+          height: 26px;
+        }
+        
+        .float-left.text-gray {
+          float: left;
+        }
+        
+        .contrib-legend {
+          text-align: right;
+          padding: 0 14px 10px 0;
+          display: inline-block;
+          float: right;
+        }
+        
+        .contrib-legend .legend {
+          display: inline-block;
+          list-style: none;
+          margin: 0 5px;
+          position: relative;
+          bottom: -1px;
+          padding: 0;
+        }
+        
+        .contrib-legend .legend li {
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+        }
+        
+        .contrib-display {
+          padding: 15px 10px;
+          text-align: center;
+          border-left: 1px solid #ddd;
+          border-top: 1px solid #ddd;
+          font-size: 11px;
+          border-left: 0;
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          vertical-align: top;
+        }
+        
+        .contrib-count {
+          font-weight: 300;
+          line-height: 1.3em;
+          font-size: 24px;
+          display: block;
+          color: #333;
+        }
+    `;
+
+    document.body.appendChild(link);
+}
 
 function setLabelColor(calendar: Element, labelColor: string): Element {
     calendar.querySelectorAll('text.month, text.wday').forEach((element) => {
@@ -79,6 +151,9 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
             svg.setAttribute('viewBox', `0 0 ${svg.getAttribute('width')} ${svg.getAttribute('height')}`);
             svg.removeAttribute('height');
             svg.setAttribute('width', '100%');
+
+            // Apply standard styles
+            applyStyles();
 
             // Handle user options
             if (props.options.labelColor) calendar = setLabelColor(calendar, props.options.labelColor);
