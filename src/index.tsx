@@ -28,10 +28,9 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
                 rootDiv.appendChild(calendar);
 
                 // Description text directly below calendar
-                calendar.getElementsByClassName(
-                    'float-left text-gray',
-                )[0].innerHTML = `Sum of pull requests, issues opened, and commits made by 
-                    <a href="https://github.com/${props.username}" target="blank">@${props.username}</a>`;
+                calendar.getElementsByClassName('float-left text-gray')[0].innerHTML =
+                    'Sum of pull requests, issues opened, and commits made by ' +
+                    `<a href="https://github.com/${props.username}" target="blank">@${props.username}</a>`;
 
                 // Bottom summary
                 const contributionCount = rawContent.body
@@ -41,17 +40,17 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
                 const lastYear = new Date();
                 const today = new Date();
                 lastYear.setFullYear(lastYear.getFullYear() - 1, lastYear.getMonth(), lastYear.getDate() + 1);
+                // prettier-ignore
                 rootDiv.insertAdjacentHTML(
                     'beforeend',
-                    `<div class="contrib-display">
-                           <span class="text-muted">Contributions in the last year</span>
-                               <span class="contrib-count">${contributionCount} total</span>
-                               <span class="text-muted">
-                                   ${months[lastYear.getMonth()]} ${lastYear.getDate()}, ${lastYear.getFullYear()} -
-                                   ${months[today.getMonth()]} ${today.getDate()}, ${today.getFullYear()}
-                               </span>
-                           </div>
-                     `,
+                    '<div class="contrib-display">' +
+                              '<span class="text-muted">Contributions in the last year</span>' +
+                              `<span class="contrib-count">${contributionCount} total</span>` +
+                              '<span class="text-muted">' +
+                                  `${months[lastYear.getMonth()]} ${lastYear.getDate()}, ${lastYear.getFullYear()} -
+                                   ${months[today.getMonth()]} ${today.getDate()}, ${today.getFullYear()}` +
+                              '</span>' +
+                          '</div>',
                 );
 
                 // Make the component responsive
