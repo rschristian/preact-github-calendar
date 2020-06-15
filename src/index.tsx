@@ -1,35 +1,10 @@
 import { FunctionalComponent, h } from 'preact';
-import { useCallback, useEffect, useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 
 import * as style from './index.css';
 
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Nov', 'Dec'];
 const defaultContributionColors = ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127'];
-
-function applyBaseStyles(): void {
-    const link = document.createElement('style');
-    link.textContent = style.stylesheet;
-    document.body.appendChild(link);
-}
-
-function setLabelColor(calendar: Element, labelColor: string): Element {
-    calendar.querySelectorAll('text.month, text.wday').forEach((element) => {
-        (element as HTMLElement).style.fill = labelColor;
-    });
-    return calendar;
-}
-
-function setContributionColorArray(calendar: Element, contributionColorArray: string[]): Element {
-    defaultContributionColors.map((defaultColor, i) => {
-        calendar
-            .querySelectorAll(`li[style="background-color: ${defaultColor}"], rect[fill="${defaultColor}"]`)
-            .forEach((element) => {
-                (element as HTMLElement).style.fill = contributionColorArray[i];
-                (element as HTMLElement).style.backgroundColor = contributionColorArray[i];
-            });
-    });
-    return calendar;
-}
 
 interface IProps {
     username: string;
@@ -43,72 +18,94 @@ interface IProps {
 const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
     const [contributionContent, setContributionContent] = useState<string>('');
 
-    const applyStyleOptions = useCallback(
-        (rawContributionContent: string) => {
-            const dom = new DOMParser().parseFromString(rawContributionContent, 'text/html');
-
-            // Removes the activity overview section that outlines what projects you've contributed to
-            const userActivity = dom.getElementById('user-activity-overview');
-            if (!userActivity) return;
-            userActivity.remove();
-
-            let calendar = dom.body.getElementsByClassName('js-yearly-contributions')[0];
-
-            // Description text directly below calendar
-            const learnHowWeCountContributions = calendar.getElementsByClassName('float-left text-gray')[0];
-            learnHowWeCountContributions.innerHTML = `Sum of pull requests, issues opened, and commits made by
-                <a href="https://github.com/${props.username}" target="blank">@${props.username}</a>`;
-
-            // Bottom summary
-            const contributionCountElement: Element = calendar.getElementsByClassName('f4 text-normal mb-2')[0];
-            const contributionCount = contributionCountElement.innerHTML.trim().split(' ')[0];
-            contributionCountElement.remove();
-
-            const lastYear = new Date();
-            const today = new Date();
-            lastYear.setFullYear(lastYear.getFullYear() - 1, lastYear.getMonth(), lastYear.getDate() + 1);
-            calendar.insertAdjacentHTML(
-                'beforeend',
-                `<div class="contrib-display">
-                           <span class="text-muted">Contributions in the last year</span>
-                           <span class="contrib-count">${contributionCount} total</span>
-                           <span class="text-muted">
-                               ${months[lastYear.getMonth()]} ${lastYear.getDate()}, ${lastYear.getFullYear()} -
-                               ${months[today.getMonth()]} ${today.getDate()}, ${today.getFullYear()}
-                           </span>
-                       </div>
-                    `,
-            );
-
-            // Make the component responsive
-            const svg = calendar.getElementsByClassName('js-calendar-graph-svg')[0];
-            svg.setAttribute('viewBox', `0 0 ${svg.getAttribute('width')} ${svg.getAttribute('height')}`);
-            svg.removeAttribute('height');
-            svg.setAttribute('width', '100%');
-
-            // Apply base styles
-            applyBaseStyles();
-
-            // Handle user options
-            if (props.options.labelColor) calendar = setLabelColor(calendar, props.options.labelColor);
-            if (props.options.contributionColorArray)
-                calendar = setContributionColorArray(calendar, props.options.contributionColorArray);
-
-            // Finalize
-            setContributionContent(calendar.innerHTML);
-        },
-        [props],
-    );
-
     useEffect(() => {
         fetch(`https://githubproxy.ryanchristian.dev/user/${props.username}`)
             .then(async (response) => {
-                applyStyleOptions(await response.text());
+                const rawContent = new DOMParser().parseFromString(await response.text(), 'text/html');
+
+                // Create root so content can be appended
+                const rootDiv = document.createElement('div');
+                const calendar = rawContent.body.getElementsByClassName('graph-before-activity-overview')[0];
+                rootDiv.appendChild(calendar);
+
+                // Description text directly below calendar
+                calendar.getElementsByClassName(
+                    'float-left text-gray',
+                )[0].innerHTML = `Sum of pull requests, issues opened, and commits made by 
+                    <a href="https://github.com/${props.username}" target="blank">@${props.username}</a>`;
+
+                // Bottom summary
+                const contributionCount = rawContent.body
+                    .getElementsByClassName('f4 text-normal mb-2')[0]
+                    .innerHTML.trim()
+                    .split(' ')[0];
+                const lastYear = new Date();
+                const today = new Date();
+                lastYear.setFullYear(lastYear.getFullYear() - 1, lastYear.getMonth(), lastYear.getDate() + 1);
+                rootDiv.insertAdjacentHTML(
+                    'beforeend',
+                    `<div class="contrib-display">
+                           <span class="text-muted">Contributions in the last year</span>
+                               <span class="contrib-count">${contributionCount} total</span>
+                               <span class="text-muted">
+                                   ${months[lastYear.getMonth()]} ${lastYear.getDate()}, ${lastYear.getFullYear()} -
+                                   ${months[today.getMonth()]} ${today.getDate()}, ${today.getFullYear()}
+                               </span>
+                           </div>
+                     `,
+                );
+
+                // Make the component responsive
+                const svg = calendar.getElementsByClassName('js-calendar-graph-svg')[0];
+                svg.setAttribute('viewBox', `0 0 ${svg.getAttribute('width')} ${svg.getAttribute('height')}`);
+                svg.removeAttribute('height');
+                svg.setAttribute('width', '100%');
+
+                // Apply base styles
+                const link = document.createElement('style');
+                link.textContent = style.stylesheet;
+                document.body.appendChild(link);
+
+                // Handle user options
+                if (props.options.labelColor) {
+                    calendar.querySelectorAll('text.month, text.wday').forEach((element) => {
+                        (element as HTMLElement).style.fill = props.options.labelColor;
+                    });
+                }
+                if (props.options.contributionColorArray) {
+                    // if (typeof contributionColorArray === 'string') {
+                    //     contributionColorArray = [
+                    //         '#ebedf0',
+                    //         // @ts-ignore
+                    //         new TinyColor(contributionColorArray).lighten(45).toString(),
+                    //         // @ts-ignore
+                    //         new TinyColor(contributionColorArray).lighten(35).toString(),
+                    //         // @ts-ignore
+                    //         new TinyColor(contributionColorArray).lighten(15).toString(),
+                    //         // @ts-ignore
+                    //         new TinyColor(contributionColorArray).toString(),
+                    //     ];
+                    // }
+                    defaultContributionColors.map((defaultColor, i) => {
+                        calendar
+                            .querySelectorAll(
+                                `li[style="background-color: ${defaultColor}"], rect[fill="${defaultColor}"]`,
+                            )
+                            .forEach((element) => {
+                                (element as HTMLElement).style.fill = props.options.contributionColorArray[i];
+                                (element as HTMLElement).style.backgroundColor =
+                                    props.options.contributionColorArray[i];
+                            });
+                    });
+                }
+
+                // Finalize
+                setContributionContent(rootDiv.innerHTML);
             })
             .catch((response) => {
                 console.log(response);
             });
-    }, [props.username, applyStyleOptions]);
+    }, [props]);
 
     return <div class={props.options.calendarClassName} dangerouslySetInnerHTML={{ __html: contributionContent }} />;
 };
