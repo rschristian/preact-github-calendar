@@ -1,6 +1,6 @@
 {
   "name": "preact-github-calendar",
-  "version": "0.2.11",
+  "version": "0.2.12",
   "source": "src/index.tsx",
   "main": "dist/index.js",
   "module": "dist/index.module.js",
@@ -8,6 +8,8 @@
   "types": "dist/index.d.ts",
   "license": "MIT",
   "description": "Preact Component that Displays a User's GitHub Contribution Calendar",
+  "homepage": "https://github.com/RyanChristian4427/preact-github-calendar",
+  "repository": "https://github.com/RyanChristian4427/preact-github-calendar",
   "keywords": [
     "preact",
     "github",
