@@ -1,4 +1,4 @@
-import { FunctionalComponent, h } from 'preact';
+import { Fragment, FunctionalComponent, h } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 
 import * as style from './index.css';
@@ -47,8 +47,7 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
                               '<span class="text-muted">Contributions in the last year</span>' +
                               `<span class="contrib-count">${contributionCount} total</span>` +
                               '<span class="text-muted">' +
-                                  `${months[lastYear.getMonth()]} ${lastYear.getDate()}, ${lastYear.getFullYear()} -
-                                   ${months[today.getMonth()]} ${today.getDate()}, ${today.getFullYear()}` +
+                                  `${months[lastYear.getMonth()]} ${lastYear.getDate()}, ${lastYear.getFullYear()} - ${months[today.getMonth()]} ${today.getDate()}, ${today.getFullYear()}` +
                               '</span>' +
                           '</div>',
                 );
@@ -92,7 +91,12 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
             });
     }, [props]);
 
-    return <div class={props.options.calendarClassName} dangerouslySetInnerHTML={{ __html: contributionContent }} />;
+    return (
+        <Fragment>
+            <div class={props.options.calendarClassName} dangerouslySetInnerHTML={{ __html: contributionContent }} />
+            <noscript>This component requires JS in order to function properly.</noscript>
+        </Fragment>
+    );
 };
 
 export default GitHubCalendar;
