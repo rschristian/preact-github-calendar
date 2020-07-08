@@ -9,7 +9,6 @@ module.exports = {
         'eslint:recommended',
         'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking',
         'plugin:react/recommended',
         'plugin:react-hooks/recommended',
         'plugin:prettier/recommended',
@@ -21,7 +20,6 @@ module.exports = {
         ecmaFeatures: {
             jsx: true,
         },
-        project: './tsconfig.json',
     },
     settings: {
         react: {
