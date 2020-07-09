@@ -13,12 +13,6 @@
     </a>
 </div>
 
-
-<p align="center">
-  
-</p>
-<br/><br/>
-
 This is a component to display the GitHub contribution calendar for any given user. The calendar comes with some customization options for making the component better adhere to the style of your application.
 
 ## Getting Started
