@@ -4,8 +4,8 @@ import fetchMock from 'jest-fetch-mock';
 import 'regenerator-runtime/runtime';
 
 import GitHubCalendar from '../src/index';
-import { mockContributionData } from './__mock__/fetch.js';
-import { noScript, processedColors, processedFooter, processedLabels } from './images/calendar';
+import { mockContributionData } from './__mock__';
+import { noScript, processedColors, processedFooter, processedLabels } from './images';
 
 describe('Initial Test of the Calendar', () => {
     test('Calendar loads', (done) => {

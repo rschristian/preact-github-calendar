@@ -3,6 +3,7 @@ module.exports = {
         browser: true,
         amd: true,
         node: true,
+        jest: true,
     },
     plugins: ['@typescript-eslint'],
     extends: [
@@ -38,6 +39,7 @@ module.exports = {
             files: ['*.js'],
             rules: {
                 '@typescript-eslint/explicit-module-boundary-types': 'off',
+                '@typescript-eslint/no-var-requires': 'off',
             },
         },
     ],

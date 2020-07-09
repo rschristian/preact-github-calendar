@@ -1,5 +1,3 @@
-// Seriously, why does JS not have multi-line strings that don't insert tons of whitespace?
-
 export const processedLabels = [
     '<text x="456" y="-7" class="month" style="fill: #000;">Mar</text>',
     '<text text-anchor="start" class="wday" dx="-10" dy="8" style="fill: #000;">Mon</text>',
