@@ -1,10 +1,7 @@
-# KDE directory preferences
-.directory
+# blacklist all
+**
 
-# Dependency directories
-node_modules/
-
-# Ignore IDE files
-.idea/
-
-media/
+# include whitelist
+!dist/
+!package.json
+!README.md
