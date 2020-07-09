@@ -42,5 +42,11 @@ module.exports = {
                 '@typescript-eslint/no-var-requires': 'off',
             },
         },
+        {
+            files: ['*.ts'],
+            rules: {
+                '@typescript-eslint/triple-slash-reference': 'off',
+            }
+        }
     ],
 };
