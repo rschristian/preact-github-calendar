@@ -21,7 +21,7 @@
   "scripts": {
     "build": "microbundle --css-modules false",
     "lint": "eslint 'src/**/*.{js,ts,tsx}' --fix && prettier 'src/**/*.{css,scss,json}' './*.{css,scss,json}' --write",
-    "test": "jest --coverage"
+    "test": "jest --clearCache && jest --coverage"
   },
   "devDependencies": {
     "@types/enzyme": "^3.10.5",
