@@ -2,7 +2,7 @@
 **
 
 # include whitelist
-!dist/
+!dist/*
 !LICENSE
 !package.json
 !README.md
