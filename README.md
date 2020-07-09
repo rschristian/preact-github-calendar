@@ -1,10 +1,17 @@
-# Preact-Github-Calendar
-[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+<div align="center">
+  <img src="https://github.com/ryanchristian4427/preact-github-calendar/blob/master/media/carbon.svg?raw=true" alt="Preact GitHub Calendar" width="600" />
+</div>
 
-<p align="center">
-  <img src="https://github.com/ryanchristian4427/preact-github-calendar/blob/master/media/carbon.svg?raw=true">
-</p>
-<br/><br/>
+<h1 align="center">Preact GitHub Calendar</h1>
+
+<div align="center">
+    <a href="https://bundlephobia.com/result?p=preact-github-calendar">
+        <img alt="NPM" src="https://img.shields.io/npm/l/preact-github-calendar?color=brightgreen">
+    </a>
+    <a href="https://bundlephobia.com/result?p=preact-github-calendar">
+        <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/preact-github-calendar">
+    </a>
+</div>
 
 This is a component to display the GitHub contribution calendar for any given user. The calendar comes with some customization options for making the component better adhere to the style of your application.
 
