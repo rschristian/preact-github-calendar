@@ -64,23 +64,29 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
                 document.body.appendChild(link);
 
                 // Handle user options
-                if (props.options.labelColor) {
-                    calendar.querySelectorAll('text.month, text.wday').forEach((element) => {
-                        (element as HTMLElement).style.fill = props.options.labelColor;
-                    });
-                }
-                if (props.options.contributionColorArray) {
-                    ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127'].map((defaultColor, i) => {
-                        calendar
-                            .querySelectorAll(
-                                `li[style="background-color: ${defaultColor}"], rect[fill="${defaultColor}"]`,
-                            )
-                            .forEach((element) => {
+                if (props.options) {
+                    if (props.options.labelColor) {
+                        calendar.querySelectorAll('text.month, text.wday').forEach((element) => {
+                            (element as HTMLElement).style.fill = props.options.labelColor;
+                        });
+                    }
+                    if (props.options.contributionColorArray) {
+                        ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'].map((defaultColor, i) => {
+                            // Set rects
+                            calendar.querySelectorAll(`rect[fill="${defaultColor}"]`).forEach((element) => {
                                 (element as HTMLElement).style.fill = props.options.contributionColorArray[i];
-                                (element as HTMLElement).style.backgroundColor =
-                                    props.options.contributionColorArray[i];
                             });
-                    });
+                            // Set Legend
+                            calendar
+                                .querySelectorAll(`li[style="background-color: ${defaultColor}"]`)
+                                .forEach((element) => {
+                                    (element as HTMLElement).setAttribute(
+                                        'style',
+                                        `background-color: ${props.options.contributionColorArray[i]}`,
+                                    );
+                                });
+                        });
+                    }
                 }
 
                 // Finalize
@@ -93,8 +99,14 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
 
     return (
         <Fragment>
-            <div class={props.options.calendarClassName} dangerouslySetInnerHTML={{ __html: contributionContent }} />
-            <noscript>This component requires JS in order to function properly.</noscript>
+            {contributionContent ? (
+                <div
+                    class={props.options && props.options.calendarClassName ? props.options.calendarClassName : ''}
+                    dangerouslySetInnerHTML={{ __html: contributionContent }}
+                />
+            ) : (
+                <noscript>This component requires JS in order to function properly.</noscript>
+            )}
         </Fragment>
     );
 };
