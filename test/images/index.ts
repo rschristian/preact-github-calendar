@@ -3,13 +3,13 @@ export const processedLabels = [
     '<text text-anchor="start" class="wday" dx="-10" dy="8" style="fill: #000;">Mon</text>',
 ];
 
+// Cuts off short as the date is dynamically generated and there's no reason to test JS Date functions
 // prettier-ignore
 export const processedFooter =
     '<div class="contrib-display">' +
         '<span class="text-muted">Contributions in the last year</span>' +
         '<span class="contrib-count">2,195 total</span>' +
-        '<span class="text-muted">Jul 10, 2019 - Jul 9, 2020</span>' +
-    '</div>';
+        '<span class="text-muted">';
 
 // prettier-ignore
 export const processedColors = [
