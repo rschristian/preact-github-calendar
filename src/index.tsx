@@ -10,6 +10,7 @@ interface IProps {
     options?: {
         calendarClassName?: string;
         labelColor?: string;
+        showWeekdaysLabel?: boolean;
         contributionColorArray?: [string, string, string, string, string];
     };
 }
@@ -52,16 +53,12 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
                           '</div>',
                 );
 
-                // Make the component responsive
-                const svg = root.getElementsByClassName('js-calendar-graph-svg')[0];
-                svg.setAttribute('viewBox', `0 0 ${svg.getAttribute('width')} ${svg.getAttribute('height')}`);
-                svg.removeAttribute('height');
-                svg.setAttribute('width', '100%');
-
                 // Apply base styles
                 const link = document.createElement('style');
                 link.textContent = style.stylesheet;
                 document.body.appendChild(link);
+
+                let svgXOffset = 0;
 
                 // Handle user options
                 if (props.options) {
@@ -86,7 +83,21 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
                             );
                         });
                     }
+                    if (props.options.showWeekdaysLabel !== undefined && !props.options.showWeekdaysLabel) {
+                        root.querySelectorAll('text.wday').forEach((element) => element.remove());
+                        root.querySelector('.js-calendar-graph-svg').setAttribute('width', '712');
+                        svgXOffset = 10;
+                    }
                 }
+
+                // Make the component responsive
+                const svg = root.querySelector('.js-calendar-graph-svg');
+                svg.setAttribute(
+                    'viewBox',
+                    `${svgXOffset} 0 ${svg.getAttribute('width')} ${svg.getAttribute('height')}`,
+                );
+                svg.removeAttribute('height');
+                svg.setAttribute('width', '100%');
 
                 // Finalize
                 setContributionContent(root.innerHTML);
