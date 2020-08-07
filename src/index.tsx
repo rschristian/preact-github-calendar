@@ -30,6 +30,7 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
                 root.getElementsByClassName('float-left text-gray')[0].innerHTML =
                     'Sum of pull requests, issues opened, and commits made by ' +
                     `<a href="https://github.com/${props.username}" target="blank">@${props.username}</a>`;
+                root.querySelector('.contrib-legend').removeAttribute('title');
 
                 // Bottom summary
                 const contributionCount = rawContent.body
@@ -68,6 +69,7 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
                         root.querySelectorAll('text.month, text.wday').forEach(
                             (element) => ((element as HTMLElement).style.fill = props.options.labelColor),
                         );
+                        (root.querySelector('.contrib-legend') as HTMLElement).style.color = props.options.labelColor;
                     }
                     if (props.options.contributionColorArray) {
                         ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'].map((defaultColor, i) => {
@@ -85,8 +87,6 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
                         });
                     }
                 }
-
-                root.querySelector('.contrib-legend').removeAttribute('title');
 
                 // Finalize
                 setContributionContent(root.innerHTML);
