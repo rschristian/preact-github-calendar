@@ -48,6 +48,11 @@ Type: `<color>`
 
 Changes the font color of the month and days of the week labels. Takes any string representation of [`<color>`](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value). Keywords, RGB(A) and HSL(A) values are all supported.
 
+### Show Week Days Label
+Type: `boolean`
+
+Stop your calendar from adding week day labels to your graph. Enabled by default.
+
 ### Contribution Color Array
 Type: `['<color>', '<color>', '<color>', '<color>', '<color>']`
 
