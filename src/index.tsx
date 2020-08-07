@@ -23,12 +23,11 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
                 const rawContent = new DOMParser().parseFromString(await response.text(), 'text/html');
 
                 // Create root so content can be appended
-                const rootDiv = document.createElement('div');
-                const calendar = rawContent.body.getElementsByClassName('graph-before-activity-overview')[0];
-                rootDiv.appendChild(calendar);
+                const root = document.createElement('div');
+                root.appendChild(rawContent.body.getElementsByClassName('graph-before-activity-overview')[0]);
 
                 // Description text directly below calendar
-                calendar.getElementsByClassName('float-left text-gray')[0].innerHTML =
+                root.getElementsByClassName('float-left text-gray')[0].innerHTML =
                     'Sum of pull requests, issues opened, and commits made by ' +
                     `<a href="https://github.com/${props.username}" target="blank">@${props.username}</a>`;
 
@@ -41,7 +40,7 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
                 const today = new Date();
                 lastYear.setFullYear(lastYear.getFullYear() - 1, lastYear.getMonth(), lastYear.getDate() + 1);
                 // prettier-ignore
-                rootDiv.insertAdjacentHTML(
+                root.insertAdjacentHTML(
                     'beforeend',
                     '<div class="contrib-display">' +
                               '<span class="text-muted">Contributions in the last year</span>' +
@@ -53,7 +52,7 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
                 );
 
                 // Make the component responsive
-                const svg = calendar.getElementsByClassName('js-calendar-graph-svg')[0];
+                const svg = root.getElementsByClassName('js-calendar-graph-svg')[0];
                 svg.setAttribute('viewBox', `0 0 ${svg.getAttribute('width')} ${svg.getAttribute('height')}`);
                 svg.removeAttribute('height');
                 svg.setAttribute('width', '100%');
@@ -66,31 +65,31 @@ const GitHubCalendar: FunctionalComponent<IProps> = (props: IProps) => {
                 // Handle user options
                 if (props.options) {
                     if (props.options.labelColor) {
-                        calendar.querySelectorAll('text.month, text.wday').forEach((element) => {
-                            (element as HTMLElement).style.fill = props.options.labelColor;
-                        });
+                        root.querySelectorAll('text.month, text.wday').forEach(
+                            (element) => ((element as HTMLElement).style.fill = props.options.labelColor),
+                        );
                     }
                     if (props.options.contributionColorArray) {
                         ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'].map((defaultColor, i) => {
                             // Set rects
-                            calendar.querySelectorAll(`rect[fill="${defaultColor}"]`).forEach((element) => {
-                                (element as HTMLElement).style.fill = props.options.contributionColorArray[i];
-                            });
+                            root.querySelectorAll(`rect[fill="${defaultColor}"]`).forEach((element) =>
+                                element.setAttribute('fill', props.options.contributionColorArray[i]),
+                            );
                             // Set Legend
-                            calendar
-                                .querySelectorAll(`li[style="background-color: ${defaultColor}"]`)
-                                .forEach((element) => {
-                                    (element as HTMLElement).setAttribute(
-                                        'style',
-                                        `background-color: ${props.options.contributionColorArray[i]}`,
-                                    );
-                                });
+                            root.querySelectorAll(`li[style="background-color: ${defaultColor}"]`).forEach((element) =>
+                                element.setAttribute(
+                                    'style',
+                                    `background-color: ${props.options.contributionColorArray[i]}`,
+                                ),
+                            );
                         });
                     }
                 }
 
+                root.querySelector('.contrib-legend').removeAttribute('title');
+
                 // Finalize
-                setContributionContent(rootDiv.innerHTML);
+                setContributionContent(root.innerHTML);
             })
             .catch((response) => {
                 console.log(response);
