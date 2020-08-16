@@ -9,6 +9,10 @@ node_modules/
 
 # Ignore built files
 dist/
+build/
 
 # Ignore Jest coverage report
 coverage
+
+# Ignore Preact-CLI bundle size tracker
+size-plugin.json
