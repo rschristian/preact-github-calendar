@@ -1,15 +1,7 @@
-const { defaults: tsjPreset } = require('ts-jest/presets');
-
 module.exports = {
     preset: 'jest-preset-preact',
     automock: false,
-    globals: {
-        'ts-jest': {
-            tsConfig: 'tsconfig.test.json',
-        },
-    },
+    collectCoverageFrom: ['src/Calendar/*.{ts,tsx}'],
     setupFiles: ['<rootDir>/test/setup.ts'],
-    transform: {
-        ...tsjPreset.transform,
-    },
+    snapshotSerializers: ['enzyme-to-json/serializer'],
 };

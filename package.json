@@ -1,7 +1,7 @@
 {
   "name": "preact-github-calendar",
   "version": "0.3.0",
-  "source": "src/index.tsx",
+  "source": "src/Calendar/index.tsx",
   "main": "dist/index.js",
   "module": "dist/index.module.js",
   "umd:main": "dist/index.umd.js",
@@ -19,8 +19,9 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "microbundle --css-modules false",
-    "lint": "eslint 'src/**/*.{js,ts,tsx}' --fix && prettier 'src/**/*.{css,scss,json}' './*.{css,scss,json}' --write",
+    "serve:dev": "preact watch -p 3000 --template src/template.html",
+    "build": "microbundle --entry src/Calendar/index.tsx --tsconfig tsconfig.build.json",
+    "lint": "eslint '{src,test}/**/*.{js,ts,tsx}' --fix && prettier '{src,test}/**/*.{json}' './*.{json}' --write",
     "test": "jest --clearCache && jest --coverage"
   },
   "devDependencies": {
@@ -30,6 +31,7 @@
     "@typescript-eslint/parser": "2.33.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-preact-pure": "^2.2.0",
+    "enzyme-to-json": "^3.5.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
@@ -37,12 +39,12 @@
     "eslint-plugin-react-hooks": "^4.0.2",
     "jest": "^26.1.0",
     "jest-fetch-mock": "^3.0.3",
-    "jest-preset-preact": "^4.0.0",
-    "microbundle": "^0.12.0-next.9",
-    "preact": "^10.4.4",
+    "jest-preset-preact": "^4.0.2",
+    "microbundle": "^0.12.3",
+    "preact": "^10.4.7",
+    "preact-cli": "^3.0.1",
     "preact-render-to-string": "^5.1.9",
     "prettier": "^2.0.5",
-    "ts-jest": "^26.1.1",
     "typescript": "^3.9.3"
   },
   "peerDependencies": {
