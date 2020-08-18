@@ -93,24 +93,30 @@ export default function GitHubCalendar(props: { username: string; options?: Opti
         for (let i = 0; i < graphData.contributions.length - 1; i++) weeks.push(graphData.contributions[i][0]);
         let previousMonth = 0;
 
-        return weeks.map((entry, i) => {
-            const month = new Date(entry.date).getMonth();
-            if (month !== previousMonth) {
-                previousMonth = month;
-                return (
-                    <text
-                        x={
-                            (showWeekdaysLabels ? (blockSize + blockMargin) * HORIZONTAL_SPACING : 0) +
-                            (blockSize + blockMargin) * i
-                        }
-                        y={labelFontSize}
-                        style={{ fontSize: labelFontSize, fill: labelColor }}
-                    >
-                        {MONTHS[month]}
-                    </text>
-                );
-            }
-        });
+        const filtered = weeks
+            .map((entry, i) => {
+                const month = new Date(entry.date).getMonth();
+                if (month !== previousMonth) {
+                    previousMonth = month;
+                    return (
+                        <text
+                            x={
+                                (showWeekdaysLabels ? (blockSize + blockMargin) * HORIZONTAL_SPACING : 0) +
+                                (blockSize + blockMargin) * i
+                            }
+                            y={labelFontSize}
+                            style={{ fontSize: labelFontSize, fill: labelColor }}
+                        >
+                            {MONTHS[month]}
+                        </text>
+                    );
+                }
+            })
+            .filter((element) => element !== undefined);
+
+        // Might be a better way to do this, but I can't think of it at the moment
+        if (filtered[1].props['x'] - filtered[0].props['x'] <= 28) filtered.shift();
+        return filtered;
     }
 
     function createRects(): JSX.Element[] {
