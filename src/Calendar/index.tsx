@@ -35,18 +35,20 @@ export default function GitHubCalendar(props: { username: string; options?: Opti
         labelColor,
         labelFontSize,
         showWeekdaysLabels,
-    }: Options = {
-        blockMargin: 2,
-        blockSize: 12,
-        calendarClassName: undefined,
-        contributionColorArray: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
-        contributionCountFontSize: 24,
-        fontSize: 11,
-        labelColor: '#000',
-        labelFontSize: 14,
-        showWeekdaysLabels: false,
-        ...props.options,
-    };
+    }: Options = Object.assign(
+        {
+            blockMargin: 2,
+            blockSize: 12,
+            calendarClassName: undefined,
+            contributionColorArray: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
+            contributionCountFontSize: 24,
+            fontSize: 11,
+            labelColor: '#000',
+            labelFontSize: 14,
+            showWeekdaysLabels: false,
+        },
+        props.options,
+    );
 
     const [graphData, setGraphData] = useState<{ total: number; contributions: Contribution[][] }>(null);
     const [error, setError] = useState<string>('');
