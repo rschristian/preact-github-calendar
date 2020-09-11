@@ -5,7 +5,7 @@
 <h1 align="center">Preact GitHub Calendar</h1>
 
 <div align="center">
-    <a href="https://bundlephobia.com/result?p=preact-github-calendar">
+    <a href="https://github.com/RyanChristian4427/preact-github-calendar/blob/master/LICENSE">
         <img alt="NPM" src="https://img.shields.io/npm/l/preact-github-calendar?color=brightgreen">
     </a>
     <a href="https://bundlephobia.com/result?p=preact-github-calendar">
