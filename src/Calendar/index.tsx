@@ -1,5 +1,8 @@
-import { VNode, Fragment, h } from 'preact';
+import { Fragment, h, VNode } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
+
+import PreactHint from 'preact-hint';
+import 'preact-hint/dist/index.css';
 
 const VERTICAL_SPACING = 1.5;
 const HORIZONTAL_SPACING = 2.4;
@@ -22,6 +25,7 @@ interface Options {
     labelColor?: string;
     labelFontSize?: number;
     showWeekdaysLabels?: boolean;
+    showTooltip?: boolean;
 }
 
 export default function GitHubCalendar(props: { username: string; options?: Options }): VNode {
@@ -35,6 +39,7 @@ export default function GitHubCalendar(props: { username: string; options?: Opti
         labelColor,
         labelFontSize,
         showWeekdaysLabels,
+        showTooltip,
     }: Options = Object.assign(
         {
             blockMargin: 2,
@@ -46,6 +51,7 @@ export default function GitHubCalendar(props: { username: string; options?: Opti
             labelColor: '#000',
             labelFontSize: 14,
             showWeekdaysLabels: false,
+            showTooltip: true,
         },
         props.options,
     );
@@ -126,13 +132,13 @@ export default function GitHubCalendar(props: { username: string; options?: Opti
             .map((week) =>
                 week.map((day, y) => (
                     <rect
+                        key={day.date}
                         x="0"
                         y={labelFontSize * VERTICAL_SPACING + (blockSize + blockMargin) * y}
                         width={blockSize}
                         height={blockSize}
                         fill={contributionColorArray[day.intensity]}
-                        // data-tip={day.info ? getTooltipMessage(day as Required<Block>) : null}
-                        key={day.date}
+                        data-preact-hint={[day.count, day.date]}
                     />
                 )),
             )
@@ -187,24 +193,49 @@ export default function GitHubCalendar(props: { username: string; options?: Opti
         } ${today.getDate()}, ${today.getFullYear()}`;
     }
 
+    function createSvg(): JSX.Element {
+        return (
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="100%"
+                viewBox={`0 0 ${
+                    53 * (blockSize + blockMargin) -
+                    blockMargin +
+                    (showWeekdaysLabels ? (blockSize + blockMargin) * HORIZONTAL_SPACING : 0)
+                } ${(blockSize + blockMargin) * 7 - blockMargin + labelFontSize * VERTICAL_SPACING}`}
+            >
+                {createWeekDayLabels()}
+                {createMonthLabels()}
+                {createRects()}
+            </svg>
+        );
+    }
+
     return (
         <Fragment>
             {graphData !== null ? (
                 <figure class={calendarClassName}>
                     <div style={{ padding: '.5rem' }}>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="100%"
-                            viewBox={`0 0 ${
-                                53 * (blockSize + blockMargin) -
-                                blockMargin +
-                                (showWeekdaysLabels ? (blockSize + blockMargin) * HORIZONTAL_SPACING : 0)
-                            } ${(blockSize + blockMargin) * 7 - blockMargin + labelFontSize * VERTICAL_SPACING}`}
-                        >
-                            {createWeekDayLabels()}
-                            {createMonthLabels()}
-                            {createRects()}
-                        </svg>
+                        {showTooltip ? (
+                            <PreactHint
+                                template={(content: string): VNode => {
+                                    const contentPieces = content.split(',');
+                                    function date(): string {
+                                        const split = contentPieces[1].split('-');
+                                        return `${MONTHS[Number(split[1]) - 1]} ${+split[2]}, ${split[0]}`;
+                                    }
+                                    return (
+                                        <Fragment>
+                                            <strong>{contentPieces[0]} Contributions</strong> on {date()}
+                                        </Fragment>
+                                    );
+                                }}
+                            >
+                                {createSvg()}
+                            </PreactHint>
+                        ) : (
+                            createSvg()
+                        )}
                         <div
                             style={{
                                 fontSize,
