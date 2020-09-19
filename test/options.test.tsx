@@ -12,7 +12,7 @@ describe('Fully testing API options', () => {
     test('blockMargin', (done) => {
         const wrapper = shallow(
             <GitHubCalendar
-                username="ryanchristian4427"
+                username="rschristian"
                 options={{
                     blockMargin: 4,
                 }}
@@ -30,7 +30,7 @@ describe('Fully testing API options', () => {
     test('blockSize', (done) => {
         const wrapper = shallow(
             <GitHubCalendar
-                username="ryanchristian4427"
+                username="rschristian"
                 options={{
                     blockSize: 14,
                 }}
@@ -39,7 +39,9 @@ describe('Fully testing API options', () => {
 
         setImmediate(() => {
             expect(wrapper.update()).toMatchSnapshot();
-            expect(wrapper.html()).toContain('<rect x="0" y="21" width="14" height="14" fill="#9be9a8"></rect>');
+            expect(wrapper.html()).toContain(
+                '<rect x="0" y="37" width="14" height="14" fill="#9be9a8" data-preact-hint="6,2020-08-03"></rect>',
+            );
             done();
         });
     });
@@ -49,7 +51,7 @@ describe('Fully testing API options', () => {
 
         const wrapper = shallow(
             <GitHubCalendar
-                username="ryanchristian4427"
+                username="rschristian"
                 options={{
                     calendarClassName: mockClassName,
                 }}
@@ -75,7 +77,7 @@ describe('Fully testing API options', () => {
 
         const wrapper = shallow(
             <GitHubCalendar
-                username="ryanchristian4427"
+                username="rschristian"
                 options={{
                     contributionColorArray: ['#ededed', '#62A197', '#428892', '#296887', '#274969'],
                 }}
@@ -94,7 +96,7 @@ describe('Fully testing API options', () => {
     test('contributionCountFontSize', (done) => {
         const wrapper = shallow(
             <GitHubCalendar
-                username="ryanchristian4427"
+                username="rschristian"
                 options={{
                     contributionCountFontSize: 16,
                 }}
@@ -113,7 +115,7 @@ describe('Fully testing API options', () => {
     test('fontSize', (done) => {
         const wrapper = shallow(
             <GitHubCalendar
-                username="ryanchristian4427"
+                username="rschristian"
                 options={{
                     fontSize: 16,
                 }}
@@ -132,7 +134,7 @@ describe('Fully testing API options', () => {
     test('labelColor', (done) => {
         const wrapper = shallow(
             <GitHubCalendar
-                username="ryanchristian4427"
+                username="rschristian"
                 options={{
                     labelColor: '#f00',
                     showWeekdaysLabels: true,
@@ -151,7 +153,7 @@ describe('Fully testing API options', () => {
     test('labelFontSize', (done) => {
         const wrapper = shallow(
             <GitHubCalendar
-                username="ryanchristian4427"
+                username="rschristian"
                 options={{
                     labelFontSize: 16,
                     showWeekdaysLabels: true,
@@ -170,7 +172,7 @@ describe('Fully testing API options', () => {
     test('showWeekdaysLabels', (done) => {
         const wrapper = shallow(
             <GitHubCalendar
-                username="ryanchristian4427"
+                username="rschristian"
                 options={{
                     showWeekdaysLabels: true,
                 }}
