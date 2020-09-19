@@ -34,7 +34,7 @@ exports[`Fully testing API options blockMargin 1`] = `
               "fontSize": 14,
             }
           }
-          x={64}
+          x={48}
           y={14}
         >
           Sep
@@ -73,7 +73,7 @@ exports[`Fully testing API options blockMargin 1`] = `
               "fontSize": 14,
             }
           }
-          x={272}
+          x={256}
           y={14}
         >
           Dec
@@ -112,7 +112,7 @@ exports[`Fully testing API options blockMargin 1`] = `
               "fontSize": 14,
             }
           }
-          x={480}
+          x={464}
           y={14}
         >
           Mar
@@ -5772,7 +5772,7 @@ exports[`Fully testing API options blockSize 1`] = `
               "fontSize": 14,
             }
           }
-          x={64}
+          x={48}
           y={14}
         >
           Sep
@@ -5811,7 +5811,7 @@ exports[`Fully testing API options blockSize 1`] = `
               "fontSize": 14,
             }
           }
-          x={272}
+          x={256}
           y={14}
         >
           Dec
@@ -5850,7 +5850,7 @@ exports[`Fully testing API options blockSize 1`] = `
               "fontSize": 14,
             }
           }
-          x={480}
+          x={464}
           y={14}
         >
           Mar
@@ -11512,7 +11512,7 @@ exports[`Fully testing API options calendarClassName 1`] = `
               "fontSize": 14,
             }
           }
-          x={56}
+          x={42}
           y={14}
         >
           Sep
@@ -11551,7 +11551,7 @@ exports[`Fully testing API options calendarClassName 1`] = `
               "fontSize": 14,
             }
           }
-          x={238}
+          x={224}
           y={14}
         >
           Dec
@@ -11590,7 +11590,7 @@ exports[`Fully testing API options calendarClassName 1`] = `
               "fontSize": 14,
             }
           }
-          x={420}
+          x={406}
           y={14}
         >
           Mar
@@ -17250,7 +17250,7 @@ exports[`Fully testing API options contributionColorArray 1`] = `
               "fontSize": 14,
             }
           }
-          x={56}
+          x={42}
           y={14}
         >
           Sep
@@ -17289,7 +17289,7 @@ exports[`Fully testing API options contributionColorArray 1`] = `
               "fontSize": 14,
             }
           }
-          x={238}
+          x={224}
           y={14}
         >
           Dec
@@ -17328,7 +17328,7 @@ exports[`Fully testing API options contributionColorArray 1`] = `
               "fontSize": 14,
             }
           }
-          x={420}
+          x={406}
           y={14}
         >
           Mar
@@ -23027,7 +23027,7 @@ exports[`Fully testing API options labelFontSize 1`] = `
               "fontSize": 16,
             }
           }
-          x={89.6}
+          x={75.6}
           y={16}
         >
           Sep
@@ -23066,7 +23066,7 @@ exports[`Fully testing API options labelFontSize 1`] = `
               "fontSize": 16,
             }
           }
-          x={271.6}
+          x={257.6}
           y={16}
         >
           Dec
@@ -23105,7 +23105,7 @@ exports[`Fully testing API options labelFontSize 1`] = `
               "fontSize": 16,
             }
           }
-          x={453.6}
+          x={439.6}
           y={16}
         >
           Mar
@@ -28804,7 +28804,7 @@ exports[`Fully testing API options showWeekdaysLabels 1`] = `
               "fontSize": 14,
             }
           }
-          x={89.6}
+          x={75.6}
           y={14}
         >
           Sep
@@ -28843,7 +28843,7 @@ exports[`Fully testing API options showWeekdaysLabels 1`] = `
               "fontSize": 14,
             }
           }
-          x={271.6}
+          x={257.6}
           y={14}
         >
           Dec
@@ -28882,7 +28882,7 @@ exports[`Fully testing API options showWeekdaysLabels 1`] = `
               "fontSize": 14,
             }
           }
-          x={453.6}
+          x={439.6}
           y={14}
         >
           Mar
