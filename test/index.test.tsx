@@ -11,7 +11,7 @@ describe('Test of Calendar\'s base functionality', () => {
     fetchMock.mockResponse(JSON.stringify(mockContributionData));
 
     test('Calendar fully loads', (done) => {
-        const wrapper = shallow(<GitHubCalendar username="ryanchristian4427" />);
+        const wrapper = shallow(<GitHubCalendar username="rschristian" />);
 
         setImmediate(() => {
             expect(wrapper.update()).toMatchSnapshot();
@@ -21,9 +21,9 @@ describe('Test of Calendar\'s base functionality', () => {
 
     test('Error fallback', (done) => {
         fetchMock.resetMocks();
-        fetchMock.once(JSON.stringify({ inValidJsonInput: 'hello world' }));
+        fetchMock.once(JSON.stringify({ invalidJsonInput: 'hello world' }));
 
-        const wrapper = shallow(<GitHubCalendar username="ryanchristian4427" />);
+        const wrapper = shallow(<GitHubCalendar username="rschristian" />);
 
         setImmediate(() => {
             expect(wrapper.update()).toMatchSnapshot();
