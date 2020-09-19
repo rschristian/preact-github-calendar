@@ -3,11 +3,7 @@
 exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
 <figure>
   <div
-    style={
-      Object {
-        "padding": ".5rem",
-      }
-    }
+    className="github-calendar__graph"
   >
     <Component
       template={[Function]}
@@ -18,9 +14,9 @@ exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
         xmlns="http://www.w3.org/2000/svg"
       >
         <text
+          className="github-calendar__graph-label"
           style={
             Object {
-              "fill": "#000",
               "fontSize": 14,
             }
           }
@@ -30,9 +26,10 @@ exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
           Aug
         </text>
         <text
+          className="github-calendar__graph-label"
+          key={4}
           style={
             Object {
-              "fill": "#000",
               "fontSize": 14,
             }
           }
@@ -42,9 +39,10 @@ exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
           Sep
         </text>
         <text
+          className="github-calendar__graph-label"
+          key={8}
           style={
             Object {
-              "fill": "#000",
               "fontSize": 14,
             }
           }
@@ -54,9 +52,10 @@ exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
           Oct
         </text>
         <text
+          className="github-calendar__graph-label"
+          key={12}
           style={
             Object {
-              "fill": "#000",
               "fontSize": 14,
             }
           }
@@ -66,9 +65,10 @@ exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
           Nov
         </text>
         <text
+          className="github-calendar__graph-label"
+          key={17}
           style={
             Object {
-              "fill": "#000",
               "fontSize": 14,
             }
           }
@@ -78,9 +78,10 @@ exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
           Dec
         </text>
         <text
+          className="github-calendar__graph-label"
+          key={21}
           style={
             Object {
-              "fill": "#000",
               "fontSize": 14,
             }
           }
@@ -90,9 +91,10 @@ exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
           Jan
         </text>
         <text
+          className="github-calendar__graph-label"
+          key={25}
           style={
             Object {
-              "fill": "#000",
               "fontSize": 14,
             }
           }
@@ -102,9 +104,10 @@ exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
           Feb
         </text>
         <text
+          className="github-calendar__graph-label"
+          key={30}
           style={
             Object {
-              "fill": "#000",
               "fontSize": 14,
             }
           }
@@ -114,9 +117,10 @@ exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
           Mar
         </text>
         <text
+          className="github-calendar__graph-label"
+          key={34}
           style={
             Object {
-              "fill": "#000",
               "fontSize": 14,
             }
           }
@@ -126,9 +130,10 @@ exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
           Apr
         </text>
         <text
+          className="github-calendar__graph-label"
+          key={38}
           style={
             Object {
-              "fill": "#000",
               "fontSize": 14,
             }
           }
@@ -138,9 +143,10 @@ exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
           May
         </text>
         <text
+          className="github-calendar__graph-label"
+          key={43}
           style={
             Object {
-              "fill": "#000",
               "fontSize": 14,
             }
           }
@@ -150,9 +156,10 @@ exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
           Jun
         </text>
         <text
+          className="github-calendar__graph-label"
+          key={47}
           style={
             Object {
-              "fill": "#000",
               "fontSize": 14,
             }
           }
@@ -162,9 +169,10 @@ exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
           Jul
         </text>
         <text
+          className="github-calendar__graph-label"
+          key={51}
           style={
             Object {
-              "fill": "#000",
               "fontSize": 14,
             }
           }
@@ -5620,12 +5628,7 @@ exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
       </svg>
     </Component>
     <div
-      style={
-        Object {
-          "fontSize": 11,
-          "overflowY": "auto",
-        }
-      }
+      className="github-calendar__graph-footer"
     >
       <div
         style={
@@ -5653,98 +5656,76 @@ exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
       >
         Less
         <ul
-          style={
-            Object {
-              "bottom": "-1px",
-              "display": "inline-block",
-              "margin": "0 5px",
-              "paddingLeft": 0,
-              "position": "relative",
-            }
-          }
+          className="github-calendar__graph-legend"
         >
           <li
+            className="github-calendar__graph-legend-item"
+            key="#ebedf0"
             style={
               Object {
                 "backgroundColor": "#ebedf0",
-                "display": "inline-block",
                 "height": 12,
                 "width": 12,
               }
             }
           />
-           
           <li
+            className="github-calendar__graph-legend-item"
+            key="#9be9a8"
             style={
               Object {
                 "backgroundColor": "#9be9a8",
-                "display": "inline-block",
                 "height": 12,
                 "width": 12,
               }
             }
           />
-           
           <li
+            className="github-calendar__graph-legend-item"
+            key="#40c463"
             style={
               Object {
                 "backgroundColor": "#40c463",
-                "display": "inline-block",
                 "height": 12,
                 "width": 12,
               }
             }
           />
-           
           <li
+            className="github-calendar__graph-legend-item"
+            key="#30a14e"
             style={
               Object {
                 "backgroundColor": "#30a14e",
-                "display": "inline-block",
                 "height": 12,
                 "width": 12,
               }
             }
           />
-           
           <li
+            className="github-calendar__graph-legend-item"
+            key="#216e39"
             style={
               Object {
                 "backgroundColor": "#216e39",
-                "display": "inline-block",
                 "height": 12,
                 "width": 12,
               }
             }
           />
-           
         </ul>
         More
       </div>
     </div>
   </div>
   <div
-    style={
-      Object {
-        "borderTop": "1px solid #ddd",
-        "fontSize": 11,
-        "padding": "15px 10px",
-        "textAlign": "center",
-      }
-    }
+    className="github-calendar__footer"
   >
     <span>
       Contributions in the last year
     </span>
     <span
-      style={
-        Object {
-          "display": "block",
-          "fontSize": 24,
-          "fontWeight": "300",
-          "lineHeight": "1.3em",
-        }
-      }
+      className="github-calendar__footer-contribution-count"
     >
       2,265
        Total
@@ -5758,11 +5739,7 @@ exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
 
 exports[`Test of Calendar's base functionality Error fallback 1`] = `
 <div
-  style={
-    Object {
-      "textAlign": "center",
-    }
-  }
+  className="github-calendar__error"
 >
   Unknown Error
 </div>

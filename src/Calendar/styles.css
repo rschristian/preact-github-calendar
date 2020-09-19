@@ -1,0 +1,50 @@
+@import "~preact-hint/dist/index.css";
+
+.github-calendar__graph {
+    padding: 0.5rem;
+}
+
+.github-calendar__graph-label {
+    fill: #000;
+}
+
+.github-calendar__graph-footer {
+    font-size: 11px;
+    overflow-y: auto;
+}
+
+.github-calendar__graph-legend {
+    display: inline-block;
+    margin: 0 5px;
+    position: relative;
+    padding-left: 0;
+    bottom: -1px;
+}
+
+.github-calendar__graph-legend-item {
+    display: inline-block;
+    margin-right: 0.17rem;
+}
+
+.github-calendar__graph-legend-item:last-child {
+    margin-right: 0;
+}
+
+.github-calendar__footer {
+    padding: 15px 10px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    font-size: 11px;
+}
+
+.github-calendar__footer-contribution-count {
+    font-weight: 300;
+    line-height: 1.3em;
+    font-size: 24px;
+    display: block;
+}
+
+.github-calendar__error {
+    text-align: center;
+}
+

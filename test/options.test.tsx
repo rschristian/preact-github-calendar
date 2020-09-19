@@ -93,63 +93,6 @@ describe('Fully testing API options', () => {
         });
     });
 
-    test('contributionCountFontSize', (done) => {
-        const wrapper = shallow(
-            <GitHubCalendar
-                username="rschristian"
-                options={{
-                    contributionCountFontSize: 16,
-                }}
-            />,
-        );
-
-        setImmediate(() => {
-            expect(wrapper.update()).toMatchSnapshot();
-            expect(wrapper.html()).toContain(
-                '<span style="font-weight: 300; line-height: 1.3em; font-size: 16px; display: block;">',
-            );
-            done();
-        });
-    });
-
-    test('fontSize', (done) => {
-        const wrapper = shallow(
-            <GitHubCalendar
-                username="rschristian"
-                options={{
-                    fontSize: 16,
-                }}
-            />,
-        );
-
-        setImmediate(() => {
-            expect(wrapper.update()).toMatchSnapshot();
-            expect(wrapper.html()).toContain(
-                '<div style="padding: 15px 10px; text-align: center; border-top: 1px solid #ddd; font-size: 16px;">',
-            );
-            done();
-        });
-    });
-
-    test('labelColor', (done) => {
-        const wrapper = shallow(
-            <GitHubCalendar
-                username="rschristian"
-                options={{
-                    labelColor: '#f00',
-                    showWeekdaysLabels: true,
-                }}
-            />,
-        );
-
-        setImmediate(() => {
-            expect(wrapper.update()).toMatchSnapshot();
-            expect(wrapper.html()).toContain('<text x="0" y="46" style="font-size: 14px; fill: #f00;">Mon</text>');
-            expect(wrapper.html()).toContain('<text x="33.6" y="14" style="font-size: 14px; fill: #f00;">Aug</text>');
-            done();
-        });
-    });
-
     test('labelFontSize', (done) => {
         const wrapper = shallow(
             <GitHubCalendar
@@ -163,8 +106,12 @@ describe('Fully testing API options', () => {
 
         setImmediate(() => {
             expect(wrapper.update()).toMatchSnapshot();
-            expect(wrapper.html()).toContain('<text x="0" y="49" style="font-size: 16px; fill: #000;">Mon</text>');
-            expect(wrapper.html()).toContain('<text x="33.6" y="16" style="font-size: 16px; fill: #000;">Aug</text>');
+            expect(wrapper.html()).toContain(
+                '<text class="github-calendar__graph-label" style="font-size: 16px;" x="0" y="49">Mon</text>',
+            );
+            expect(wrapper.html()).toContain(
+                '<text class="github-calendar__graph-label" style="font-size: 16px;" x="33.6" y="16">Aug</text>',
+            );
             done();
         });
     });
@@ -181,7 +128,9 @@ describe('Fully testing API options', () => {
 
         setImmediate(() => {
             expect(wrapper.update()).toMatchSnapshot();
-            expect(wrapper.html()).toContain('<text x="0" y="46" style="font-size: 14px; fill: #000;">Mon</text>');
+            expect(wrapper.html()).toContain(
+                '<text class="github-calendar__graph-label" style="font-size: 14px;" x="0" y="46">Mon</text>',
+            );
             done();
         });
     });
