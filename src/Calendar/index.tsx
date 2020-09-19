@@ -97,7 +97,7 @@ export default function GitHubCalendar(props: { username: string; options?: Opti
             .map((entry, i) => {
                 // Parsing strings as JS Dates are weird. new Date('2020-09-15').getDate() == 15 in the UK TZ.
                 // new Date('2020-09-15').getDate() == 14 in the US Central TZ. For "reasons".
-                const month = Number(entry.date.split('-')[1]);
+                const month = Number(entry.date.split('-')[1]) - 1;
                 if (month !== previousMonth) {
                     previousMonth = month;
                     return (
