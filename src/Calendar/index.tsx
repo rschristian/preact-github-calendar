@@ -100,7 +100,7 @@ export default function GitHubCalendar(props: { username: string; options?: Opti
                     previousMonth = month;
                     return (
                         <text
-                            key={i}
+                            key={MONTHS[month]}
                             class="github-calendar__graph-label"
                             style={{ fontSize: labelFontSize }}
                             x={
