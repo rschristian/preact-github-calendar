@@ -61,24 +61,6 @@ Default: `['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39']`
 
 Changes the color spread in the calendar. The first item in the array replaces the color for least commits, and the last item replaces the color for most commits. Like `labelColor`, keywords, RGB(A) and HSL(A) values are all supported as valid colors. Default is GitHub's color scheme.
 
-### contributionCountFontSize
-Type: `number`<br/>
-Default: `26`
-
-Changes the font size of the total contribution count text. Takes any number.
-
-### fontSize
-Type: `number`<br/>
-Default: `11`
-
-Changes the font size of the less important text; the link to your profile, the date ranges, etc. Takes any number.
-
-### labelColor
-Type: `<color>`<br/>
-Default: `#000`
-
-Changes the font color of the month and days of the week labels. Takes any string representation of [`<color>`](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value). Keywords, RGB(A) and HSL(A) values are all supported.
-
 ### labelFontSize
 Type: `number`<br/>
 Default: `14`

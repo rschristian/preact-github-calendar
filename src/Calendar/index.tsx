@@ -1,8 +1,8 @@
 import { Fragment, h, VNode } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
-
 import PreactHint from 'preact-hint';
-import 'preact-hint/dist/index.css';
+
+import './styles.css';
 
 const VERTICAL_SPACING = 1.5;
 const HORIZONTAL_SPACING = 2.4;
@@ -20,9 +20,6 @@ interface Options {
     blockSize?: number;
     calendarClassName?: string;
     contributionColorArray?: [string, string, string, string, string];
-    contributionCountFontSize?: number;
-    fontSize?: number;
-    labelColor?: string;
     labelFontSize?: number;
     showWeekdaysLabels?: boolean;
     showTooltip?: boolean;
@@ -34,9 +31,6 @@ export default function GitHubCalendar(props: { username: string; options?: Opti
         blockSize,
         calendarClassName,
         contributionColorArray,
-        contributionCountFontSize,
-        fontSize,
-        labelColor,
         labelFontSize,
         showWeekdaysLabels,
         showTooltip,
@@ -46,9 +40,6 @@ export default function GitHubCalendar(props: { username: string; options?: Opti
             blockSize: 12,
             calendarClassName: undefined,
             contributionColorArray: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
-            contributionCountFontSize: 24,
-            fontSize: 11,
-            labelColor: '#000',
             labelFontSize: 14,
             showWeekdaysLabels: false,
             showTooltip: true,
@@ -81,13 +72,14 @@ export default function GitHubCalendar(props: { username: string; options?: Opti
                 return (
                     <text
                         key={weekDay}
+                        class="github-calendar__graph-label"
+                        style={{ fontSize: labelFontSize }}
                         x={0}
                         y={
                             labelFontSize * VERTICAL_SPACING +
                             (blockSize + blockMargin) * ((i + 1) * 2 - 1) +
                             (blockSize - 1)
                         }
-                        style={{ fontSize: labelFontSize, fill: labelColor }}
                     >
                         {weekDay}
                     </text>
@@ -108,12 +100,14 @@ export default function GitHubCalendar(props: { username: string; options?: Opti
                     previousMonth = month;
                     return (
                         <text
+                            key={i}
+                            class="github-calendar__graph-label"
+                            style={{ fontSize: labelFontSize }}
                             x={
                                 (showWeekdaysLabels ? (blockSize + blockMargin) * HORIZONTAL_SPACING : 0) +
                                 (blockSize + blockMargin) * i
                             }
                             y={labelFontSize}
-                            style={{ fontSize: labelFontSize, fill: labelColor }}
                         >
                             {MONTHS[month]}
                         </text>
@@ -157,26 +151,17 @@ export default function GitHubCalendar(props: { username: string; options?: Opti
 
     function createLegend(): JSX.Element {
         return (
-            <ul
-                style={{
-                    display: 'inline-block',
-                    margin: '0 5px',
-                    position: 'relative',
-                    paddingLeft: 0,
-                    bottom: '-1px',
-                }}
-            >
+            <ul class="github-calendar__graph-legend">
                 {contributionColorArray.map((color) => (
-                    <Fragment key={color}>
-                        <li
-                            style={{
-                                display: 'inline-block',
-                                width: blockSize,
-                                height: blockSize,
-                                backgroundColor: color,
-                            }}
-                        />{' '}
-                    </Fragment>
+                    <li
+                        key={color}
+                        class="github-calendar__graph-legend-item"
+                        style={{
+                            width: blockSize,
+                            height: blockSize,
+                            backgroundColor: color,
+                        }}
+                    />
                 ))}
             </ul>
         );
@@ -217,7 +202,7 @@ export default function GitHubCalendar(props: { username: string; options?: Opti
         <Fragment>
             {graphData !== null ? (
                 <figure class={calendarClassName}>
-                    <div style={{ padding: '.5rem' }}>
+                    <div class="github-calendar__graph">
                         {showTooltip ? (
                             <PreactHint
                                 template={(content: string): VNode => {
@@ -238,12 +223,7 @@ export default function GitHubCalendar(props: { username: string; options?: Opti
                         ) : (
                             createSvg()
                         )}
-                        <div
-                            style={{
-                                fontSize,
-                                overflowY: 'auto',
-                            }}
-                        >
+                        <div class="github-calendar__graph-footer">
                             <div style={{ float: 'left' }}>
                                 Sum of pull requests, issues opened, and commits made by{' '}
                                 <a href={`https://github.com/${props.username}`} target="blank">
@@ -257,30 +237,16 @@ export default function GitHubCalendar(props: { username: string; options?: Opti
                             </div>
                         </div>
                     </div>
-                    <div
-                        style={{
-                            padding: '15px 10px',
-                            textAlign: 'center',
-                            borderTop: '1px solid #ddd',
-                            fontSize: fontSize,
-                        }}
-                    >
+                    <div class="github-calendar__footer">
                         <span>Contributions in the last year</span>
-                        <span
-                            style={{
-                                fontWeight: '300',
-                                lineHeight: '1.3em',
-                                fontSize: contributionCountFontSize,
-                                display: 'block',
-                            }}
-                        >
+                        <span class="github-calendar__footer-contribution-count">
                             {graphData.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} Total
                         </span>
                         <span>{createDateRange()}</span>
                     </div>
                 </figure>
             ) : error ? (
-                <div style={{ textAlign: 'center' }}>{error}</div>
+                <div class="github-calendar__error">{error}</div>
             ) : (
                 <noscript>This component requires JS in order to function properly.</noscript>
             )}
