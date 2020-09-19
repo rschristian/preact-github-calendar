@@ -184,13 +184,15 @@ export default function GitHubCalendar(props: { username: string; options?: Opti
 
     function createDateRange(): string {
         const maxWeekIndex = graphData.contributions.length - 1;
-        const lastYear = new Date(graphData.contributions[0][0].date);
-        const today = new Date(
-            graphData.contributions[maxWeekIndex][graphData.contributions[maxWeekIndex].length - 1].date,
-        );
-        return `${MONTHS[lastYear.getMonth()]} ${lastYear.getDate()}, ${lastYear.getFullYear()} - ${
-            MONTHS[today.getMonth()]
-        } ${today.getDate()}, ${today.getFullYear()}`;
+        const lastYear = graphData.contributions[0][0].date.split('-');
+        const today = graphData.contributions[maxWeekIndex][
+            graphData.contributions[maxWeekIndex].length - 1
+        ].date.split('-');
+        // Parsing strings as JS Dates are weird. new Date('2020-09-15').getDate() == 15 in the UK TZ.
+        // new Date('2020-09-15').getDate() == 14 in the US Central TZ. For "reasons".
+        return `${MONTHS[Number(lastYear[1]) - 1]} ${+lastYear[2]}, ${lastYear[0]} - ${
+            MONTHS[Number(today[1]) - 1]
+        } ${+today[2]}, ${today[0]}`;
     }
 
     function createSvg(): JSX.Element {
