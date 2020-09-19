@@ -34,7 +34,7 @@ exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
               "fontSize": 14,
             }
           }
-          x={56}
+          x={42}
           y={14}
         >
           Sep
@@ -73,7 +73,7 @@ exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
               "fontSize": 14,
             }
           }
-          x={238}
+          x={224}
           y={14}
         >
           Dec
@@ -112,7 +112,7 @@ exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
               "fontSize": 14,
             }
           }
-          x={420}
+          x={406}
           y={14}
         >
           Mar
