@@ -9,13 +9,13 @@ const HORIZONTAL_SPACING = 2.4;
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-interface Contribution {
+type Contribution = {
     date: string;
     count: number;
     intensity: 0 | 1 | 2 | 3 | 4;
-}
+};
 
-interface Options {
+type Options = {
     blockMargin?: number;
     blockSize?: number;
     calendarClassName?: string;
@@ -23,7 +23,7 @@ interface Options {
     labelFontSize?: number;
     showWeekdaysLabels?: boolean;
     showTooltip?: boolean;
-}
+};
 
 export default function GitHubCalendar(props: { username: string; options?: Options }): VNode {
     const {
@@ -95,8 +95,6 @@ export default function GitHubCalendar(props: { username: string; options?: Opti
 
         const filtered = weeks
             .map((entry, i) => {
-                // Parsing strings as JS Dates are weird. new Date('2020-09-15').getDate() == 15 in the UK TZ.
-                // new Date('2020-09-15').getDate() == 14 in the US Central TZ. For "reasons".
                 const month = Number(entry.date.split('-')[1]) - 1;
                 if (month !== previousMonth) {
                     previousMonth = month;
@@ -159,8 +157,8 @@ export default function GitHubCalendar(props: { username: string; options?: Opti
                         key={color}
                         class="github-calendar__graph-legend-item"
                         style={{
-                            width: blockSize,
-                            height: blockSize,
+                            width: blockSize - 2,
+                            height: blockSize - 2,
                             backgroundColor: color,
                         }}
                     />
@@ -175,8 +173,6 @@ export default function GitHubCalendar(props: { username: string; options?: Opti
         const today = graphData.contributions[maxWeekIndex][
             graphData.contributions[maxWeekIndex].length - 1
         ].date.split('-');
-        // Parsing strings as JS Dates are weird. new Date('2020-09-15').getDate() == 15 in the UK TZ.
-        // new Date('2020-09-15').getDate() == 14 in the US Central TZ. For "reasons".
         return `${MONTHS[Number(lastYear[1]) - 1]} ${+lastYear[2]}, ${lastYear[0]} - ${
             MONTHS[Number(today[1]) - 1]
         } ${+today[2]}, ${today[0]}`;
