@@ -56,7 +56,7 @@ export default function GitHubCalendar(props: { username: string; options?: Opti
                 const response = await (
                     await fetch(`https://githubapi.ryanchristian.dev/user/${props.username}`)
                 ).json();
-                if (!('total' in response) && !('contributions' in response)) throw 'Invalid response data';
+                if (!('total' in response) || !('contributions' in response)) return setError('Invalid response data');
                 setGraphData(response);
             } catch {
                 setError('Unknown Error');
