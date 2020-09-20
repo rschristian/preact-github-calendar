@@ -5665,8 +5665,8 @@ exports[`Fully testing API options blockMargin 1`] = `
             style={
               Object {
                 "backgroundColor": "#ebedf0",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -5676,8 +5676,8 @@ exports[`Fully testing API options blockMargin 1`] = `
             style={
               Object {
                 "backgroundColor": "#9be9a8",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -5687,8 +5687,8 @@ exports[`Fully testing API options blockMargin 1`] = `
             style={
               Object {
                 "backgroundColor": "#40c463",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -5698,8 +5698,8 @@ exports[`Fully testing API options blockMargin 1`] = `
             style={
               Object {
                 "backgroundColor": "#30a14e",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -5709,8 +5709,8 @@ exports[`Fully testing API options blockMargin 1`] = `
             style={
               Object {
                 "backgroundColor": "#216e39",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -11403,8 +11403,8 @@ exports[`Fully testing API options blockSize 1`] = `
             style={
               Object {
                 "backgroundColor": "#ebedf0",
-                "height": 14,
-                "width": 14,
+                "height": 12,
+                "width": 12,
               }
             }
           />
@@ -11414,8 +11414,8 @@ exports[`Fully testing API options blockSize 1`] = `
             style={
               Object {
                 "backgroundColor": "#9be9a8",
-                "height": 14,
-                "width": 14,
+                "height": 12,
+                "width": 12,
               }
             }
           />
@@ -11425,8 +11425,8 @@ exports[`Fully testing API options blockSize 1`] = `
             style={
               Object {
                 "backgroundColor": "#40c463",
-                "height": 14,
-                "width": 14,
+                "height": 12,
+                "width": 12,
               }
             }
           />
@@ -11436,8 +11436,8 @@ exports[`Fully testing API options blockSize 1`] = `
             style={
               Object {
                 "backgroundColor": "#30a14e",
-                "height": 14,
-                "width": 14,
+                "height": 12,
+                "width": 12,
               }
             }
           />
@@ -11447,8 +11447,8 @@ exports[`Fully testing API options blockSize 1`] = `
             style={
               Object {
                 "backgroundColor": "#216e39",
-                "height": 14,
-                "width": 14,
+                "height": 12,
+                "width": 12,
               }
             }
           />
@@ -17143,8 +17143,8 @@ exports[`Fully testing API options calendarClassName 1`] = `
             style={
               Object {
                 "backgroundColor": "#ebedf0",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -17154,8 +17154,8 @@ exports[`Fully testing API options calendarClassName 1`] = `
             style={
               Object {
                 "backgroundColor": "#9be9a8",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -17165,8 +17165,8 @@ exports[`Fully testing API options calendarClassName 1`] = `
             style={
               Object {
                 "backgroundColor": "#40c463",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -17176,8 +17176,8 @@ exports[`Fully testing API options calendarClassName 1`] = `
             style={
               Object {
                 "backgroundColor": "#30a14e",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -17187,8 +17187,8 @@ exports[`Fully testing API options calendarClassName 1`] = `
             style={
               Object {
                 "backgroundColor": "#216e39",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -22881,8 +22881,8 @@ exports[`Fully testing API options contributionColorArray 1`] = `
             style={
               Object {
                 "backgroundColor": "#ededed",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -22892,8 +22892,8 @@ exports[`Fully testing API options contributionColorArray 1`] = `
             style={
               Object {
                 "backgroundColor": "#62A197",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -22903,8 +22903,8 @@ exports[`Fully testing API options contributionColorArray 1`] = `
             style={
               Object {
                 "backgroundColor": "#428892",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -22914,8 +22914,8 @@ exports[`Fully testing API options contributionColorArray 1`] = `
             style={
               Object {
                 "backgroundColor": "#296887",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -22925,8 +22925,8 @@ exports[`Fully testing API options contributionColorArray 1`] = `
             style={
               Object {
                 "backgroundColor": "#274969",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -28658,8 +28658,8 @@ exports[`Fully testing API options labelFontSize 1`] = `
             style={
               Object {
                 "backgroundColor": "#ebedf0",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -28669,8 +28669,8 @@ exports[`Fully testing API options labelFontSize 1`] = `
             style={
               Object {
                 "backgroundColor": "#9be9a8",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -28680,8 +28680,8 @@ exports[`Fully testing API options labelFontSize 1`] = `
             style={
               Object {
                 "backgroundColor": "#40c463",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -28691,8 +28691,8 @@ exports[`Fully testing API options labelFontSize 1`] = `
             style={
               Object {
                 "backgroundColor": "#30a14e",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -28702,8 +28702,8 @@ exports[`Fully testing API options labelFontSize 1`] = `
             style={
               Object {
                 "backgroundColor": "#216e39",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -34435,8 +34435,8 @@ exports[`Fully testing API options showWeekdaysLabels 1`] = `
             style={
               Object {
                 "backgroundColor": "#ebedf0",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -34446,8 +34446,8 @@ exports[`Fully testing API options showWeekdaysLabels 1`] = `
             style={
               Object {
                 "backgroundColor": "#9be9a8",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -34457,8 +34457,8 @@ exports[`Fully testing API options showWeekdaysLabels 1`] = `
             style={
               Object {
                 "backgroundColor": "#40c463",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -34468,8 +34468,8 @@ exports[`Fully testing API options showWeekdaysLabels 1`] = `
             style={
               Object {
                 "backgroundColor": "#30a14e",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -34479,8 +34479,8 @@ exports[`Fully testing API options showWeekdaysLabels 1`] = `
             style={
               Object {
                 "backgroundColor": "#216e39",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />

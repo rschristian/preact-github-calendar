@@ -5665,8 +5665,8 @@ exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
             style={
               Object {
                 "backgroundColor": "#ebedf0",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -5676,8 +5676,8 @@ exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
             style={
               Object {
                 "backgroundColor": "#9be9a8",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -5687,8 +5687,8 @@ exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
             style={
               Object {
                 "backgroundColor": "#40c463",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -5698,8 +5698,8 @@ exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
             style={
               Object {
                 "backgroundColor": "#30a14e",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -5709,8 +5709,8 @@ exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
             style={
               Object {
                 "backgroundColor": "#216e39",
-                "height": 12,
-                "width": 12,
+                "height": 10,
+                "width": 10,
               }
             }
           />
@@ -5742,6 +5742,6 @@ exports[`Test of Calendar's base functionality Error fallback 1`] = `
 <div
   className="github-calendar__error"
 >
-  Unknown Error
+  Invalid response data
 </div>
 `;
