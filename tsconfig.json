@@ -7,8 +7,6 @@
     "jsxFactory": "h",
     "moduleResolution": "node",
     "noImplicitAny": true,
-    "outDir": "dist",
-    "declaration": true,
     "resolveJsonModule": true
   },
   "include": ["src", "test"]

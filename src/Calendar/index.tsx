@@ -16,16 +16,16 @@ type Contribution = {
 };
 
 type Options = {
-    blockMargin?: number;
-    blockSize?: number;
-    calendarClassName?: string;
-    contributionColorArray?: [string, string, string, string, string];
-    labelFontSize?: number;
-    showWeekdaysLabels?: boolean;
-    showTooltip?: boolean;
+    blockMargin: number;
+    blockSize: number;
+    calendarClassName: string | undefined;
+    contributionColorArray: [string, string, string, string, string];
+    labelFontSize: number;
+    showWeekdaysLabels: boolean;
+    showTooltip: boolean;
 };
 
-export default function GitHubCalendar(props: { username: string; options?: Options }): VNode {
+export default function GitHubCalendar(props: { username: string; options?: Partial<Options> }): VNode {
     const {
         blockMargin,
         blockSize,
@@ -66,26 +66,24 @@ export default function GitHubCalendar(props: { username: string; options?: Opti
     }, [props.username]);
 
     function createWeekDayLabels(): JSX.Element[] {
-        if (showWeekdaysLabels) {
-            const weekDays = ['Mon', 'Wed', 'Fri'];
-            return weekDays.map((weekDay, i) => {
-                return (
-                    <text
-                        key={weekDay}
-                        class="github-calendar__graph-label"
-                        style={{ fontSize: labelFontSize }}
-                        x={0}
-                        y={
-                            labelFontSize * VERTICAL_SPACING +
-                            (blockSize + blockMargin) * ((i + 1) * 2 - 1) +
-                            (blockSize - 1)
-                        }
-                    >
-                        {weekDay}
-                    </text>
-                );
-            });
-        }
+        const weekDays = ['Mon', 'Wed', 'Fri'];
+        return weekDays.map((weekDay, i) => {
+            return (
+                <text
+                    key={weekDay}
+                    class="github-calendar__graph-label"
+                    style={{ fontSize: labelFontSize }}
+                    x={0}
+                    y={
+                        labelFontSize * VERTICAL_SPACING +
+                        (blockSize + blockMargin) * ((i + 1) * 2 - 1) +
+                        (blockSize - 1)
+                    }
+                >
+                    {weekDay}
+                </text>
+            );
+        });
     }
 
     function createMonthLabels(): JSX.Element[] {
@@ -189,7 +187,7 @@ export default function GitHubCalendar(props: { username: string; options?: Opti
                     (showWeekdaysLabels ? (blockSize + blockMargin) * HORIZONTAL_SPACING : 0)
                 } ${(blockSize + blockMargin) * 7 - blockMargin + labelFontSize * VERTICAL_SPACING}`}
             >
-                {createWeekDayLabels()}
+                {showWeekdaysLabels && createWeekDayLabels()}
                 {createMonthLabels()}
                 {createRects()}
             </svg>
