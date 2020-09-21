@@ -27,9 +27,10 @@ $ yarn add preact-github-calendar
 
 ```jsx
 import GitHubCalendar from "preact-github-calendar";
+import 'preact-github-calendar/dist/index.css'
 
 export default function App() {
-    return <GitHubCalendar username="ryanchristian4427" />
+    return <GitHubCalendar username="rschristian" />
 }
 ```
 
@@ -72,6 +73,70 @@ Type: `boolean`<br/>
 Default: `false`
 
 Add the week day labels to the left y-axis of your graph. Disabled by default.
+
+## Styles
+
+<details>
+  <summary>Styling is (mostly) customizable by using the stylesheet this library exports. Below is the full CSS file prettified. If you want to customize the tooltip's styling in any way, such as changing the background color, the <a href="https://github.com/rschristian/preact-hint">documentation can be found here</a>.</summary><br />
+
+```
+@import '~preact-hint/dist/index.css';
+
+.github-calendar__graph {
+  padding: 0.5rem;
+}
+
+.github-calendar__graph rect {
+  outline: 1px solid rgba(27, 31, 35, 0.04);
+  outline-offset: -1px;
+}
+
+.github-calendar__graph-label {
+  fill: #000;
+}
+
+.github-calendar__graph-footer {
+  font-size: 11px;
+  overflow-y: auto;
+}
+
+.github-calendar__graph-legend {
+  display: inline-block;
+  margin: 0 5px;
+  position: relative;
+  padding-left: 0;
+  bottom: -1px;
+}
+
+.github-calendar__graph-legend-item {
+  display: inline-block;
+  box-shadow: inset 0 0 0 1px rgba(27, 31, 35, 0.04);
+  border-radius: 2px;
+}
+
+.github-calendar__graph-legend-item:not(:last-child) {
+  margin-right: 0.17rem;
+}
+
+.github-calendar__footer {
+  padding: 15px 10px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  font-size: 11px;
+}
+
+.github-calendar__footer-contribution-count {
+  font-weight: 300;
+  line-height: 1.3em;
+  font-size: 24px;
+  display: block;
+}
+
+.github-calendar__error {
+  text-align: center;
+}
+```
+</details>
 
 ## License
 
