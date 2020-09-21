@@ -20,9 +20,11 @@ describe('Fully testing API options', () => {
         );
 
         setImmediate(() => {
-            expect(wrapper.update()).toMatchSnapshot();
+            wrapper.update();
+            const svg = wrapper.find('svg');
+            expect(svg).toMatchSnapshot();
             // Expecting 16 as default block size is 12 + 4 on the new margin (2 by default)
-            expect(wrapper.html()).toContain('<g transform="translate(16, 0)">');
+            expect(svg.html()).toContain('<g transform="translate(16, 0)">');
             done();
         });
     });
@@ -38,8 +40,10 @@ describe('Fully testing API options', () => {
         );
 
         setImmediate(() => {
-            expect(wrapper.update()).toMatchSnapshot();
-            expect(wrapper.html()).toContain(
+            wrapper.update();
+            const graph = wrapper.find('.github-calendar__graph');
+            expect(graph).toMatchSnapshot();
+            expect(graph.html()).toContain(
                 '<rect x="0" y="37" width="14" height="14" fill="#9be9a8" data-preact-hint="6,2020-08-03"></rect>',
             );
             done();
@@ -59,9 +63,7 @@ describe('Fully testing API options', () => {
         );
 
         setImmediate(() => {
-            expect(wrapper.update()).toMatchSnapshot();
             expect(wrapper.hasClass(mockClassName)).toBe(true);
-            // expect(wrapper.contains(<div style={{ textAlign: 'center' }}>Unknown Error</div>)).toBe(true);
             done();
         });
     });
@@ -85,9 +87,11 @@ describe('Fully testing API options', () => {
         );
 
         setImmediate(() => {
-            expect(wrapper.update()).toMatchSnapshot();
+            wrapper.update();
+            const legend = wrapper.find('.github-calendar__graph-legend');
+            expect(legend).toMatchSnapshot();
             for (const legendItem in legendItems) {
-                expect(wrapper.html()).toContain(legendItem);
+                expect(legend.html()).toContain(legendItem);
             }
             done();
         });
@@ -105,11 +109,13 @@ describe('Fully testing API options', () => {
         );
 
         setImmediate(() => {
-            expect(wrapper.update()).toMatchSnapshot();
-            expect(wrapper.html()).toContain(
+            wrapper.update();
+            const svg = wrapper.find('svg');
+            expect(svg).toMatchSnapshot();
+            expect(svg.html()).toContain(
                 '<text class="github-calendar__graph-label" style="font-size: 16px;" x="0" y="49">Mon</text>',
             );
-            expect(wrapper.html()).toContain(
+            expect(svg.html()).toContain(
                 '<text class="github-calendar__graph-label" style="font-size: 16px;" x="33.6" y="16">Aug</text>',
             );
             done();
@@ -127,8 +133,10 @@ describe('Fully testing API options', () => {
         );
 
         setImmediate(() => {
-            expect(wrapper.update()).toMatchSnapshot();
-            expect(wrapper.html()).toContain(
+            wrapper.update();
+            const svg = wrapper.find('svg');
+            expect(svg).toMatchSnapshot();
+            expect(svg.html()).toContain(
                 '<text class="github-calendar__graph-label" style="font-size: 14px;" x="0" y="46">Mon</text>',
             );
             done();
