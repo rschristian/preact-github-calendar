@@ -147,6 +147,24 @@ export default function GitHubCalendar(props: { username: string; options?: Part
             ));
     }
 
+    function createSvg(): JSX.Element {
+        return (
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="100%"
+                viewBox={`0 0 ${
+                    53 * (blockSize + blockMargin) -
+                    blockMargin +
+                    (showWeekdaysLabels ? (blockSize + blockMargin) * HORIZONTAL_SPACING : 0)
+                } ${(blockSize + blockMargin) * 7 - blockMargin + labelFontSize * VERTICAL_SPACING}`}
+            >
+                {showWeekdaysLabels && createWeekDayLabels()}
+                {createMonthLabels()}
+                {createRects()}
+            </svg>
+        );
+    }
+
     function createLegend(): JSX.Element {
         return (
             <ul class="github-calendar__graph-legend">
@@ -174,24 +192,6 @@ export default function GitHubCalendar(props: { username: string; options?: Part
         return `${MONTHS[Number(lastYear[1]) - 1]} ${+lastYear[2]}, ${lastYear[0]} - ${
             MONTHS[Number(today[1]) - 1]
         } ${+today[2]}, ${today[0]}`;
-    }
-
-    function createSvg(): JSX.Element {
-        return (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="100%"
-                viewBox={`0 0 ${
-                    53 * (blockSize + blockMargin) -
-                    blockMargin +
-                    (showWeekdaysLabels ? (blockSize + blockMargin) * HORIZONTAL_SPACING : 0)
-                } ${(blockSize + blockMargin) * 7 - blockMargin + labelFontSize * VERTICAL_SPACING}`}
-            >
-                {showWeekdaysLabels && createWeekDayLabels()}
-                {createMonthLabels()}
-                {createRects()}
-            </svg>
-        );
     }
 
     return (
