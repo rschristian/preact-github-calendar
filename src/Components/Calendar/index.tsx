@@ -100,7 +100,7 @@ export default function GitHubCalendar(props: { username: string; options?: Part
                     previousMonth = month;
                     return (
                         <text
-                            key={MONTHS[month] + datePieces[0]}
+                            key={`${MONTHS[month]}-${datePieces[0]}`}
                             class="github-calendar__graph-label"
                             style={{ fontSize: labelFontSize }}
                             x={
@@ -183,7 +183,20 @@ export default function GitHubCalendar(props: { username: string; options?: Part
             {graphData !== null ? (
                 <figure class={calendarClassName}>
                     <div class="github-calendar__graph">
-                        <PreactHint>
+                        <PreactHint
+                            template={(content: string): VNode => {
+                                const contentPieces = content.split(',');
+                                function date(): string {
+                                    const split = contentPieces[1].split('-');
+                                    return `${MONTHS[Number(split[1]) - 1]} ${+split[2]}, ${split[0]}`;
+                                }
+                                return (
+                                    <Fragment>
+                                        <strong>{contentPieces[0]} Contributions</strong> on {date()}
+                                    </Fragment>
+                                );
+                            }}
+                        >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="100%"
