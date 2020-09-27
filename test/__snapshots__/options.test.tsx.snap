@@ -8,7 +8,7 @@ exports[`Fully testing API options blockMargin 1`] = `
 >
   <text
     className="github-calendar__graph-label"
-    key="Aug"
+    key="Aug-2019"
     style={
       Object {
         "fontSize": 14,
@@ -21,7 +21,7 @@ exports[`Fully testing API options blockMargin 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Sep"
+    key="Sep-2019"
     style={
       Object {
         "fontSize": 14,
@@ -34,7 +34,7 @@ exports[`Fully testing API options blockMargin 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Oct"
+    key="Oct-2019"
     style={
       Object {
         "fontSize": 14,
@@ -47,7 +47,7 @@ exports[`Fully testing API options blockMargin 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Nov"
+    key="Nov-2019"
     style={
       Object {
         "fontSize": 14,
@@ -60,7 +60,7 @@ exports[`Fully testing API options blockMargin 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Dec"
+    key="Dec-2019"
     style={
       Object {
         "fontSize": 14,
@@ -73,7 +73,7 @@ exports[`Fully testing API options blockMargin 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Jan"
+    key="Jan-2020"
     style={
       Object {
         "fontSize": 14,
@@ -86,7 +86,7 @@ exports[`Fully testing API options blockMargin 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Feb"
+    key="Feb-2020"
     style={
       Object {
         "fontSize": 14,
@@ -99,7 +99,7 @@ exports[`Fully testing API options blockMargin 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Mar"
+    key="Mar-2020"
     style={
       Object {
         "fontSize": 14,
@@ -112,7 +112,7 @@ exports[`Fully testing API options blockMargin 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Apr"
+    key="Apr-2020"
     style={
       Object {
         "fontSize": 14,
@@ -125,7 +125,7 @@ exports[`Fully testing API options blockMargin 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="May"
+    key="May-2020"
     style={
       Object {
         "fontSize": 14,
@@ -138,7 +138,7 @@ exports[`Fully testing API options blockMargin 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Jun"
+    key="Jun-2020"
     style={
       Object {
         "fontSize": 14,
@@ -151,7 +151,7 @@ exports[`Fully testing API options blockMargin 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Jul"
+    key="Jul-2020"
     style={
       Object {
         "fontSize": 14,
@@ -164,7 +164,7 @@ exports[`Fully testing API options blockMargin 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Aug"
+    key="Aug-2020"
     style={
       Object {
         "fontSize": 14,
@@ -5636,7 +5636,7 @@ exports[`Fully testing API options blockSize 1`] = `
     >
       <text
         className="github-calendar__graph-label"
-        key="Aug"
+        key="Aug-2019"
         style={
           Object {
             "fontSize": 14,
@@ -5649,7 +5649,7 @@ exports[`Fully testing API options blockSize 1`] = `
       </text>
       <text
         className="github-calendar__graph-label"
-        key="Sep"
+        key="Sep-2019"
         style={
           Object {
             "fontSize": 14,
@@ -5662,7 +5662,7 @@ exports[`Fully testing API options blockSize 1`] = `
       </text>
       <text
         className="github-calendar__graph-label"
-        key="Oct"
+        key="Oct-2019"
         style={
           Object {
             "fontSize": 14,
@@ -5675,7 +5675,7 @@ exports[`Fully testing API options blockSize 1`] = `
       </text>
       <text
         className="github-calendar__graph-label"
-        key="Nov"
+        key="Nov-2019"
         style={
           Object {
             "fontSize": 14,
@@ -5688,7 +5688,7 @@ exports[`Fully testing API options blockSize 1`] = `
       </text>
       <text
         className="github-calendar__graph-label"
-        key="Dec"
+        key="Dec-2019"
         style={
           Object {
             "fontSize": 14,
@@ -5701,7 +5701,7 @@ exports[`Fully testing API options blockSize 1`] = `
       </text>
       <text
         className="github-calendar__graph-label"
-        key="Jan"
+        key="Jan-2020"
         style={
           Object {
             "fontSize": 14,
@@ -5714,7 +5714,7 @@ exports[`Fully testing API options blockSize 1`] = `
       </text>
       <text
         className="github-calendar__graph-label"
-        key="Feb"
+        key="Feb-2020"
         style={
           Object {
             "fontSize": 14,
@@ -5727,7 +5727,7 @@ exports[`Fully testing API options blockSize 1`] = `
       </text>
       <text
         className="github-calendar__graph-label"
-        key="Mar"
+        key="Mar-2020"
         style={
           Object {
             "fontSize": 14,
@@ -5740,7 +5740,7 @@ exports[`Fully testing API options blockSize 1`] = `
       </text>
       <text
         className="github-calendar__graph-label"
-        key="Apr"
+        key="Apr-2020"
         style={
           Object {
             "fontSize": 14,
@@ -5753,7 +5753,7 @@ exports[`Fully testing API options blockSize 1`] = `
       </text>
       <text
         className="github-calendar__graph-label"
-        key="May"
+        key="May-2020"
         style={
           Object {
             "fontSize": 14,
@@ -5766,7 +5766,7 @@ exports[`Fully testing API options blockSize 1`] = `
       </text>
       <text
         className="github-calendar__graph-label"
-        key="Jun"
+        key="Jun-2020"
         style={
           Object {
             "fontSize": 14,
@@ -5779,7 +5779,7 @@ exports[`Fully testing API options blockSize 1`] = `
       </text>
       <text
         className="github-calendar__graph-label"
-        key="Jul"
+        key="Jul-2020"
         style={
           Object {
             "fontSize": 14,
@@ -5792,7 +5792,7 @@ exports[`Fully testing API options blockSize 1`] = `
       </text>
       <text
         className="github-calendar__graph-label"
-        key="Aug"
+        key="Aug-2020"
         style={
           Object {
             "fontSize": 14,
@@ -11451,7 +11451,7 @@ exports[`Fully testing API options labelFontSize 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Aug"
+    key="Aug-2019"
     style={
       Object {
         "fontSize": 16,
@@ -11464,7 +11464,7 @@ exports[`Fully testing API options labelFontSize 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Sep"
+    key="Sep-2019"
     style={
       Object {
         "fontSize": 16,
@@ -11477,7 +11477,7 @@ exports[`Fully testing API options labelFontSize 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Oct"
+    key="Oct-2019"
     style={
       Object {
         "fontSize": 16,
@@ -11490,7 +11490,7 @@ exports[`Fully testing API options labelFontSize 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Nov"
+    key="Nov-2019"
     style={
       Object {
         "fontSize": 16,
@@ -11503,7 +11503,7 @@ exports[`Fully testing API options labelFontSize 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Dec"
+    key="Dec-2019"
     style={
       Object {
         "fontSize": 16,
@@ -11516,7 +11516,7 @@ exports[`Fully testing API options labelFontSize 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Jan"
+    key="Jan-2020"
     style={
       Object {
         "fontSize": 16,
@@ -11529,7 +11529,7 @@ exports[`Fully testing API options labelFontSize 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Feb"
+    key="Feb-2020"
     style={
       Object {
         "fontSize": 16,
@@ -11542,7 +11542,7 @@ exports[`Fully testing API options labelFontSize 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Mar"
+    key="Mar-2020"
     style={
       Object {
         "fontSize": 16,
@@ -11555,7 +11555,7 @@ exports[`Fully testing API options labelFontSize 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Apr"
+    key="Apr-2020"
     style={
       Object {
         "fontSize": 16,
@@ -11568,7 +11568,7 @@ exports[`Fully testing API options labelFontSize 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="May"
+    key="May-2020"
     style={
       Object {
         "fontSize": 16,
@@ -11581,7 +11581,7 @@ exports[`Fully testing API options labelFontSize 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Jun"
+    key="Jun-2020"
     style={
       Object {
         "fontSize": 16,
@@ -11594,7 +11594,7 @@ exports[`Fully testing API options labelFontSize 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Jul"
+    key="Jul-2020"
     style={
       Object {
         "fontSize": 16,
@@ -11607,7 +11607,7 @@ exports[`Fully testing API options labelFontSize 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Aug"
+    key="Aug-2020"
     style={
       Object {
         "fontSize": 16,
@@ -17112,7 +17112,7 @@ exports[`Fully testing API options showWeekdaysLabels 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Aug"
+    key="Aug-2019"
     style={
       Object {
         "fontSize": 14,
@@ -17125,7 +17125,7 @@ exports[`Fully testing API options showWeekdaysLabels 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Sep"
+    key="Sep-2019"
     style={
       Object {
         "fontSize": 14,
@@ -17138,7 +17138,7 @@ exports[`Fully testing API options showWeekdaysLabels 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Oct"
+    key="Oct-2019"
     style={
       Object {
         "fontSize": 14,
@@ -17151,7 +17151,7 @@ exports[`Fully testing API options showWeekdaysLabels 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Nov"
+    key="Nov-2019"
     style={
       Object {
         "fontSize": 14,
@@ -17164,7 +17164,7 @@ exports[`Fully testing API options showWeekdaysLabels 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Dec"
+    key="Dec-2019"
     style={
       Object {
         "fontSize": 14,
@@ -17177,7 +17177,7 @@ exports[`Fully testing API options showWeekdaysLabels 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Jan"
+    key="Jan-2020"
     style={
       Object {
         "fontSize": 14,
@@ -17190,7 +17190,7 @@ exports[`Fully testing API options showWeekdaysLabels 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Feb"
+    key="Feb-2020"
     style={
       Object {
         "fontSize": 14,
@@ -17203,7 +17203,7 @@ exports[`Fully testing API options showWeekdaysLabels 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Mar"
+    key="Mar-2020"
     style={
       Object {
         "fontSize": 14,
@@ -17216,7 +17216,7 @@ exports[`Fully testing API options showWeekdaysLabels 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Apr"
+    key="Apr-2020"
     style={
       Object {
         "fontSize": 14,
@@ -17229,7 +17229,7 @@ exports[`Fully testing API options showWeekdaysLabels 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="May"
+    key="May-2020"
     style={
       Object {
         "fontSize": 14,
@@ -17242,7 +17242,7 @@ exports[`Fully testing API options showWeekdaysLabels 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Jun"
+    key="Jun-2020"
     style={
       Object {
         "fontSize": 14,
@@ -17255,7 +17255,7 @@ exports[`Fully testing API options showWeekdaysLabels 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Jul"
+    key="Jul-2020"
     style={
       Object {
         "fontSize": 14,
@@ -17268,7 +17268,7 @@ exports[`Fully testing API options showWeekdaysLabels 1`] = `
   </text>
   <text
     className="github-calendar__graph-label"
-    key="Aug"
+    key="Aug-2020"
     style={
       Object {
         "fontSize": 14,
