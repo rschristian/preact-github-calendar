@@ -68,6 +68,12 @@ Default: `14`
 
 Changes the font size of the month and days of the week labels. Takes any number.
 
+### showTooltip
+Type: `boolean`<br/>
+Default: `true`
+
+Show a tooltip when hovering over calendar elements. Shows the number of contributions and the date for the element.
+
 ### showWeekdaysLabels
 Type: `boolean`<br/>
 Default: `false`
