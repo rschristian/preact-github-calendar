@@ -169,13 +169,13 @@ export default function GitHubCalendar(props: { username: string; options?: Part
 
     function createDateRange(): string {
         const maxWeekIndex = graphData.contributions.length - 1;
-        const lastYear = graphData.contributions[0][0].date.split('-');
-        const today = graphData.contributions[maxWeekIndex][
+        const oldestDate = graphData.contributions[0][0].date.split('-');
+        const newestDate = graphData.contributions[maxWeekIndex][
             graphData.contributions[maxWeekIndex].length - 1
         ].date.split('-');
-        return `${MONTHS[Number(lastYear[1]) - 1]} ${+lastYear[2]}, ${lastYear[0]} - ${
-            MONTHS[Number(today[1]) - 1]
-        } ${+today[2]}, ${today[0]}`;
+        return `${MONTHS[Number(oldestDate[1]) - 1]} ${+oldestDate[2]}, ${oldestDate[0]} - ${
+            MONTHS[Number(newestDate[1]) - 1]
+        } ${+newestDate[2]}, ${newestDate[0]}`;
     }
 
     return (
