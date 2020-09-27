@@ -50,24 +50,6 @@ describe('Fully testing API options', () => {
         });
     });
 
-    test('calendarClassName', (done) => {
-        const mockClassName = 'my-calendar-class-name';
-
-        const wrapper = shallow(
-            <GitHubCalendar
-                username="rschristian"
-                options={{
-                    calendarClassName: mockClassName,
-                }}
-            />,
-        );
-
-        setImmediate(() => {
-            expect(wrapper.hasClass(mockClassName)).toBe(true);
-            done();
-        });
-    });
-
     test('contributionColorArray', (done) => {
         const legendItems = [
             '<li style="background-color: #ededed">',
