@@ -182,14 +182,12 @@ export default function GitHubCalendar(props: { username: string; options?: Part
                     <div class="github-calendar__graph">
                         <PreactHint
                             template={(content: string): VNode => {
-                                const contentPieces = content.split(',');
-                                function date(): string {
-                                    const split = contentPieces[1].split('-');
-                                    return `${MONTHS[Number(split[1]) - 1]} ${+split[2]}, ${split[0]}`;
-                                }
+                                const hintPieces = content.split(',');
+                                const split = hintPieces[1].split('-');
+                                const date = `${MONTHS[Number(split[1]) - 1]} ${+split[2]}, ${split[0]}`;
                                 return (
                                     <Fragment>
-                                        <strong>{contentPieces[0]} Contributions</strong> on {date()}
+                                        <strong>{hintPieces[0]} Contributions</strong> on {date}
                                     </Fragment>
                                 );
                             }}
