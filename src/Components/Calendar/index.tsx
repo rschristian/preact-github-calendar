@@ -1,6 +1,7 @@
 import { Fragment, h, VNode } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import PreactHint from 'preact-hint';
+import 'preact-hint/dist/index.css';
 
 import './styles.css';
 
@@ -130,7 +131,7 @@ export default function GitHubCalendar(props: { username: string; options?: Part
                         width={blockSize}
                         height={blockSize}
                         fill={contributionColorArray[day.intensity]}
-                        data-preact-hint={[day.count, day.date]}
+                        data-preact-hint={showTooltip ? [day.count, day.date] : null}
                     />
                 )),
             )
@@ -145,24 +146,6 @@ export default function GitHubCalendar(props: { username: string; options?: Part
                     {week}
                 </g>
             ));
-    }
-
-    function createSvg(): JSX.Element {
-        return (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="100%"
-                viewBox={`0 0 ${
-                    53 * (blockSize + blockMargin) -
-                    blockMargin +
-                    (showWeekdaysLabels ? (blockSize + blockMargin) * HORIZONTAL_SPACING : 0)
-                } ${(blockSize + blockMargin) * 7 - blockMargin + labelFontSize * VERTICAL_SPACING}`}
-            >
-                {showWeekdaysLabels && createWeekDayLabels()}
-                {createMonthLabels()}
-                {createRects()}
-            </svg>
-        );
     }
 
     function createLegend(): JSX.Element {
@@ -199,26 +182,21 @@ export default function GitHubCalendar(props: { username: string; options?: Part
             {graphData !== null ? (
                 <figure class={calendarClassName}>
                     <div class="github-calendar__graph">
-                        {showTooltip ? (
-                            <PreactHint
-                                template={(content: string): VNode => {
-                                    const contentPieces = content.split(',');
-                                    function date(): string {
-                                        const split = contentPieces[1].split('-');
-                                        return `${MONTHS[Number(split[1]) - 1]} ${+split[2]}, ${split[0]}`;
-                                    }
-                                    return (
-                                        <Fragment>
-                                            <strong>{contentPieces[0]} Contributions</strong> on {date()}
-                                        </Fragment>
-                                    );
-                                }}
+                        <PreactHint>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="100%"
+                                viewBox={`0 0 ${
+                                    53 * (blockSize + blockMargin) -
+                                    blockMargin +
+                                    (showWeekdaysLabels ? (blockSize + blockMargin) * HORIZONTAL_SPACING : 0)
+                                } ${(blockSize + blockMargin) * 7 - blockMargin + labelFontSize * VERTICAL_SPACING}`}
                             >
-                                {createSvg()}
-                            </PreactHint>
-                        ) : (
-                            createSvg()
-                        )}
+                                {showWeekdaysLabels && createWeekDayLabels()}
+                                {createMonthLabels()}
+                                {createRects()}
+                            </svg>
+                        </PreactHint>
                         <div class="github-calendar__graph-footer">
                             <div style={{ float: 'left' }}>
                                 Sum of pull requests, issues opened, and commits made by{' '}
