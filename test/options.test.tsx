@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import fetchMock from 'jest-fetch-mock';
 import 'regenerator-runtime/runtime';
 
-import GitHubCalendar from '../src/Calendar';
+import GitHubCalendar from '../src/Components/Calendar';
 import * as mockContributionData from './__mock__/index.json';
 
 describe('Fully testing API options', () => {
