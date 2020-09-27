@@ -68,12 +68,6 @@ Default: `12`
 
 Sets the size of the blocks in the component. This affects both the vertical and horizontal dimensions.
 
-### calendarClassName
-Type: `string`<br/>
-Default: `undefined`
-
-Sets the class name of the root calendar element.
-
 ### contributionColorArray
 Type: `['<color>', '<color>', '<color>', '<color>', '<color>']`<br/>
 Default: `['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39']`

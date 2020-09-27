@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Test of Calendar's base functionality Calendar fully loads 1`] = `
-<figure>
+<figure
+  className="github-calendar"
+>
   <div
     className="github-calendar__graph"
   >

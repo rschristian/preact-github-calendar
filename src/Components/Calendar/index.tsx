@@ -19,7 +19,6 @@ type Contribution = {
 type Options = {
     blockMargin: number;
     blockSize: number;
-    calendarClassName: string | undefined;
     contributionColorArray: [string, string, string, string, string];
     labelFontSize: number;
     showWeekdaysLabels: boolean;
@@ -30,7 +29,6 @@ export default function GitHubCalendar(props: { username: string; options?: Part
     const {
         blockMargin,
         blockSize,
-        calendarClassName,
         contributionColorArray,
         labelFontSize,
         showWeekdaysLabels,
@@ -39,7 +37,6 @@ export default function GitHubCalendar(props: { username: string; options?: Part
         {
             blockMargin: 2,
             blockSize: 12,
-            calendarClassName: undefined,
             contributionColorArray: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
             labelFontSize: 14,
             showWeekdaysLabels: false,
@@ -181,7 +178,7 @@ export default function GitHubCalendar(props: { username: string; options?: Part
     return (
         <Fragment>
             {graphData !== null ? (
-                <figure class={calendarClassName}>
+                <figure class="github-calendar">
                     <div class="github-calendar__graph">
                         <PreactHint
                             template={(content: string): VNode => {
