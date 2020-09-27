@@ -94,12 +94,13 @@ export default function GitHubCalendar(props: { username: string; options?: Part
 
         const filtered = weeks
             .map((entry, i) => {
-                const month = Number(entry.date.split('-')[1]) - 1;
+                const datePieces = entry.date.split('-');
+                const month = Number(datePieces[1]) - 1;
                 if (month !== previousMonth) {
                     previousMonth = month;
                     return (
                         <text
-                            key={MONTHS[month]}
+                            key={MONTHS[month] + datePieces[0]}
                             class="github-calendar__graph-label"
                             style={{ fontSize: labelFontSize }}
                             x={
