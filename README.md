@@ -5,11 +5,29 @@
 <h1 align="center">Preact GitHub Calendar</h1>
 
 <div align="center">
-    <a href="https://github.com/RyanChristian4427/preact-github-calendar/blob/master/LICENSE">
-        <img alt="NPM" src="https://img.shields.io/npm/l/preact-github-calendar?color=brightgreen">
+    <a href="https://github.com/rschristian/preact-github-calendar/blob/master/LICENSE">
+        <img
+            alt="NPM"
+            src="https://img.shields.io/npm/l/preact-github-calendar?color=brightgreen"
+        />
     </a>
     <a href="https://bundlephobia.com/result?p=preact-github-calendar">
-        <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/preact-github-calendar">
+        <img
+            alt="npm bundle size"
+            src="https://img.shields.io/bundlephobia/minzip/preact-github-calendar?color=brightgreen"
+        />
+    </a>
+    <a href="https://npmjs.org/package/preact-github-calendar">
+        <img
+            alt="0 Dependencies"
+            src="https://img.shields.io/david/rschristian/preact-github-calendar?color=brightgreen"
+        />
+    </a>
+    <a href="https://npmjs.org/package/preact-github-calendar">
+        <img
+            alt="TS Support"
+            src="https://img.shields.io/npm/types/preact-github-calendar?color=brightgreen"
+        />
     </a>
 </div>
 
