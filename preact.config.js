@@ -7,7 +7,7 @@ export default {
         nonModuleStyleLoader.sideEffects = true;
 
         const purgecss = purgeCss({
-            content: ['src/**/*.tsx'],
+            content: ['src/**/*.tsx', 'node_modules/preact-hint/dist/*'],
             safelist: ['html', 'body'],
         });
 
