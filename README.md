@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/ryanchristian4427/preact-github-calendar/blob/master/media/carbon.svg?raw=true" alt="Preact GitHub Calendar" width="600" />
+  <img src="https://github.com/rschristian/preact-github-calendar/blob/master/media/carbon.svg" alt="Preact GitHub Calendar Usage Example" width="600" />
 </div>
 
 <h1 align="center">Preact GitHub Calendar</h1>
