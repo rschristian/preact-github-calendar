@@ -1,10 +1,8 @@
 :root {
   --theme-dark-green: #216e39;
   --theme-green: #40c463;
-
   --theme-green-hover: #9be9a8;
   --theme-steel: #ededed;
-
   --container-max-width: 960px;
 }
 
@@ -39,8 +37,7 @@ html {
 
     &:active,
     &:focus {
-      background: #ddd;
-      background-image: linear-gradient(#eee, #ddd);
+      background: #ddd linear-gradient(#eee, #ddd);
       border-color: #bbb;
       color: var(--theme-dark-green);
     }
