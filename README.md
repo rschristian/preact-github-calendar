@@ -33,7 +33,9 @@
 
 <br />
 
-Preact GitHub Calendar is a component library used for displaying a user's contribution calendar from GitHub in a Preact application. This component comes with customization options that you can use for making the component better adhere to the style of your application. Requests for additional customization options are always welcome. 
+Preact GitHub Calendar is a component library used for displaying a user's contribution calendar from GitHub in a Preact application. This component comes with customization options that you can use for making the component better adhere to the style of your application. Requests for additional customization options are always welcome.
+
+Try out [the demo](https://rschristian.github.io/preact-github-calendar)!
 
 ## Install
 

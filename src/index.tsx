@@ -64,7 +64,7 @@ export default function App(): VNode {
                             />
                         </a>
                     </div>
-                    <div class="my-2">
+                    <div class="mt-2 mb-5">
                         Preact-GitHub-Calendar is a lightweight and extensible component for{' '}
                         <a href="https://preactjs.com">Preact</a>. It was designed to be a more lightweight alternative
                         to the existing React implementations.
