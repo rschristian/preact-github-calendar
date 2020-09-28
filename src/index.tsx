@@ -37,7 +37,7 @@ export default function App(): VNode {
             </section>
             <div class="section main-content">
                 <div class="container">
-                    <h3 class="is-size-3">Preact Hint</h3>
+                    <h3 class="is-size-3">Preact GitHub Calendar</h3>
                     <div class="shields mt-1">
                         <a href="https://github.com/rschristian/preact-github-calendar/blob/master/LICENSE">
                             <img
@@ -49,12 +49,6 @@ export default function App(): VNode {
                             <img
                                 alt="npm bundle size"
                                 src="https://img.shields.io/bundlephobia/minzip/preact-github-calendar?color=brightgreen"
-                            />
-                        </a>
-                        <a href="https://npmjs.org/package/preact-github-calendar">
-                            <img
-                                alt="0 Dependencies"
-                                src="https://img.shields.io/david/rschristian/preact-github-calendar?color=brightgreen"
                             />
                         </a>
                         <a href="https://npmjs.org/package/preact-github-calendar">

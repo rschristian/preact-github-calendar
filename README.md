@@ -19,12 +19,6 @@
     </a>
     <a href="https://npmjs.org/package/preact-github-calendar">
         <img
-            alt="0 Dependencies"
-            src="https://img.shields.io/david/rschristian/preact-github-calendar?color=brightgreen"
-        />
-    </a>
-    <a href="https://npmjs.org/package/preact-github-calendar">
-        <img
             alt="TS Support"
             src="https://img.shields.io/npm/types/preact-github-calendar?color=brightgreen"
         />
