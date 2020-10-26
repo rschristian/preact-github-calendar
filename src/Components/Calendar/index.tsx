@@ -1,7 +1,6 @@
 import { Fragment, h, VNode } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import PreactHint from 'preact-hint';
-import 'preact-hint/dist/index.css';
 
 import './styles.css';
 

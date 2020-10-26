@@ -1,3 +1,5 @@
+@import '~preact-hint/dist/index.css';
+
 .github-calendar__graph {
   padding: 0.5rem;
 }
@@ -13,7 +15,7 @@
 
 .github-calendar__graph-footer {
   font-size: 11px;
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 
 .github-calendar__graph-legend {
