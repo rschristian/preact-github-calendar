@@ -1,6 +1,6 @@
 {
   "name": "preact-github-calendar",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "source": "src/Components/Calendar/index.tsx",
   "main": "dist/calendar.js",
   "module": "dist/calendar.module.js",
