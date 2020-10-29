@@ -42,17 +42,6 @@ html {
       color: var(--theme-dark-green);
     }
   }
-
-  input {
-    margin-top: 2rem;
-    margin-right: 1rem;
-    width: 20%;
-
-    &::placeholder {
-      color: #000;
-      font-weight: bold;
-    }
-  }
 }
 
 .main-content {
@@ -69,6 +58,15 @@ html {
   .shields {
     a:not(:last-child) {
       margin-right: 0.25rem;
+    }
+  }
+
+  input {
+    width: 25%;
+
+    &::placeholder {
+      color: #000;
+      font-weight: bold;
     }
   }
 

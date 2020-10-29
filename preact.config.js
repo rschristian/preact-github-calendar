@@ -7,7 +7,7 @@ export default {
         nonModuleStyleLoader.sideEffects = true;
 
         const purgecss = purgeCss({
-            content: ['src/**/*.tsx', 'node_modules/preact-hint/dist/*'],
+            content: ['src/**/*.tsx', 'demo/**/*.tsx', 'node_modules/preact-hint/dist/*'],
             safelist: ['html', 'body'],
         });
 
@@ -16,6 +16,8 @@ export default {
         if (env.production) {
             config.output.publicPath = 'https://rschristian.github.io/preact-github-calendar';
             postCss.loader.options.plugins.push(purgecss);
+            const critters = helpers.getPluginsByName(config, 'Critters')[0];
+            if (critters) critters.plugin.options.pruneSource = true;
         }
     },
 };

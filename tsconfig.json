@@ -9,5 +9,5 @@
     "noImplicitAny": true,
     "resolveJsonModule": true
   },
-  "include": ["src", "test"]
+  "include": ["src", "demo", "test"]
 }
