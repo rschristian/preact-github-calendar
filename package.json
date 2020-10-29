@@ -7,6 +7,14 @@
   "esmodule": "dist/calendar.modern.js",
   "umd:main": "dist/calendar.umd.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "browser": "./dist/calendar.module.js",
+      "umd": "./dist/calendar.umd.js",
+      "import": "./dist/calendar.module.js",
+      "require": "./dist/calendar.js"
+    }
+  },
   "license": "MIT",
   "description": "Preact Component that Displays a User's GitHub Contribution Calendar",
   "homepage": "https://rschristian.github.io/preact-github-calendar",
@@ -17,6 +25,12 @@
     "contribution",
     "calendar",
     "component"
+  ],
+  "files": [
+    "dist",
+    "LICENSE",
+    "package.json",
+    "README.md"
   ],
   "sideEffects": false,
   "scripts": {
