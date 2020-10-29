@@ -49,10 +49,13 @@ export default function GitHubCalendar(props: { username: string; options?: Part
 
     useEffect(() => {
         async function getContributionData(): Promise<void> {
+            setGraphData(null);
+            setError('');
             try {
                 const response = await (
                     await fetch(`https://githubapi.ryanchristian.dev/user/${props.username}`)
                 ).json();
+                if ('message' in response) return setError(response.message);
                 if (!('total' in response) || !('contributions' in response)) return setError('Invalid response data');
                 setGraphData(response);
             } catch {
