@@ -1,7 +1,7 @@
 {
   "name": "preact-github-calendar",
   "version": "0.5.4",
-  "source": "src/Components/Calendar/index.tsx",
+  "source": "src/index.tsx",
   "main": "dist/calendar.js",
   "module": "dist/calendar.module.js",
   "esmodule": "dist/calendar.modern.js",
@@ -35,7 +35,7 @@
   "sideEffects": false,
   "scripts": {
     "serve:dev": "preact watch --src demo -p 3000 --template demo/template.html --refresh",
-    "build": "microbundle --entry src/index.tsx --css-modules false --tsconfig tsconfig.build.json",
+    "build": "microbundle --css-modules false --tsconfig tsconfig.build.json",
     "lint": "eslint '{src,demo,test}/**/*.{js,ts,tsx}' --fix && prettier '{src,demo,test}/**/*.css' './*.json' --write",
     "build:demo": "preact build --src demo --template demo/template.html --no-sw",
     "serve:demo": "sirv build -p 3000 --single",
