@@ -63,10 +63,16 @@ html {
 
   input {
     width: 25%;
+    border-color: #dbdbdb !important;
 
     &::placeholder {
       color: #000;
       font-weight: bold;
+    }
+
+    &:active,
+    &:focus {
+      border-color: #48c774 !important;
     }
   }
 
