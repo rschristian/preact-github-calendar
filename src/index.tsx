@@ -115,11 +115,7 @@ export default function GitHubCalendar(props: { username: string; options?: Part
             .filter((element) => element !== undefined);
 
         // Might be a better way to do this, but I can't think of it at the moment
-        if (
-            filtered[1] !== undefined &&
-            filtered[1].props['x'] - filtered[0].props['x'] <= (blockSize + blockMargin) * 2
-        )
-            filtered.shift();
+        if (filtered[1].props['x'] - filtered[0].props['x'] <= (blockSize + blockMargin) * 2) filtered.shift();
         return filtered;
     }
 
