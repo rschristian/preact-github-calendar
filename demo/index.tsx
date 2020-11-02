@@ -76,7 +76,7 @@ export default function App(): VNode {
                     </pre>
                     <h4 class="is-size-4 mt-5 mb-2">General Usage</h4>
                     <pre>
-                        <code>{`import GitHubCalendar from "preact-github-calendar";
+                        <code>{`import GitHubCalendar from 'preact-github-calendar';
 import 'preact-github-calendar/dist/index.css'
 
 export default function App() {
