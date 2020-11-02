@@ -66,8 +66,7 @@ export default function GitHubCalendar(props: { username: string; options?: Part
     }, [props.username]);
 
     function createWeekDayLabels(): JSX.Element[] {
-        const weekDays = ['Mon', 'Wed', 'Fri'];
-        return weekDays.map((weekDay, i) => {
+        return ['Mon', 'Wed', 'Fri'].map((weekDay, i) => {
             return (
                 <text
                     key={weekDay}
