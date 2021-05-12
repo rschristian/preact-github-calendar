@@ -1,6 +1,6 @@
 {
   "name": "preact-github-calendar",
-  "version": "0.5.6",
+  "version": "0.5.7",
   "description": "Preact Component that Displays a User's GitHub Contribution Calendar",
   "license": "MIT",
   "homepage": "https://rschristian.github.io/preact-github-calendar",
