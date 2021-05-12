@@ -1,4 +1,4 @@
-import { Fragment, h, VNode } from 'preact';
+import { Fragment, h, JSX, VNode } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import PreactHint from 'preact-hint';
 
@@ -24,7 +24,10 @@ type Options = {
     showTooltip: boolean;
 };
 
-export default function GitHubCalendar(props: { username: string; options?: Partial<Options> }): VNode {
+export default function GitHubCalendar(props: {
+    username: string;
+    options?: Partial<Options>;
+}): VNode {
     const {
         blockMargin,
         blockSize,
@@ -44,7 +47,8 @@ export default function GitHubCalendar(props: { username: string; options?: Part
         props.options,
     );
 
-    const [graphData, setGraphData] = useState<{ total: number; contributions: Contribution[][] }>(null);
+    const [graphData, setGraphData] =
+        useState<{ total: number; contributions: Contribution[][] }>(null);
     const [error, setError] = useState<string>('');
 
     useEffect(() => {
@@ -56,7 +60,8 @@ export default function GitHubCalendar(props: { username: string; options?: Part
                     await fetch(`https://gh-calendar.rschristian.dev/user/${props.username}`)
                 ).json();
                 if ('message' in response) return setError(response.message);
-                if (!('total' in response) || !('contributions' in response)) return setError('Invalid response data');
+                if (!('total' in response) || !('contributions' in response))
+                    return setError('Invalid response data');
                 setGraphData(response);
             } catch {
                 setError('Unknown Error');
@@ -87,7 +92,8 @@ export default function GitHubCalendar(props: { username: string; options?: Part
 
     function createMonthLabels(): JSX.Element[] {
         const weeks: Contribution[] = [];
-        for (let i = 0; i < graphData.contributions.length - 1; i++) weeks.push(graphData.contributions[i][0]);
+        for (let i = 0; i < graphData.contributions.length - 1; i++)
+            weeks.push(graphData.contributions[i][0]);
         let previousMonth = 0;
 
         const filtered = weeks
@@ -102,7 +108,9 @@ export default function GitHubCalendar(props: { username: string; options?: Part
                             class="github-calendar__graph-label"
                             style={{ fontSize: labelFontSize }}
                             x={
-                                (showWeekdaysLabels ? (blockSize + blockMargin) * HORIZONTAL_SPACING : 0) +
+                                (showWeekdaysLabels
+                                    ? (blockSize + blockMargin) * HORIZONTAL_SPACING
+                                    : 0) +
                                 (blockSize + blockMargin) * i
                             }
                             y={labelFontSize}
@@ -115,7 +123,8 @@ export default function GitHubCalendar(props: { username: string; options?: Part
             .filter((element) => element !== undefined);
 
         // Might be a better way to do this, but I can't think of it at the moment
-        if (filtered[1].props['x'] - filtered[0].props['x'] <= (blockSize + blockMargin) * 2) filtered.shift();
+        if (filtered[1].props['x'] - filtered[0].props['x'] <= (blockSize + blockMargin) * 2)
+            filtered.shift();
         return filtered;
     }
 
@@ -168,9 +177,10 @@ export default function GitHubCalendar(props: { username: string; options?: Part
     function createDateRange(): string {
         const maxWeekIndex = graphData.contributions.length - 1;
         const oldestDate = graphData.contributions[0][0].date.split('-');
-        const newestDate = graphData.contributions[maxWeekIndex][
-            graphData.contributions[maxWeekIndex].length - 1
-        ].date.split('-');
+        const newestDate =
+            graphData.contributions[maxWeekIndex][
+                graphData.contributions[maxWeekIndex].length - 1
+            ].date.split('-');
         return `${MONTHS[Number(oldestDate[1]) - 1]} ${+oldestDate[2]}, ${oldestDate[0]} - ${
             MONTHS[Number(newestDate[1]) - 1]
         } ${+newestDate[2]}, ${newestDate[0]}`;
@@ -185,7 +195,9 @@ export default function GitHubCalendar(props: { username: string; options?: Part
                             template={(content: string): VNode => {
                                 const hintPieces = content.split(',');
                                 const split = hintPieces[1].split('-');
-                                const date = `${MONTHS[Number(split[1]) - 1]} ${+split[2]}, ${split[0]}`;
+                                const date = `${MONTHS[Number(split[1]) - 1]} ${+split[2]}, ${
+                                    split[0]
+                                }`;
                                 return (
                                     <Fragment>
                                         <strong>{hintPieces[0]} Contributions</strong> on {date}
@@ -199,8 +211,14 @@ export default function GitHubCalendar(props: { username: string; options?: Part
                                 viewBox={`0 0 ${
                                     53 * (blockSize + blockMargin) -
                                     blockMargin +
-                                    (showWeekdaysLabels ? (blockSize + blockMargin) * HORIZONTAL_SPACING : 0)
-                                } ${(blockSize + blockMargin) * 7 - blockMargin + labelFontSize * VERTICAL_SPACING}`}
+                                    (showWeekdaysLabels
+                                        ? (blockSize + blockMargin) * HORIZONTAL_SPACING
+                                        : 0)
+                                } ${
+                                    (blockSize + blockMargin) * 7 -
+                                    blockMargin +
+                                    labelFontSize * VERTICAL_SPACING
+                                }`}
                             >
                                 {showWeekdaysLabels && createWeekDayLabels()}
                                 {createMonthLabels()}

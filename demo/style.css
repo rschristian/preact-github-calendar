@@ -1,9 +1,9 @@
 :root {
-  --theme-dark-green: #216e39;
   --theme-green: #40c463;
-  --theme-green-hover: #9be9a8;
+  --theme-dark-green: #216e39;
   --theme-steel: #ededed;
-  --container-max-width: 960px;
+  --theme-link-blue: #3273dc;
+  --theme-link-hover: #363636;
 }
 
 html {
@@ -11,107 +11,36 @@ html {
   overflow-y: auto;
 }
 
-.hero,
-.footer {
+#hero,
+footer {
   background-image: linear-gradient(150deg, var(--theme-dark-green), var(--theme-green));
 }
 
-.hero {
-  h2 {
-    color: var(--theme-steel);
-  }
-
-  h6 {
-    color: #ddd;
-  }
-
-  a {
-    background: rgba(255, 255, 255, 0.08);
-    color: rgba(255, 255, 255, 0.7);
-    margin-top: 2rem;
-
-    &:hover {
-      background: rgba(255, 255, 255, 0.2);
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    &:active,
-    &:focus {
-      background: #ddd linear-gradient(#eee, #ddd);
-      border-color: #bbb;
-      color: var(--theme-dark-green);
-    }
-  }
+#main-content a {
+  color: var(--theme-link-blue) !important;
 }
 
-.main-content {
-  .container {
-    max-width: var(--container-max-width);
-  }
-
-  h3,
-  h4,
-  h5 {
-    color: var(--theme-green);
-  }
-
-  .shields {
-    a:not(:last-child) {
-      margin-right: 0.25rem;
-    }
-  }
-
-  input {
-    width: 25%;
-    border-color: #dbdbdb !important;
-
-    &::placeholder {
-      color: #000;
-      font-weight: bold;
-    }
-
-    &:active,
-    &:focus {
-      border-color: #48c774 !important;
-    }
-  }
-
-  .tile {
-    max-width: var(--container-max-width);
-    margin-top: 0.5rem !important;
-  }
-
-  pre {
-    padding: 0.8rem;
-    background-color: #ddd;
-    border: 1px solid #aaa;
-    max-width: var(--container-max-width);
-  }
-
-  .divider {
-    background-color: #aaa;
-  }
-
-  figure {
-    .preact-hint__content {
-      font-size: 0.75em;
-
-      strong {
-        color: #fff;
-      }
-    }
-
-    .github-calendar__graph-footer {
-      font-size: 14px;
-    }
-
-    .github-calendar__footer {
-      font-size: 14px;
-    }
-  }
+#main-content a:hover {
+  color: var(--theme-link-hover) !important;
+  text-decoration: underline;
 }
 
-.footer {
-  padding: 0.25rem;
-  color: var(--theme-steel);
+input::placeholder {
+  font-weight: 700;
 }
+
+
+/* Configuring the component */
+.preact-hint__content {
+  font-size: 0.75rem;
+}
+
+.github-calendar__graph-footer {
+  margin-top: 0.25rem;
+  font-size: 14px !important;
+}
+
+.github-calendar__footer {
+  font-size: 14px !important;
+}
+

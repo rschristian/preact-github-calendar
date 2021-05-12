@@ -1,4 +1,4 @@
-@import '~preact-hint/dist/hint.css';
+@import 'preact-hint/dist/hint.css';
 
 .github-calendar__graph {
   padding: 0.5rem;
@@ -15,6 +15,7 @@
 }
 
 .github-calendar__graph-footer {
+  margin-top: 0.25rem;
   font-size: 11px;
   overflow-y: hidden;
 }
