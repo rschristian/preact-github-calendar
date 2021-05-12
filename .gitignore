@@ -4,9 +4,6 @@
 # Dependency directories
 node_modules/
 
-# Ignore IDE files
-.idea/
-
 # Ignore built files
 dist/
 build/
@@ -14,5 +11,5 @@ build/
 # Ignore Jest coverage report
 coverage
 
-# Ignore Preact-CLI bundle size tracker
-size-plugin.json
+# Ignore WMR cache
+.cache
