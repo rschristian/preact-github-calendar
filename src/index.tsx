@@ -52,7 +52,7 @@ export default function GitHubCalendar(props: {
     const [error, setError] = useState<string>('');
 
     useEffect(() => {
-        async function getContributionData(): Promise<void> {
+        (async function getContributionData(): Promise<void> {
             setGraphData(null);
             setError('');
             try {
@@ -66,28 +66,25 @@ export default function GitHubCalendar(props: {
             } catch {
                 setError('Unknown Error');
             }
-        }
-        getContributionData().then();
+        })();
     }, [props.username]);
 
     function createWeekDayLabels(): JSX.Element[] {
-        return ['Mon', 'Wed', 'Fri'].map((weekDay, i) => {
-            return (
-                <text
-                    key={weekDay}
-                    class="github-calendar__graph-label"
-                    style={{ fontSize: labelFontSize }}
-                    x={0}
-                    y={
-                        labelFontSize * VERTICAL_SPACING +
-                        (blockSize + blockMargin) * ((i + 1) * 2 - 1) +
-                        (blockSize - 1)
-                    }
-                >
-                    {weekDay}
-                </text>
-            );
-        });
+        return ['Mon', 'Wed', 'Fri'].map((weekDay, i) => (
+            <text
+                key={weekDay}
+                class="github-calendar__graph-label"
+                style={{ fontSize: labelFontSize }}
+                x={0}
+                y={
+                    labelFontSize * VERTICAL_SPACING +
+                    (blockSize + blockMargin) * ((i + 1) * 2 - 1) +
+                    (blockSize - 1)
+                }
+            >
+                {weekDay}
+            </text>
+        ));
     }
 
     function createMonthLabels(): JSX.Element[] {
@@ -226,13 +223,13 @@ export default function GitHubCalendar(props: {
                             </svg>
                         </PreactHint>
                         <div class="github-calendar__graph-footer">
-                            <div style={{ float: 'left' }}>
+                            <div style="float: left">
                                 Sum of pull requests, issues opened, and commits made by{' '}
                                 <a href={`https://github.com/${props.username}`} target="blank">
                                     @{props.username}
                                 </a>
                             </div>
-                            <div style={{ float: 'right' }}>
+                            <div style="float: right">
                                 Less
                                 {createLegend()}
                                 More
