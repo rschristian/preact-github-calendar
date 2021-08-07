@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full text-navy bg-steel">
+    <head>
+        <meta charset="utf-8" />
+        <title>Preact GitHub Calendar</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="description" content="Preact GitHub Calendar Docs" />
+        <link rel="shortcut icon" href="/assets/favicon.ico" />
+        <link rel="stylesheet" href="/preact-github-calendar.css" />
+        <style>
+            .preact-hint__content {
+                font-size: 0.75em;
+            }
+
+            .github-calendar__graph-footer {
+                font-size: 14px;
+            }
+
+            .github-calendar__graph-footer a {
+                color: #3273dc;
+            }
+
+            .github-calendar__graph-footer a:hover {
+                color: #363636;
+            }
+
+            .github-calendar__footer {
+                font-size: 14px;
+            }
+            
+            .bash.function,
+            .token.keyword {
+                color: #40bf6a;
+            }
+
+            .token.tag {
+                color: #e09f3e;
+            }
+
+            .token.string,
+            .token.attr-value {
+                color: #ccffde;
+            }
+
+            .token.punctuation {
+                color: #ccc;
+            }
+        </style>
+        <style></style>
+    </head>
+    <body class="h-full">
+        <div class="flex flex-col h-full">
+            <section class="bg-gradient-to-br from-primary-dark to-primary">
+                <div class="py-12 px-4">
+                    <div class="mx-auto text-center">
+                        <h1 class="mb-2 text-5xl text-steel font-bold">Preact GitHub Calendar</h1>
+                        <h2 class="text-steel-dim">
+                            Lightweight and extensible component to display the contribution calendar for a GitHub user
+                        </h2>
+                        <a
+                            class="
+                                mt-8
+                                px-4
+                                py-2
+                                inline-flex
+                                rounded-md
+                                text-steel
+                                border-1 border-solid border-steel
+                                bg-white bg-opacity-10
+                                hover:text-white
+                                hover:bg-white
+                                hover:bg-opacity-20
+                                hover:border-steel-dimmer
+                            "
+                            href="https://github.com/rschristian/preact-github-calendar"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            Check it out on GitHub
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <main class="w-full lg:max-w-screen-lg mx-auto px-6 py-12 flex-auto">
+                <h1 class="mb-2 text-4xl text-center lg:text-left text-primary">Preact GitHub Calendar</h1>
+                <div class="flex mb-6 justify-center lg:justify-left" style="height: 20px;">
+                    <a
+                        class="mr-1"
+                        href="https://github.com/rschristian/preact-github-calendar/blob/master/LICENSE"
+                    >
+                        <img
+                            alt="NPM"
+                            src="https://img.shields.io/npm/l/preact-github-calendar?color=%2340bf6a"
+                        />
+                    </a> 
+                    <a class="mr-1" href="https://npmjs.org/package/preact-github-calendar">
+                        <img
+                            alt="0 Dependencies"
+                            src="https://img.shields.io/david/rschristian/preact-github-calendar?color=%2340bf6a"
+                        />
+                    </a>
+                    <a href="https://npmjs.org/package/preact-github-calendar">
+                        <img
+                            alt="TS Support"
+                            src="https://img.shields.io/npm/types/preact-github-calendar?color=%2340bf6a"
+                        />
+                    </a>
+                </div>
+                <p class="text-xl mb-2">
+                    Preact-GitHub-Calendar is a lightweight and extensible component for
+                    <a
+                        class="text-primary hover:text-primary-light underline"
+                        href="https://preactjs.com"
+                        >Preact</a
+                    >. It was designed to be a more lightweight alternative to the existing React implementations.
+                </p>
+                <input
+                    id="usernameInput"
+                    class="w-full lg:w-2/6 mt-4 mb-2 px-2 py-2 rounded-lg shadow outline-none focus:ring w-full"
+                    type="text"
+                    placeholder="Enter a GitHub username"
+                />
+                <div id="calendar-demo">
+                    <div class="p-5 bg-white rounded-md shadow-md" style="height: 324.85px;"></div>
+                </div>
+                <h4 class="mt-6 mb-4 text-2xl text-primary">Installation</h4>
+                <div class="p-2 text-code-primary bg-code-background rounded-lg">
+                    <code
+                        >$ <span class="bash function">yarn</span>
+                        <span class="bash function">add</span> preact-github-calendar</code
+                    >
+                </div>
+                <h4 class="mt-6 mb-4 text-2xl text-primary">General Usage</h4>
+                <pre class="p-4 text-code-primary bg-code-background rounded-lg overflow-x-auto">
+<code class="language-jsx">import GitHubCalendar from 'preact-github-calendar';
+import 'preact-github-calendar/dist/index.css'
+
+export default function App() {
+    return &lt;GitHubCalendar username="rschristian" options={{ ... }} /&gt;
+}</code></pre>
+                <hr class="h-0.5 my-6 text-code-background bg-code-background" /> 
+                <div>
+                    <h4 class="mt-6 mb-4 text-2xl text-primary">Options</h4>
+
+                    <div class="mb-12 mx-3">
+                        <h5 class="mb-2 text-xl text-primary">• blockMargin</h5>
+                        <h4 class="mb-4 ml-3">Default: 2</h4>
+                        <pre class="mb-2 p-4 text-code-primary bg-code-background rounded-lg overflow-x-auto">
+<code class="language-jsx">&lt;GitHubCalendar username="rschristian" options={{ blockMargin: 4 }} /&gt;</code></pre>
+                        <div id="usage-blockMargin">
+                            <div class="p-5 bg-white rounded-md shadow-md" style="height: 324.85px;"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-12 mx-3">
+                        <h5 class="mb-2 text-xl text-primary">• blockSize</h5>
+                        <h4 class="mb-4 ml-3">Default: 12</h4>
+                        <pre class="mb-2 p-4 text-code-primary bg-code-background rounded-lg overflow-x-auto">
+<code class="language-jsx">&lt;GitHubCalendar username="rschristian" options={{ blockSize: 18 }} /&gt;</code></pre>
+                        <div id="usage-blockSize">
+                            <div class="p-5 bg-white rounded-md shadow-md" style="height: 324.85px;"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-12 mx-3">
+                        <h5 class="mb-2 text-xl text-primary">• contributionColorArray</h5>
+                        <h4 class="mb-4 ml-3">Default: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39']</h4>
+                        <pre class="mb-2 p-4 text-code-primary bg-code-background rounded-lg overflow-x-auto">
+<code class="language-jsx">&lt;GitHubCalendar username="rschristian" options={{ contributionColorArray: ["#ededed", "#9ba1e9", "#4040c4", "#3030a1", "#21216e"] }} /&gt;</code></pre>
+                        <div id="usage-contributionColorArray">
+                            <div class="p-5 bg-white rounded-md shadow-md" style="height: 324.85px;"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-12 mx-3">
+                        <h5 class="mb-2 text-xl text-primary">• labelFontSize</h5>
+                        <h4 class="mb-4 ml-3">Default: 14</h4>
+                        <pre class="mb-2 p-4 text-code-primary bg-code-background rounded-lg overflow-x-auto">
+<code class="language-jsx">&lt;GitHubCalendar username="rschristian" options={{ labelFontSize: 20 }} /&gt;</code></pre>
+                        <div id="usage-labelFontSize">
+                            <div class="p-5 bg-white rounded-md shadow-md" style="height: 324.85px;"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-12 mx-3">
+                        <h5 class="mb-2 text-xl text-primary">• showTooltip</h5>
+                        <h4 class="mb-4 ml-3">Default: True</h4>
+                        <pre class="mb-2 p-4 text-code-primary bg-code-background rounded-lg overflow-x-auto">
+<code class="language-jsx">&lt;GitHubCalendar username="rschristian" options={{ showTooltip: false }} /&gt;</code></pre>
+                        <div id="usage-showTooltip">
+                            <div class="p-5 bg-white rounded-md shadow-md" style="height: 324.85px;"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-12 mx-3">
+                        <h5 class="mb-2 text-xl text-primary">• showWeekdaysLabels</h5>
+                        <h4 class="mb-4 ml-3">Default: False</h4>
+                        <pre class="mb-2 p-4 text-code-primary bg-code-background rounded-lg overflow-x-auto">
+<code class="language-jsx">&lt;GitHubCalendar username="rschristian" options={{ showWeekdaysLabels: true }} /&gt;</code></pre>
+                        <div id="usage-showWeekdaysLabels">
+                            <div class="p-5 bg-white rounded-md shadow-md" style="height: 324.85px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer class="p-1 bg-gradient-to-br from-primary-dark to-primary text-steel text-center">
+                <span
+                    >© 2021 Ryan Christian
+                    <a
+                        class="text-steel hover:text-steel-dimmer"
+                        href="https://github.com/rschristian"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >@rschristian</a
+                    ></span
+                >
+            </footer>
+        </div>
+
+        <script src="/prism.js"></script>
+        <script type="module">
+            import { hydrate } from 'https://cdn.skypack.dev/preact';
+            import { html } from 'https://cdn.skypack.dev/htm/preact';
+            import GitHubCalendar from '/preact-github-calendar.js';
+
+            let username = 'rschristian';
+            document.getElementById('usernameInput').addEventListener('change', (e) => {
+                username = e.target.value;
+                // There's 4 child nodes for an attribute value, [=, ", <username>, "]
+                document.querySelectorAll('.attr-value').forEach((node) => node.childNodes[2].nodeValue = username);
+                render();
+            });
+
+            const Tile = (props) => html`<div class="p-5 bg-white rounded-md shadow-md">${props.content}<//>`;
+
+            const examples = [
+                {
+                    id: 'calendar-demo',
+                    options: { showWeekdaysLabels: true }
+                },
+                {
+                    id: 'usage-blockMargin',
+                    options: { blockMargin: 4 }
+                },
+                {
+                    id: 'usage-blockSize',
+                    options: { blockSize: 18 }
+                },
+                {
+                    id: 'usage-contributionColorArray',
+                    options: { contributionColorArray: ["#ededed", "#9ba1e9", "#4040c4", "#3030a1", "#21216e"] }
+                },
+                {
+                    id: 'usage-labelFontSize',
+                    options: { labelFontSize: 20 }
+                },
+                {
+                    id: 'usage-showTooltip',
+                    options: { showTooltip: false }
+                },
+                {
+                    id: 'usage-showWeekdaysLabels',
+                    options: { showWeekdaysLabels: true }
+                }
+            ];
+            
+            function render() {
+                for (const example of examples) {
+                    hydrate(
+                        html`<${Tile} content=${html`<${GitHubCalendar} username=${username} options=${example.options} />`} />`,
+                        document.getElementById(example.id),
+                    );
+                }
+            }
+
+            render();
+        </script>
+    </body>
+</html>

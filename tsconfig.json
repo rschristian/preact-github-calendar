@@ -1,18 +1,12 @@
 {
 	"compilerOptions": {
-		"jsx": "preserve",
-		"jsxFactory": "preact.h",
-		"jsxFragmentFactory": "preact.Fragment",
-		"allowJs": true,
-		"checkJs": true,
-		"strict": true,
-		"noEmit": true,
+    "target": "ESNext",
+		"module": "ESNext",
+    "esModuleInterop": true,
+		"jsx": "react",
+		"jsxFactory": "h",
 		"moduleResolution": "node",
-		"target": "ESNext",
-		"module": "esnext",
-		"resolveJsonModule": true,
-		"allowSyntheticDefaultImports": true,
-		"downlevelIteration": true
+    "noImplicitAny": true
 	},
-	"include": ["node_modules/wmr/types.d.ts", "**/*"]
+	"include": ["src"]
 }
