@@ -1,36 +1,18 @@
 {
   "name": "preact-github-calendar",
   "version": "0.5.7",
-  "description": "Preact Component that Displays a User's GitHub Contribution Calendar",
-  "license": "MIT",
-  "homepage": "https://rschristian.github.io/preact-github-calendar",
-  "repository": "https://github.com/rschristian/preact-github-calendar",
-  "author": {
-    "name": "Ryan Christian"
-  },
   "source": "src/index.tsx",
+  "types": "dist/index.d.ts",
   "type": "module",
   "exports": {
     ".": "./dist/calendar.js",
-    "./calendar.css": "./dist/calendar.css",
-    "./dist/calendar.css": "./dist/calendar.css"
+    "./style.css": "./dist/style.css",
+    "./dist/style.css": "./dist/style.css"
   },
-  "sideEffects": false,
-  "engines": {
-    "node": ">=12"
-  },
-  "scripts": {
-    "build": "microbundle --tsconfig tsconfig.build.json -f es --no-sourcemap",
-    "postbuild": "mv dist/preact-github-calendar.esm.js dist/calendar.js && mv dist/preact-github-calendar.esm.css dist/calendar.css",
-    "serve:dev": "wmr --public demo -p 3000",
-    "build:demo": "wmr build --public demo --prerender --out ./build",
-    "serve:demo": "wmr serve -p 3000 --out ./build",
-    "lint": "eslint '{src,demo,test}/**/*.{js,ts,tsx}' --fix && prettier '{src,demo,test}/**/*.css' './*.json' --write",
-    "test": "jest --clearCache && jest --coverage"
-  },
-  "files": [
-    "dist"
-  ],
+  "license": "MIT",
+  "description": "Preact Component that Displays a User's GitHub Contribution Calendar",
+  "homepage": "https://rschristian.github.io/preact-github-calendar",
+  "repository": "https://github.com/rschristian/preact-github-calendar",
   "keywords": [
     "preact",
     "github",
@@ -38,6 +20,18 @@
     "calendar",
     "component"
   ],
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "microbundle -f modern --no-sourcemap",
+    "postbuild": "mv dist/preact-github-calendar.js dist/calendar.js && mv dist/preact-github-calendar.css dist/style.css",
+    "serve:dev": "sirv docs -p 3000 -D & yarn dev:lib & yarn dev:twind",
+    "dev:lib": "yarn build -o docs/dev --watch & chokidar --initial 'docs/dev/preact-github-calendar.js' -c 'node docs/dev/post-build.js'",
+    "dev:twind": "chokidar --initial 'docs/dev/{index.html,twind-processor.js}' -c 'node docs/dev/twind-processor.js'",
+    "format": "prettier '{src,docs}/**/*.{html,css,js}' '*.json' --write"
+  },
   "peerDependencies": {
     "preact": ">=10"
   },
@@ -45,33 +39,15 @@
     "preact-hint": "^0.1.6"
   },
   "devDependencies": {
-    "@twind/wmr": "^1.0.7",
-    "eslint": "^7.26.0",
-    "eslint-config-rschristian": "latest",
-    "microbundle": "^0.13.0",
-    "postcss-import": "^14.0.2",
-    "preact": "^10.5.13",
-    "preact-github-calendar": "^0.5.6",
-    "preact-iso": "^2.0.2",
-    "preact-render-to-string": "^5.1.19",
-    "prettier": "^2.3.0",
+    "chokidar-cli": "^3.0.0",
+    "html-minifier-terser": "^5.1.1",
+    "microbundle": "^0.13.3",
+    "preact": "^10.5.14",
+    "prettier": "^2.3.2",
     "prettier-config-rschristian": "^0.1.1",
-    "ts-debounce": "^3.0.0",
-    "twind": "^0.16.13",
-    "typescript": "^4.2.4",
-    "wmr": "^2.0.2"
-  },
-  "eslintConfig": {
-    "extends": "rschristian",
-    "rules": {
-      "@typescript-eslint/explicit-module-boundary-types": "off",
-      "@typescript-eslint/no-unused-vars": [
-        "warn",
-        {
-          "varsIgnorePattern": "^_.*"
-        }
-      ]
-    }
-  },
+    "sirv-cli": "^1.0.12",
+    "twind": "^0.16.16",
+    "typescript": "^4.3.5"
+  }, 
   "prettier": "prettier-config-rschristian"
 }
