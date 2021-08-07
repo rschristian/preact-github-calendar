@@ -7,9 +7,5 @@ node_modules/
 # Ignore built files
 dist/
 build/
-
-# Ignore Jest coverage report
-coverage
-
-# Ignore WMR cache
-.cache
+docs/index.html
+docs/**/preact-github-calendar*
