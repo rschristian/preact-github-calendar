@@ -8,4 +8,4 @@ node_modules/
 dist/
 build/
 docs/index.html
-docs/**/preact-github-calendar*
+docs/calendar*

@@ -40,11 +40,11 @@ $ yarn add preact-github-calendar
 ## Usage
 
 ```jsx
-import GitHubCalendar from "preact-github-calendar";
-import 'preact-github-calendar/dist/index.css'
+import GitHubCalendar from 'preact-github-calendar';
+import 'preact-github-calendar/dist/index.css';
 
 export default function App() {
-    return <GitHubCalendar username="rschristian" />
+    return <GitHubCalendar username="rschristian" />;
 }
 ```
 
@@ -53,36 +53,42 @@ export default function App() {
 This library offers a few options now, with more to come in the future. All are entirely optional, no need to provide the `options` prop if you have no wish to customize anything. These only override the defaults; if you like the display, no need to change anything!
 
 ### blockMargin
+
 Type: `number`<br/>
 Default: `2`
 
 Sets the margin to be used between the blocks in the component. This affects both the vertical and horizontal margins.
 
 ### blockSize
+
 Type: `number`<br/>
 Default: `12`
 
 Sets the size of the blocks in the component. This affects both the vertical and horizontal dimensions.
 
 ### contributionColorArray
+
 Type: `['<color>', '<color>', '<color>', '<color>', '<color>']`<br/>
 Default: `['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39']`
 
 Changes the color spread in the calendar. The first item in the array replaces the color for least commits, and the last item replaces the color for most commits. Like `labelColor`, keywords, RGB(A) and HSL(A) values are all supported as valid colors. Default is GitHub's color scheme.
 
 ### labelFontSize
+
 Type: `number`<br/>
 Default: `14`
 
 Changes the font size of the month and days of the week labels. Takes any number.
 
 ### showTooltip
+
 Type: `boolean`<br/>
 Default: `true`
 
 Show a tooltip when hovering over calendar elements. Shows the number of contributions and the date for the element.
 
 ### showWeekdaysLabels
+
 Type: `boolean`<br/>
 Default: `false`
 
@@ -150,6 +156,7 @@ Add the week day labels to the left y-axis of your graph. Disabled by default.
   text-align: center;
 }
 ```
+
 </details>
 
 ## License
