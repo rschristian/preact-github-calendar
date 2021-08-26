@@ -8,7 +8,7 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="description" content="Preact GitHub Calendar Docs" />
         <link rel="shortcut icon" href="/assets/favicon.ico" />
-        <link rel="stylesheet" href="/preact-github-calendar.css" />
+        <link rel="stylesheet" href="/calendar.css" />
         <style>
             .preact-hint__content {
                 font-size: 0.75em;
@@ -48,7 +48,7 @@
                 color: #ccc;
             }
         </style>
-        <style></style>
+        <style id="__twind"></style>
     </head>
     <body class="h-full">
         <div class="flex flex-col h-full">
@@ -312,78 +312,6 @@ export default function App() {
         </div>
 
         <script src="/prism.js"></script>
-        <script type="module">
-            import { hydrate } from 'https://cdn.skypack.dev/preact';
-            import { html } from 'https://cdn.skypack.dev/htm/preact';
-            import GitHubCalendar from '/preact-github-calendar.js';
-
-            let username = 'rschristian';
-            document.getElementById('usernameInput').addEventListener('change', (e) => {
-                username = e.target.value;
-                // There's 4 child nodes for an attribute value, [=, ", <username>, "]
-                document
-                    .querySelectorAll('.attr-value')
-                    .forEach((node) => (node.childNodes[2].nodeValue = username));
-                render();
-            });
-
-            const Tile = (props) =>
-                html`<div class="p-5 bg-white rounded-md shadow-md">${props.content}<//>`;
-
-            const examples = [
-                {
-                    id: 'calendar-demo',
-                    options: { showWeekdaysLabels: true },
-                },
-                {
-                    id: 'usage-blockMargin',
-                    options: { blockMargin: 4 },
-                },
-                {
-                    id: 'usage-blockSize',
-                    options: { blockSize: 18 },
-                },
-                {
-                    id: 'usage-contributionColorArray',
-                    options: {
-                        contributionColorArray: [
-                            '#ededed',
-                            '#9ba1e9',
-                            '#4040c4',
-                            '#3030a1',
-                            '#21216e',
-                        ],
-                    },
-                },
-                {
-                    id: 'usage-labelFontSize',
-                    options: { labelFontSize: 20 },
-                },
-                {
-                    id: 'usage-showTooltip',
-                    options: { showTooltip: false },
-                },
-                {
-                    id: 'usage-showWeekdaysLabels',
-                    options: { showWeekdaysLabels: true },
-                },
-            ];
-
-            function render() {
-                for (const example of examples) {
-                    hydrate(
-                        html`<${Tile}
-                            content=${html`<${GitHubCalendar}
-                                username=${username}
-                                options=${example.options}
-                            />`}
-                        />`,
-                        document.getElementById(example.id),
-                    );
-                }
-            }
-
-            render();
-        </script>
+        <script type="module" src="/calendar.js"></script>
     </body>
 </html>

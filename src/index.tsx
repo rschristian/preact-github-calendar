@@ -2,6 +2,7 @@ import { Fragment, h, JSX, VNode } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import PreactHint from 'preact-hint';
 
+import 'preact-hint/dist/hint.css';
 import './styles.css';
 
 const VERTICAL_SPACING = 1.5;
