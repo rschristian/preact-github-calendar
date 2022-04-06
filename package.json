@@ -28,7 +28,7 @@
   "scripts": {
     "build": "microbundle -f modern --no-sourcemap --tsconfig tsconfig.build.json && mv dist/calendar.css dist/style.css",
     "build:docs": "yarn build:widget --no-watch && mkdir -p build && wmr build --prerender && node scripts/post-build.js",
-    "serve:dev": "wmr -p 3000",
+    "serve:dev": "wmr -p 3000 & yarn build:widget",
     "serve:prod": "wmr serve -p 3000",
     "build:widget": "microbundle -f modern -i docs/utils/render.ts --external none -o docs --no-sourcemap --generateTypes=false --tsconfig tsconfig.build.json --watch",
     "format": "prettier --write --ignore-path .gitignore ."

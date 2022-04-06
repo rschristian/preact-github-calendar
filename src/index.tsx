@@ -25,10 +25,7 @@ type Options = {
     showTooltip: boolean;
 };
 
-export default function GitHubCalendar(props: {
-    username: string;
-    options?: Partial<Options>;
-}) {
+export default function GitHubCalendar(props: { username: string; options?: Partial<Options> }) {
     const {
         blockMargin,
         blockSize,
@@ -42,29 +39,27 @@ export default function GitHubCalendar(props: {
             blockSize: 12,
             contributionColorArray: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
             labelFontSize: 14,
-            showWeekdaysLabels: false,
             showTooltip: true,
+            showWeekdaysLabels: true,
         },
         props.options,
     );
 
-    const [graphData, setGraphData] = useState<{ total: number; contributions: Contribution[][] }>(
-        null,
-    );
-    const [error, setError] = useState<string>('');
+    const [total, setTotal] = useState(0);
+    const [contributions, setContributions] = useState(null);
+    const [error, setError] = useState('');
 
     useEffect(() => {
-        (async function getContributionData(): Promise<void> {
-            setGraphData(null);
+        (async function getContributionData() {
+            setContributions(null);
             setError('');
             try {
                 const response = await (
                     await fetch(`https://gh-calendar.rschristian.dev/user/${props.username}`)
                 ).json();
                 if ('message' in response) return setError(response.message);
-                if (!('total' in response) || !('contributions' in response))
-                    return setError('Invalid response data');
-                setGraphData(response);
+                setTotal(response.total);
+                setContributions(response.contributions);
             } catch {
                 setError('Unknown Error');
             }
@@ -91,8 +86,7 @@ export default function GitHubCalendar(props: {
 
     function createMonthLabels() {
         const weeks: Contribution[] = [];
-        for (let i = 0; i < graphData.contributions.length - 1; i++)
-            weeks.push(graphData.contributions[i][0]);
+        for (let i = 0; i < contributions.length - 1; i++) weeks.push(contributions[i][0]);
         let previousMonth = 0;
 
         const filtered = weeks
@@ -128,7 +122,7 @@ export default function GitHubCalendar(props: {
     }
 
     function createRects() {
-        return graphData.contributions
+        return contributions
             .map((week) =>
                 week.map((day, y) => (
                     <rect
@@ -155,31 +149,11 @@ export default function GitHubCalendar(props: {
             ));
     }
 
-    function createLegend() {
-        return (
-            <ul class="github-calendar__graph-legend">
-                {contributionColorArray.map((color) => (
-                    <li
-                        key={color}
-                        class="github-calendar__graph-legend-item"
-                        style={{
-                            width: blockSize - 2,
-                            height: blockSize - 2,
-                            backgroundColor: color,
-                        }}
-                    />
-                ))}
-            </ul>
-        );
-    }
-
     function createDateRange(): string {
-        const maxWeekIndex = graphData.contributions.length - 1;
-        const oldestDate = graphData.contributions[0][0].date.split('-');
+        const maxWeekIndex = contributions.length - 1;
+        const oldestDate = contributions[0][0].date.split('-');
         const newestDate =
-            graphData.contributions[maxWeekIndex][
-                graphData.contributions[maxWeekIndex].length - 1
-            ].date.split('-');
+            contributions[maxWeekIndex][contributions[maxWeekIndex].length - 1].date.split('-');
         return `${MONTHS[Number(oldestDate[1]) - 1]} ${+oldestDate[2]}, ${oldestDate[0]} - ${
             MONTHS[Number(newestDate[1]) - 1]
         } ${+newestDate[2]}, ${newestDate[0]}`;
@@ -187,7 +161,7 @@ export default function GitHubCalendar(props: {
 
     return (
         <Fragment>
-            {graphData !== null ? (
+            {contributions !== null ? (
                 <figure class="github-calendar">
                     <div class="github-calendar__graph">
                         <PreactHint
@@ -233,7 +207,19 @@ export default function GitHubCalendar(props: {
                             </div>
                             <div style="float: right">
                                 Less
-                                {createLegend()}
+                                <ul class="github-calendar__graph-legend">
+                                    {contributionColorArray.map((color) => (
+                                        <li
+                                            key={color}
+                                            class="github-calendar__graph-legend-item"
+                                            style={{
+                                                width: blockSize - 2,
+                                                height: blockSize - 2,
+                                                backgroundColor: color,
+                                            }}
+                                        />
+                                    ))}
+                                </ul>
                                 More
                             </div>
                         </div>
@@ -241,7 +227,7 @@ export default function GitHubCalendar(props: {
                     <div class="github-calendar__footer">
                         <span>Contributions in the last year</span>
                         <span class="github-calendar__footer-contribution-count">
-                            {graphData.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} Total
+                            {total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} Total
                         </span>
                         <span>{createDateRange()}</span>
                     </div>
