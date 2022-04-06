@@ -37,7 +37,7 @@
     "preact": ">=10"
   },
   "dependencies": {
-    "preact-hint": "^0.1.6"
+    "preact-hint": "^0.2.0"
   },
   "devDependencies": {
     "@twind/wmr": "^1.0.9",
