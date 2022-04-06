@@ -7,5 +7,5 @@ node_modules/
 # Ignore built files
 dist/
 build/
-docs/index.html
-docs/calendar*
+docs/**/preact-github-calendar*
+.cache
