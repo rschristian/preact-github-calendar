@@ -3276,10 +3276,10 @@ preact-feather@^4.2.1:
   resolved "https://registry.yarnpkg.com/preact-feather/-/preact-feather-4.2.1.tgz#6932e07452c1f61f55a631240fce493b4dd279f7"
   integrity sha512-yK5kYW64AoOkm+xTtUjwcFx0zNrqVTbwmtww8G2AmAB6f8wyQgwZgc6oRXllSYeg7q1I8VbkUpErJuKJ6Vq2eA==
 
-preact-hint@^0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/preact-hint/-/preact-hint-0.1.6.tgz#4dfe6393a2daafc6e7f22bf1af606ec545429e2d"
-  integrity sha512-PDLRGBV3oija0kyyMGvtlYgjIWhLsOpPpCBEhVdgJe2xL9H3lbYajqE3xSH3binc5InbqoHHVaIsqPwN2cO5qw==
+preact-hint@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/preact-hint/-/preact-hint-0.2.0.tgz#63eefc0f980ebf4f43555e6b6f50970b964e00be"
+  integrity sha512-OCrwBOEQYIKvIDaZRnsLw5hCiZzMCwSlhnKTQD3EwD9GDMksSjkLRd9mU0k9tIgAQLD7pWb1BFtvGu6fycYVJw==
 
 preact-iso@^2.3.0:
   version "2.3.0"

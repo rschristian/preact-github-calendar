@@ -2,8 +2,8 @@ import { Fragment, h } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import PreactHint from 'preact-hint';
 
-import 'preact-hint/dist/hint.css';
-import './styles.css';
+import 'preact-hint/dist/style.css';
+import './style.css';
 
 const VERTICAL_SPACING = 1.5;
 const HORIZONTAL_SPACING = 2.4;
