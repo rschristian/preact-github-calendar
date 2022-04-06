@@ -48,8 +48,9 @@ export default function GitHubCalendar(props: {
         props.options,
     );
 
-    const [graphData, setGraphData] =
-        useState<{ total: number; contributions: Contribution[][] }>(null);
+    const [graphData, setGraphData] = useState<{ total: number; contributions: Contribution[][] }>(
+        null,
+    );
     const [error, setError] = useState<string>('');
 
     useEffect(() => {
