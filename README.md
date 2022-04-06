@@ -1,7 +1,3 @@
-<div align="center">
-  <img src="https://github.com/rschristian/preact-github-calendar/blob/master/media/carbon.svg" alt="Preact GitHub Calendar Usage Example" width="600" />
-</div>
-
 <h1 align="center">Preact GitHub Calendar</h1>
 
 <div align="center">
@@ -11,25 +7,13 @@
             src="https://img.shields.io/npm/l/preact-github-calendar?color=brightgreen"
         />
     </a>
-    <a href="https://bundlephobia.com/result?p=preact-github-calendar">
-        <img
-            alt="npm bundle size"
-            src="https://img.shields.io/bundlephobia/minzip/preact-github-calendar?color=brightgreen"
-        />
-    </a>
-    <a href="https://npmjs.org/package/preact-github-calendar">
-        <img
-            alt="TS Support"
-            src="https://img.shields.io/npm/types/preact-github-calendar?color=brightgreen"
-        />
-    </a>
 </div>
 
 <br />
 
-Preact GitHub Calendar is a component library used for displaying a user's contribution calendar from GitHub in a Preact application. This component comes with customization options that you can use for making the component better adhere to the style of your application. Requests for additional customization options are always welcome.
+`preact-github-calendar` is a small (1.3kb brotli) component library used for displaying [a user's contribution calendar from GitHub](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/viewing-contributions-on-your-profile#contributions-calendar). This component comes with customization options that you can use for making the component better adhere to the style of your application. Requests for additional customization options are always welcome.
 
-Try out [the demo](https://rschristian.github.io/preact-github-calendar)!
+Try out [the demo](https://preact-hint.rschristian.dev/)!
 
 ## Install
 
@@ -41,7 +25,7 @@ $ yarn add preact-github-calendar
 
 ```jsx
 import GitHubCalendar from 'preact-github-calendar';
-import 'preact-github-calendar/dist/index.css';
+import 'preact-github-calendar/style.css';
 
 export default function App() {
     return <GitHubCalendar username="rschristian" />;
@@ -50,7 +34,7 @@ export default function App() {
 
 ## API
 
-This library offers a few options now, with more to come in the future. All are entirely optional, no need to provide the `options` prop if you have no wish to customize anything. These only override the defaults; if you like the display, no need to change anything!
+All options are entirely optional, no need to provide the `options` prop if you have no wish to customize anything. These only override the defaults; if you like the display, no need to change anything!
 
 ### blockMargin
 
@@ -71,14 +55,14 @@ Sets the size of the blocks in the component. This affects both the vertical and
 Type: `['<color>', '<color>', '<color>', '<color>', '<color>']`<br/>
 Default: `['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39']`
 
-Changes the color spread in the calendar. The first item in the array replaces the color for least commits, and the last item replaces the color for most commits. Like `labelColor`, keywords, RGB(A) and HSL(A) values are all supported as valid colors. Default is GitHub's color scheme.
+Changes the color spread in the calendar. The first item in the array replaces the color for least commits, and the last item replaces the color for most commits. Like the `labelColor` option, keywords, RGB(A) and HSL(A) values are all supported as valid colors. Default is GitHub's color scheme.
 
 ### labelFontSize
 
 Type: `number`<br/>
 Default: `14`
 
-Changes the font size of the month and days of the week labels. Takes any number.
+Changes the font size of the month and days of the week labels.
 
 ### showTooltip
 
@@ -92,72 +76,7 @@ Show a tooltip when hovering over calendar elements. Shows the number of contrib
 Type: `boolean`<br/>
 Default: `false`
 
-Add the week day labels to the left y-axis of your graph. Disabled by default.
-
-## Styles
-
-<details>
-  <summary>Styling is (mostly) customizable by using the stylesheet this library exports. Below is the full CSS file prettified. If you want to customize the tooltip's styling in any way, such as changing the background color, the <a href="https://github.com/rschristian/preact-hint">documentation can be found here</a>.</summary><br />
-
-```
-@import '~preact-hint/dist/index.css';
-
-.github-calendar__graph {
-  padding: 0.5rem;
-}
-
-.github-calendar__graph rect {
-  outline: 1px solid rgba(27, 31, 35, 0.04);
-  outline-offset: -1px;
-}
-
-.github-calendar__graph-label {
-  fill: #000;
-}
-
-.github-calendar__graph-footer {
-  font-size: 11px;
-  overflow-y: auto;
-}
-
-.github-calendar__graph-legend {
-  display: inline-block;
-  margin: 0 5px;
-  position: relative;
-  padding-left: 0;
-  bottom: -1px;
-}
-
-.github-calendar__graph-legend-item {
-  display: inline-block;
-  box-shadow: inset 0 0 0 1px rgba(27, 31, 35, 0.04);
-  border-radius: 2px;
-}
-
-.github-calendar__graph-legend-item:not(:last-child) {
-  margin-right: 0.17rem;
-}
-
-.github-calendar__footer {
-  padding: 15px 10px;
-  text-align: center;
-  border-top: 1px solid #ddd;
-  font-size: 11px;
-}
-
-.github-calendar__footer-contribution-count {
-  font-weight: 300;
-  line-height: 1.3em;
-  font-size: 24px;
-  display: block;
-}
-
-.github-calendar__error {
-  text-align: center;
-}
-```
-
-</details>
+Add the week day labels to the left axis of the graph.
 
 ## License
 

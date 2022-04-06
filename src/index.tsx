@@ -1,4 +1,4 @@
-import { Fragment, h, JSX, VNode } from 'preact';
+import { Fragment, h } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import PreactHint from 'preact-hint';
 
@@ -28,7 +28,7 @@ type Options = {
 export default function GitHubCalendar(props: {
     username: string;
     options?: Partial<Options>;
-}): VNode {
+}) {
     const {
         blockMargin,
         blockSize,
@@ -71,7 +71,7 @@ export default function GitHubCalendar(props: {
         })();
     }, [props.username]);
 
-    function createWeekDayLabels(): JSX.Element[] {
+    function createWeekDayLabels() {
         return ['Mon', 'Wed', 'Fri'].map((weekDay, i) => (
             <text
                 key={weekDay}
@@ -89,7 +89,7 @@ export default function GitHubCalendar(props: {
         ));
     }
 
-    function createMonthLabels(): JSX.Element[] {
+    function createMonthLabels() {
         const weeks: Contribution[] = [];
         for (let i = 0; i < graphData.contributions.length - 1; i++)
             weeks.push(graphData.contributions[i][0]);
@@ -127,7 +127,7 @@ export default function GitHubCalendar(props: {
         return filtered;
     }
 
-    function createRects(): JSX.Element[] {
+    function createRects() {
         return graphData.contributions
             .map((week) =>
                 week.map((day, y) => (
@@ -155,7 +155,7 @@ export default function GitHubCalendar(props: {
             ));
     }
 
-    function createLegend(): JSX.Element {
+    function createLegend() {
         return (
             <ul class="github-calendar__graph-legend">
                 {contributionColorArray.map((color) => (
@@ -191,7 +191,7 @@ export default function GitHubCalendar(props: {
                 <figure class="github-calendar">
                     <div class="github-calendar__graph">
                         <PreactHint
-                            template={(content: string): VNode => {
+                            template={(content: string) => {
                                 const hintPieces = content.split(',');
                                 const split = hintPieces[1].split('-');
                                 const date = `${MONTHS[Number(split[1]) - 1]} ${+split[2]}, ${
