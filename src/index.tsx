@@ -132,7 +132,7 @@ export default function GitHubCalendar(props: { username: string; options?: Part
                         width={blockSize}
                         height={blockSize}
                         fill={contributionColorArray[day.intensity]}
-                        data-preact-hint={showTooltip ? [day.count, day.date] : null}
+                        data-hint={showTooltip ? [day.count, day.date] : null}
                     />
                 )),
             )
