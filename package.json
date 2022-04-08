@@ -27,10 +27,11 @@
   "sideEffects": false,
   "scripts": {
     "build": "microbundle -f modern --no-sourcemap --tsconfig tsconfig.build.json && mv dist/calendar.css dist/style.css",
-    "build:docs": "yarn build:widget --no-watch && mkdir -p build && wmr build --prerender && node scripts/post-build.js",
-    "serve:dev": "wmr -p 3000 & yarn build:widget",
+    "build:docs": "yarn build:widget && mkdir -p build && wmr build --prerender && node scripts/post-build.js",
+    "serve:dev": "wmr -p 3000 & yarn build:widget:dev",
     "serve:prod": "wmr serve -p 3000",
-    "build:widget": "microbundle -f modern -i docs/utils/render.ts --external none -o docs --no-sourcemap --generateTypes=false --tsconfig tsconfig.build.json --watch",
+    "build:widget": "microbundle -f modern -i docs/utils/render.ts --external none -o docs --no-sourcemap --no-compress --no-generateTypes --tsconfig tsconfig.build.json && node scripts/post-build-widget.js",
+    "build:widget:dev": "chokidar 'src/**' 'docs/utils/render.ts' --initial -d 20 -c 'yarn build:widget'",
     "format": "prettier --write --ignore-path .gitignore ."
   },
   "peerDependencies": {
@@ -41,6 +42,7 @@
   },
   "devDependencies": {
     "@twind/wmr": "^1.0.9",
+    "chokidar-cli": "^3.0.0",
     "dedent": "^0.7.0",
     "htm": "^3.1.0",
     "microbundle": "^0.14.2",

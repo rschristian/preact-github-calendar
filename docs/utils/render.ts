@@ -71,7 +71,7 @@ const examples = [
         }
 
         document.getElementById('usernameInput').addEventListener('change', (e) => {
-            username = (e.target as HTMLInputElement).value;
+            username = e.target.value ? e.target.value : 'rschristian';
 
             // Updates the username in all the usage code blocks
             document

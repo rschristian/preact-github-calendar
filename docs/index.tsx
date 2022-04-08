@@ -17,6 +17,8 @@ import {
     optionShowWeekdaysLabels,
 } from './codeSamples';
 
+import 'preact-hint/dist/style.css';
+
 export function App() {
     return (
         <div class="flex(& col) h-full px-5 text-content(& dark:dark) bg(light:[#f8f8f8] dark:[#272a27])">
