@@ -8,6 +8,9 @@ const config: Configuration = {
                 '4xl': '2rem',
                 '5xl': '2.5rem',
             },
+            minHeight: {
+                '72': '18rem',
+            },
         },
         colors: {
             primary: {

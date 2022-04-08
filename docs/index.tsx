@@ -35,6 +35,7 @@ export function App() {
                         <img
                             alt="License: MIT"
                             src="https://img.shields.io/npm/l/preact-github-calendar?color=%2340bf6a"
+                            loading="lazy"
                         />
                     </a>
                     <a
@@ -45,6 +46,7 @@ export function App() {
                         <img
                             alt="Types: TS"
                             src="https://img.shields.io/npm/types/preact-github-calendar?color=%2340bf6a"
+                            loading="lazy"
                         />
                     </a>
                 </div>
@@ -63,16 +65,13 @@ export function App() {
                 </p>
                 <input
                     id="usernameInput"
-                    class="w(full lg:2/6) mb-2 p-2 rounded-lg shadow outline-none ring-primary focus:ring"
-                    type="text"
+                    class="w(full lg:2/6) mb-2 p-2 bg-code(& dark:dark) rounded-lg shadow outline-none ring-primary focus:ring"
                     placeholder="Enter a GitHub username"
                 />
-                <div id="calendar-demo">
-                    <div
-                        class="p-5 bg-code(& dark:dark) rounded-md shadow-md"
-                        style="height: 324.85px"
-                    ></div>
-                </div>
+                <div
+                    id="calendar-demo"
+                    class="min-h-72 p-5 bg-code(& dark:dark) rounded-md shadow-md"
+                ></div>
 
                 <h2 class="mt-6 mb-4 text-2xl text-primary">Installation</h2>
                 <CodeBlock content={install} lang="bash" />
@@ -89,14 +88,7 @@ export function App() {
                     default="2"
                     description="Sets the margin to be used between the blocks in the component. This affects both the vertical and horizontal margins."
                     code={optionBlockMargin}
-                    demo={
-                        <div id="usage-blockMargin">
-                            <div
-                                class="p-5 bg-code(& dark:dark) rounded-md shadow-md"
-                                style="height: 324.85px"
-                            ></div>
-                        </div>
-                    }
+                    id="usage-blockMargin"
                 />
 
                 <Option
@@ -105,14 +97,7 @@ export function App() {
                     default="12"
                     description="Sets the size of the blocks in the component. This affects both the vertical and horizontal dimensions."
                     code={optionBlockSize}
-                    demo={
-                        <div id="usage-blockSize">
-                            <div
-                                class="p-5 bg-code(& dark:dark) rounded-md shadow-md"
-                                style="height: 324.85px"
-                            ></div>
-                        </div>
-                    }
+                    id="usage-blockSize"
                 />
 
                 <Option
@@ -121,14 +106,7 @@ export function App() {
                     default="['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39']"
                     description="Changes the color spread in the calendar. The first item in the array replaces the color for least commits, and the last item replaces the color for most commits. Like the labelColor option, keywords, RGB(A) and HSL(A) values are all supported as valid colors. Default is GitHub's color scheme."
                     code={optionContributionColorArray}
-                    demo={
-                        <div id="usage-contributionColorArray">
-                            <div
-                                class="p-5 bg-code(& dark:dark) rounded-md shadow-md"
-                                style="height: 324.85px"
-                            ></div>
-                        </div>
-                    }
+                    id="usage-contributionColorArray"
                 />
 
                 <Option
@@ -137,14 +115,7 @@ export function App() {
                     default="14"
                     description="Changes the font size of the month and days of the week labels."
                     code={optionLabelFontSize}
-                    demo={
-                        <div id="usage-labelFontSize">
-                            <div
-                                class="p-5 bg-code(& dark:dark) rounded-md shadow-md"
-                                style="height: 324.85px"
-                            ></div>
-                        </div>
-                    }
+                    id="usage-labelFontSize"
                 />
 
                 <Option
@@ -153,14 +124,7 @@ export function App() {
                     default="true"
                     description="Show a tooltip when hovering over calendar elements. Shows the number of contributions and the date for the element."
                     code={optionShowTooltip}
-                    demo={
-                        <div id="usage-showTooltip">
-                            <div
-                                class="p-5 bg-code(& dark:dark) rounded-md shadow-md"
-                                style="height: 324.85px"
-                            ></div>
-                        </div>
-                    }
+                    id="usage-showTooltip"
                 />
 
                 <Option
@@ -169,14 +133,7 @@ export function App() {
                     default="false"
                     description="Add the week day labels to the left axis of the calendar."
                     code={optionShowWeekdaysLabels}
-                    demo={
-                        <div id="usage-showWeekdaysLabels">
-                            <div
-                                class="p-5 bg-code(& dark:dark) rounded-md shadow-md"
-                                style="height: 324.85px"
-                            ></div>
-                        </div>
-                    }
+                    id="usage-showWeekdaysLabels"
                 />
             </main>
             <Footer />

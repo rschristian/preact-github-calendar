@@ -1,4 +1,3 @@
-import { VNode } from 'preact';
 import { CodeBlock } from './CodeBlock';
 
 type Props = {
@@ -7,7 +6,7 @@ type Props = {
     default: string;
     description: string;
     code: string;
-    demo?: VNode;
+    id: string;
 };
 
 export function Option(props: Props) {
@@ -28,7 +27,12 @@ export function Option(props: Props) {
             </p>
             <p class="mb-8 ml-3">{props.description}</p>
             <CodeBlock content={props.code} lang="jsx" />
-            {props.demo ? <div class="mt-4">{props.demo}</div> : null}
+            <div class="mt-4">
+                <div
+                    id={props.id}
+                    class="min-h-72 p-5 bg-code(& dark:dark) rounded-md shadow-md"
+                ></div>
+            </div>
         </div>
     );
 }
