@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { render } from 'preact';
 import { html } from 'htm/preact';
-import GitHubCalendar from '../../src/index';
+import { GitHubCalendar } from '../../src/index';
 
 let username = 'rschristian';
 
@@ -23,18 +23,6 @@ const examples = [
         },
     },
     {
-        id: 'usage-blockMargin',
-        options: {
-            blockMargin: 4,
-        },
-    },
-    {
-        id: 'usage-blockSize',
-        options: {
-            blockSize: 18,
-        },
-    },
-    {
         id: 'usage-contributionColorArray',
         options: {
             contributionColorArray: ['var(--cal-0)', '#9ba1e9', '#4040c4', '#3030a1', '#21216e'],
@@ -47,15 +35,15 @@ const examples = [
         },
     },
     {
-        id: 'usage-showTooltip',
+        id: 'usage-showLabels',
         options: {
-            showTooltip: false,
+            showLabels: false,
         },
     },
     {
-        id: 'usage-showWeekdaysLabels',
+        id: 'usage-showTooltip',
         options: {
-            showWeekdaysLabels: true,
+            showTooltip: false,
         },
     },
 ];
@@ -85,6 +73,14 @@ const examples = [
 })();
 
 function renderWidgets() {
+    //render(
+    //    html`<${GitHubCalendar}
+    //        username=${username}
+    //        options=${Object.assign({}, contributionColorArray, examples[0].options)}
+    //    />`,
+    //    document.getElementById(examples[0].id),
+    //);
+
     for (const example of examples) {
         render(
             html`<${GitHubCalendar}

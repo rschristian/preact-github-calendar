@@ -52,20 +52,12 @@ html {
   font-size: 0.75em;
 }
 
-.github-calendar__graph-footer {
-  font-size: 14px;
-}
-
 .github-calendar__graph-footer a {
   color: #40bf6a;
 }
 
 .github-calendar__graph-footer a:hover {
   color: #b3ffc7;
-}
-
-.github-calendar__footer {
-  font-size: 14px;
 }
 
 .token.script {

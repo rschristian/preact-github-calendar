@@ -9,12 +9,10 @@ import { Option } from './components/Option';
 import {
     install,
     generalUsage,
-    optionBlockMargin,
-    optionBlockSize,
     optionContributionColorArray,
     optionLabelFontSize,
+    optionShowLabels,
     optionShowTooltip,
-    optionShowWeekdaysLabels,
 } from './codeSamples';
 
 import 'preact-hint/dist/style.css';
@@ -85,24 +83,6 @@ export function App() {
                 <h2 class="mt-6 mb-4 text(primary(& dark:light) 2xl)">API Options</h2>
 
                 <Option
-                    name="blockMargin"
-                    type="number"
-                    default="2"
-                    description="Sets the margin to be used between the blocks in the component. This affects both the vertical and horizontal margins."
-                    code={optionBlockMargin}
-                    id="usage-blockMargin"
-                />
-
-                <Option
-                    name="blockSize"
-                    type="number"
-                    default="12"
-                    description="Sets the size of the blocks in the component. This affects both the vertical and horizontal dimensions."
-                    code={optionBlockSize}
-                    id="usage-blockSize"
-                />
-
-                <Option
                     name="contributionColorArray"
                     type="['<color>', '<color>', '<color>', '<color>', '<color>']"
                     default="['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39']"
@@ -121,21 +101,21 @@ export function App() {
                 />
 
                 <Option
+                    name="showLabels"
+                    type="boolean"
+                    default="true"
+                    description="Add calendar month and weekday labels to the axis"
+                    code={optionShowLabels}
+                    id="usage-showLabels"
+                />
+
+                <Option
                     name="showTooltip"
                     type="boolean"
                     default="true"
                     description="Show a tooltip when hovering over calendar elements. Shows the number of contributions and the date for the element."
                     code={optionShowTooltip}
                     id="usage-showTooltip"
-                />
-
-                <Option
-                    name="showWeekdaysLabels"
-                    type="boolean"
-                    default="false"
-                    description="Add the week day labels to the left axis of the calendar."
-                    code={optionShowWeekdaysLabels}
-                    id="usage-showWeekdaysLabels"
                 />
             </main>
             <Footer />
