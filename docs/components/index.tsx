@@ -1,21 +1,11 @@
-import withTwind from '@twind/wmr';
-import twindConfig from './styles/twind.config';
+import dedent from 'dedent';
 
-import { Header } from './components/core/Header';
-import { Footer } from './components/core/Footer';
-import { CodeBlock } from './components/CodeBlock';
-import { Option } from './components/Option';
+import { Header } from './core/Header';
+import { Footer } from './core/Footer';
+import { CodeBlock } from './CodeBlock';
+import { Option } from './Option';
 
-import {
-    install,
-    generalUsage,
-    optionContributionColorArray,
-    optionLabelFontSize,
-    optionShowLabels,
-    optionShowTooltip,
-} from './codeSamples';
-
-import 'preact-hint/dist/style.css';
+import { GitHubCalendar } from '../preact-github-calendar.js';
 
 export function App() {
     return (
@@ -71,13 +61,22 @@ export function App() {
                 <div
                     id="calendar-demo"
                     class="min-h-72 p-5 bg-code(& dark:dark) rounded-md shadow-md"
-                ></div>
+                >
+                </div>
 
                 <h2 class="mt-6 mb-4 text-2xl text-primary">Installation</h2>
-                <CodeBlock content={install} lang="bash" />
+                <CodeBlock content="$ yarn add preact-github-calendar" lang="bash" />
 
                 <h2 class="mt-6 mb-4 text-2xl text-primary">General Usage</h2>
-                <CodeBlock content={generalUsage} lang="jsx" />
+                <CodeBlock
+                    content={dedent`
+                        import GitHubCalendar from 'preact-github-calendar';
+                        import 'preact-github-calendar/dist/style.css'
+                        export default function App() {
+                            return <GitHubCalendar username="rschristian" />
+                        }`}
+                    lang="jsx"
+                />
                 <hr class="h-0.5 my-6" />
 
                 <h2 class="mt-6 mb-4 text(primary(& dark:light) 2xl)">API Options</h2>
@@ -87,7 +86,7 @@ export function App() {
                     type="['<color>', '<color>', '<color>', '<color>', '<color>']"
                     default="['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39']"
                     description="Changes the color spread in the calendar. The first item in the array replaces the color for least commits, and the last item replaces the color for most commits. Like the labelColor option, keywords, RGB(A) and HSL(A) values are all supported as valid colors. Default is GitHub's color scheme."
-                    code={optionContributionColorArray}
+                    code="<GitHubCalendar username='rschristian' options={{ contributionColorArray: ['var(--calendar-day-0)', '#9ba1e9', '#4040c4', '#3030a1', '#21216e'] }} />"
                     id="usage-contributionColorArray"
                 />
 
@@ -96,7 +95,7 @@ export function App() {
                     type="number"
                     default="14"
                     description="Changes the font size of the month and days of the week labels."
-                    code={optionLabelFontSize}
+                    code="<GitHubCalendar username='rschristian' options={{ labelFontSize: 20 }} />"
                     id="usage-labelFontSize"
                 />
 
@@ -105,7 +104,7 @@ export function App() {
                     type="boolean"
                     default="true"
                     description="Add calendar month and weekday labels to the axis"
-                    code={optionShowLabels}
+                    code="<GitHubCalendar username='rschristian' options={{ showLabels: false }} />"
                     id="usage-showLabels"
                 />
 
@@ -114,7 +113,7 @@ export function App() {
                     type="boolean"
                     default="true"
                     description="Show a tooltip when hovering over calendar elements. Shows the number of contributions and the date for the element."
-                    code={optionShowTooltip}
+                    code="<GitHubCalendar username='rschristian' options={{ showTooltip: false }} />"
                     id="usage-showTooltip"
                 />
             </main>
@@ -122,19 +121,3 @@ export function App() {
         </div>
     );
 }
-
-const { hydrate, prerender } = withTwind(
-    {
-        props: {
-            tw: false,
-            css: false,
-            className: true,
-        },
-        ...twindConfig,
-    },
-    () => <App />,
-);
-
-hydrate(<App />);
-
-export { prerender };

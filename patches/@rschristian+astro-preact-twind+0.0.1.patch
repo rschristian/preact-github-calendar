@@ -1,0 +1,13 @@
+diff --git a/node_modules/@rschristian/astro-preact-twind/src/server.js b/node_modules/@rschristian/astro-preact-twind/src/server.js
+index 2e2b8c3..7ee633d 100644
+--- a/node_modules/@rschristian/astro-preact-twind/src/server.js
++++ b/node_modules/@rschristian/astro-preact-twind/src/server.js
+@@ -3,7 +3,7 @@ import render from 'preact-render-to-string';
+ import{ extract, install } from 'twind';
+ 
+ const cwd = process.cwd();
+-const { default: twindConfig } = await import(`${cwd}/src/styles/twind.config.js`);
++const { default: twindConfig } = await import(`${cwd}/docs/styles/twind.config.js`);
+ 
+ const tw = install(twindConfig, process.env.NODE_ENV === 'production');
+ 

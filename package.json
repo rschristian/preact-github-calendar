@@ -27,11 +27,11 @@
   "sideEffects": false,
   "scripts": {
     "build": "microbundle -f modern --no-sourcemap --tsconfig tsconfig.build.json && mv dist/calendar.css dist/style.css",
-    "build:docs": "yarn build:widget && mkdir -p build && wmr build --prerender && node scripts/post-build.js",
-    "serve:dev": "wmr -p 3000 & yarn build:widget:dev",
-    "serve:prod": "wmr serve -p 3000",
-    "build:widget": "microbundle -f modern -i docs/utils/render.ts --external none -o docs --no-sourcemap --no-compress --no-generateTypes --tsconfig tsconfig.build.json && node scripts/post-build-widget.js",
-    "build:widget:dev": "chokidar 'src/**' 'docs/utils/render.ts' --initial -d 20 -c 'yarn build:widget'",
+    "build:dev": "microbundle -f modern --no-sourcemap --tsconfig tsconfig.build.json --no-compress --no-generateTypes -o docs",
+    "build:docs": "astro build",
+    "serve:dev": "astro dev",
+    "serve:prod": "astro preview",
+    "postinstall": "patch-package",
     "format": "prettier --write --ignore-path .gitignore ."
   },
   "peerDependencies": {
@@ -41,20 +41,20 @@
     "preact-hint": "^0.2.0"
   },
   "devDependencies": {
-    "@twind/wmr": "^1.0.9",
-    "chokidar-cli": "^3.0.0",
+    "@rschristian/astro-preact-twind": "^0.0.1",
+    "@twind/preset-tailwind": "^1.0.0-next.37",
+    "astro": "^1.0.0-beta.5",
     "dedent": "^0.7.0",
-    "htm": "^3.1.0",
     "microbundle": "^0.14.2",
-    "preact": "^10.7.0",
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0",
+    "preact": "^10.7.1",
     "preact-feather": "^4.2.1",
-    "preact-iso": "^2.3.0",
     "prettier": "^2.6.2",
     "prettier-config-rschristian": "^0.1.1",
     "prismjs": "^1.27.0",
-    "twind": "^0.16.16",
-    "typescript": "^4.6.3",
-    "wmr": "^3.7.2"
+    "twind": "^1.0.0-next.37",
+    "typescript": "^4.6.3"
   },
   "prettier": "prettier-config-rschristian"
 }

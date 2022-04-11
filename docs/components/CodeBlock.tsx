@@ -1,7 +1,7 @@
 import { useMemo } from 'preact/hooks';
 import Prism from 'prismjs';
-import 'prismjs/components/prism-bash';
-import 'prismjs/components/prism-jsx';
+import 'prismjs/components/prism-bash.js';
+import 'prismjs/components/prism-jsx.js';
 Prism.manual = true;
 
 type Props = {

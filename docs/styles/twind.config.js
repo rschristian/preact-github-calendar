@@ -1,6 +1,9 @@
-import type { Configuration } from 'twind';
+import { defineConfig } from 'twind';
+import presetTailwind from '@twind/preset-tailwind';
 
-const config: Configuration = {
+export default defineConfig({
+    hash: false,
+    presets: [presetTailwind()],
     theme: {
         extend: {
             fontSize: {
@@ -38,9 +41,4 @@ const config: Configuration = {
             },
         },
     },
-    variants: {
-        light: '@media (prefers-color-scheme:light)',
-    },
-};
-
-export default config;
+});
