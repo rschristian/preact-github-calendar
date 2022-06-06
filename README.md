@@ -13,7 +13,7 @@
 
 `preact-github-calendar` is a small (1.3kb brotli) component library used for displaying [a user's contribution calendar from GitHub](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/viewing-contributions-on-your-profile#contributions-calendar). This component comes with customization options that you can use for making the component better adhere to the style of your application. Requests for additional customization options are always welcome.
 
-Try out [the demo](https://preact-hint.rschristian.dev/)!
+Try out [the demo](https://preact-gh-calendar.rschristian.dev/)!
 
 ## Install
 
